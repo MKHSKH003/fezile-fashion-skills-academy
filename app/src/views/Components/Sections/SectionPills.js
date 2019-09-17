@@ -8,9 +8,9 @@ import Schedule from "@material-ui/icons/Schedule";
 import List from "@material-ui/icons/List";
 
 // core components
-import GridContainer from "components/Grid/GridContainer.js";
-import GridItem from "components/Grid/GridItem.js";
-import NavPills from "components/NavPills/NavPills.js";
+import GridContainer from "shared/components/Grid/GridContainer.js";
+import GridItem from "shared/components/Grid/GridItem.js";
+import NavPills from "shared/components/NavPills/NavPills.js";
 
 import styles from "assets/jss/material-kit-react/views/componentsSections/pillsStyle.js";
 
