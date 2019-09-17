@@ -43,6 +43,8 @@ export default function LandingPage(props) {
         }}
         {...rest}
       />
+      <Parallax />
+      {/*
       <Parallax filter image={require("assets/img/background-2.jpg")}>
         <div className={classes.container}>
           <GridContainer>
@@ -69,6 +71,7 @@ export default function LandingPage(props) {
           </GridContainer>
         </div>
       </Parallax>
+      */}
       <div className={classNames(classes.main, classes.mainRaised)}>
         <div className={classes.container}>
           <ProductSection />

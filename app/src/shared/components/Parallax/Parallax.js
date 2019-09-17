@@ -3,11 +3,17 @@ import React from "react";
 import classNames from "classnames";
 // nodejs library to set properties for components
 import PropTypes from "prop-types";
+import Carousel from "react-slick";
+
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
+import LocationOn from "@material-ui/icons/LocationOn";
 
 // core components
 import styles from "assets/jss/material-kit-react/components/parallaxStyle.js";
+import image1 from "assets/img/banner.jpg";
+import image2 from "assets/img/banner-1.jpg";
+import image3 from "assets/img/banner-2.jpg";
 
 const useStyles = makeStyles(styles);
 
@@ -43,7 +49,39 @@ export default function Parallax(props) {
     [classes.small]: small,
     [className]: className !== undefined
   });
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true
+  };
   return (
+    <Carousel {...settings}>
+      <div>
+        <img 
+          src={image1}
+          alt="First slide" 
+          className="slick-image" 
+        />
+      </div>
+      <div>
+        <img
+          src={image2}
+          alt="Second slide"
+          className="slick-image"
+        />
+      </div>
+      <div>
+        <img 
+          src={image3}
+          alt="Third slide" 
+          className="slick-image" />
+      </div>
+    </Carousel>
+
+    /*
     <div
       className={parallaxClasses}
       style={{
@@ -54,6 +92,7 @@ export default function Parallax(props) {
     >
       {children}
     </div>
+    */
   );
 }
 
