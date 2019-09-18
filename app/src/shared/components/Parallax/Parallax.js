@@ -7,7 +7,7 @@ import Carousel from "react-slick";
 
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
-import LocationOn from "@material-ui/icons/LocationOn";
+//import LocationOn from "@material-ui/icons/LocationOn";
 
 // core components
 import styles from "assets/jss/material-kit-react/components/parallaxStyle.js";
@@ -60,24 +60,13 @@ export default function Parallax(props) {
   return (
     <Carousel {...settings}>
       <div>
-        <img 
-          src={image1}
-          alt="First slide" 
-          className="slick-image" 
-        />
+        <img src={image1} alt="First slide" className="slick-image" />
       </div>
       <div>
-        <img
-          src={image2}
-          alt="Second slide"
-          className="slick-image"
-        />
+        <img src={image2} alt="Second slide" className="slick-image" />
       </div>
       <div>
-        <img 
-          src={image3}
-          alt="Third slide" 
-          className="slick-image" />
+        <img src={image3} alt="Third slide" className="slick-image" />
       </div>
     </Carousel>
 

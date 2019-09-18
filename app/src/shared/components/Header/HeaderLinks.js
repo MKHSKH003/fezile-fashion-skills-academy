@@ -12,7 +12,7 @@ import ListItem from "@material-ui/core/ListItem";
 import Tooltip from "@material-ui/core/Tooltip";
 
 // @material-ui/icons
-import { Apps, CloudDownload } from "@material-ui/icons";
+import { Apps, Assignment } from "@material-ui/icons";
 
 // core components
 import CustomDropdown from "shared/components/CustomDropdown/CustomDropdown.js";
@@ -27,6 +27,7 @@ export default function HeaderLinks(props) {
   return (
     <List className={classes.list}>
       <ListItem className={classes.listItem}>
+        {/*
         <CustomDropdown
           noLiPadding
           buttonText="Components"
@@ -48,15 +49,27 @@ export default function HeaderLinks(props) {
             </a>
           ]}
         />
+        */}
       </ListItem>
       <ListItem className={classes.listItem}>
         <Button
-          href="https://www.creative-tim.com/product/material-kit-react?ref=mkr-navbar"
+          href="#"
           color="transparent"
           target="_blank"
           className={classes.navLink}
         >
-          <CloudDownload className={classes.icons} /> Download
+          <Apps className={classes.icons} /> Courses
+        </Button>
+      </ListItem>
+
+      <ListItem className={classes.listItem}>
+        <Button
+          href="#"
+          color="transparent"
+          target="_blank"
+          className={classes.navLink}
+        >
+          <Assignment className={classes.icons} /> Register Now !
         </Button>
       </ListItem>
       <ListItem className={classes.listItem}>
@@ -72,7 +85,7 @@ export default function HeaderLinks(props) {
           classes={{ tooltip: classes.tooltip }}
         >
           <Button
-            href="https://twitter.com/CreativeTim?ref=creativetim"
+            href="https://twitter.com/ffsa_official"
             target="_blank"
             color="transparent"
             className={classes.navLink}
@@ -90,7 +103,7 @@ export default function HeaderLinks(props) {
         >
           <Button
             color="transparent"
-            href="https://www.facebook.com/CreativeTim?ref=creativetim"
+            href="https://www.facebook.com/fezilefashionskillsacademy/?ref=bookmarks"
             target="_blank"
             className={classes.navLink}
           >
@@ -107,7 +120,7 @@ export default function HeaderLinks(props) {
         >
           <Button
             color="transparent"
-            href="https://www.instagram.com/CreativeTimOfficial?ref=creativetim"
+            href="https://www.instagram.com/ffsa_official/"
             target="_blank"
             className={classes.navLink}
           >

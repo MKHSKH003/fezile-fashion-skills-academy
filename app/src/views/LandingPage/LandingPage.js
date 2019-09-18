@@ -9,9 +9,11 @@ import { makeStyles } from "@material-ui/core/styles";
 // core components
 import Header from "shared/components/Header/Header.js";
 import Footer from "shared/components/Footer/Footer.js";
+/*
 import GridContainer from "shared/components/Grid/GridContainer.js";
 import GridItem from "shared/components/Grid/GridItem.js";
 import Button from "shared/components/CustomButtons/Button.js";
+*/
 import HeaderLinks from "shared/components/Header/HeaderLinks.js";
 import Parallax from "shared/components/Parallax/Parallax.js";
 
@@ -34,7 +36,7 @@ export default function LandingPage(props) {
       <Header
         color="transparent"
         routes={dashboardRoutes}
-        brand={"Fezile Fashion Skills Academy"}
+        /* brand={"Fezile Fashion Skills Academy"} */
         rightLinks={<HeaderLinks />}
         fixed
         changeColorOnScroll={{

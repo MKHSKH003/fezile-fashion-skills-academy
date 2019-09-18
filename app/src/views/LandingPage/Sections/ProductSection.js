@@ -3,13 +3,16 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
 // @material-ui/icons
-import Chat from "@material-ui/icons/Chat";
-import VerifiedUser from "@material-ui/icons/VerifiedUser";
-import Fingerprint from "@material-ui/icons/Fingerprint";
+import LooksOne from "@material-ui/icons/LooksOne";
+import LooksTwo from "@material-ui/icons/LooksTwo";
+import Looks3 from "@material-ui/icons/Looks3";
+import Looks4 from "@material-ui/icons/Looks4";
+
 // core components
 import GridContainer from "shared/components/Grid/GridContainer.js";
 import GridItem from "shared/components/Grid/GridItem.js";
 import InfoArea from "shared/components/InfoArea/InfoArea.js";
+import Button from "shared/components/CustomButtons/Button.js";
 
 import styles from "assets/jss/material-kit-react/views/landingPageSections/productStyle.js";
 
@@ -21,42 +24,68 @@ export default function ProductSection() {
     <div className={classes.section}>
       <GridContainer justify="center">
         <GridItem xs={12} sm={12} md={8}>
-          <h2 className={classes.title}>Let{"'"}s talk product</h2>
+          <Button
+            color="success"
+            size="lg"
+            href="https://www.facebook.com/fezilefashionskillsacademy/videos/2130089043766044/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i className="fas fa-bars" />
+            Register Now !
+          </Button>
+        </GridItem>
+        <GridItem xs={12} sm={12} md={8}>
+          <h2 className={classes.title}>FEZILE FASHION SKILLS ACADEMY</h2>
           <h5 className={classes.description}>
-            This is the paragraph where you can write more details about your
-            product. Keep you user engaged by providing meaningful information.
-            Remember that by this time, the user is curious, otherwise he wouldn
-            {"'"}t scroll to get here. Add a button if you want the user to see
-            more.
+            SA’s leading Township based Fashion School | Full Time {`&`} Part
+            Time Fashion Courses | Accredited. Driven By Fashion, Sustained by
+            Passion: Discover the 1st Fashion Skills Academy in KwaMashu
           </h5>
         </GridItem>
       </GridContainer>
       <div>
         <GridContainer>
-          <GridItem xs={12} sm={12} md={4}>
+          <GridItem xs={12} sm={12} md={6}>
             <InfoArea
-              title="Free Chat"
-              description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
-              icon={Chat}
+              title="Applied Design"
+              description="The Applied Design course covers all the fundamentals of Clothing Design.
+                           After this module, you will be able to demonstrate a deeper understanding
+                           when it comes to designing for clients, sizes and Fashion Collections."
+              icon={LooksOne}
               iconColor="info"
               vertical
             />
           </GridItem>
-          <GridItem xs={12} sm={12} md={4}>
+          <GridItem xs={12} sm={12} md={6}>
             <InfoArea
-              title="Verified Users"
-              description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
-              icon={VerifiedUser}
+              title="Pattern Skills & Design"
+              description="The Pattern Skills & Design module covers all aspects and fundamentals of Pattern Making.
+                           In this course you will learn the fundamentals of drafting various blocks according to sizing
+                           and silhouettes. You will become a master in manipulating style lines."
+              icon={LooksTwo}
               iconColor="success"
               vertical
             />
           </GridItem>
-          <GridItem xs={12} sm={12} md={4}>
+          <GridItem xs={12} sm={12} md={6}>
             <InfoArea
-              title="Fingerprint"
-              description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
-              icon={Fingerprint}
-              iconColor="danger"
+              title="Garment Construction & Technology & Technology"
+              description="After this module, you will be SEWING LIKE a PRO!!"
+              icon={Looks3}
+              iconColor="rose"
+              vertical
+            />
+          </GridItem>
+          <GridItem xs={12} sm={12} md={6}>
+            <InfoArea
+              title="Fashion Coaching & Mentorship"
+              description="Fezile Mdletshe who is the Founder of the Academy facilitates one-on-one workshops on a needs basis.
+                           There will be  classes planned for the Dundee July, Harry Gwala Summer Cup & Drakensberg Extravangaza
+                           Fashion Showcases. Fezile also coaches for market access preparedness for Local and International Fashion
+                           weeks."
+              icon={Looks4}
+              iconColor="warning"
               vertical
             />
           </GridItem>
