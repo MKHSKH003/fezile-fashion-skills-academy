@@ -32,11 +32,11 @@ export default function ProductSection() {
             rel="noopener noreferrer"
           >
             <i className="fas fa-bars" />
-            Register Now !
+            Register Online !
           </Button>
         </GridItem>
         <GridItem xs={12} sm={12} md={8}>
-          <h2 className={classes.title}>FEZILE FASHION SKILLS ACADEMY</h2>
+          <h2 className={classes.title}>Fezile Fashion Skills Academy</h2>
           <h5 className={classes.description}>
             SA’s leading Township based Fashion School | Full Time {`&`} Part
             Time Fashion Courses | Accredited. Driven By Fashion, Sustained by

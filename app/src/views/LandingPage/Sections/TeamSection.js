@@ -18,7 +18,7 @@ import styles from "assets/jss/material-kit-react/views/landingPageSections/team
 
 import fezile_mdletshe from "assets/img/faces/fezile_mdletshe2.jpg";
 import hlengiwe_gumede from "assets/img/faces/hlengiwe_gumede.jpg";
-import team3 from "assets/img/faces/kendall.jpg";
+import ayanda from "assets/img/faces/ayanda.jpg";
 
 const useStyles = makeStyles(styles);
 
@@ -40,16 +40,16 @@ export default function TeamSection() {
                 <img src={hlengiwe_gumede} alt="..." className={imageClasses} />
               </GridItem>
               <h4 className={classes.cardTitle}>
-                Hlengiwe Gumede
+                Hlengiwe Shembe
                 <br />
-                <small className={classes.smallTitle}>Designer</small>
+                <small className={classes.smallTitle}>Integral Part Of Designing The Skills Curriculum</small>
               </h4>
               <CardBody>
                 <p className={classes.description}>
-                  You can write here details about one of your team members. You
-                  can give more details about what they do. Feel free to add
-                  some <a href="#pablo">links</a> for people to be able to
-                  follow them outside the site.
+                  Hlengiwe Shembe is a young energetic soul from Inanda.
+                  She has an amazing love for working with the local community
+                  in training and Skills Development. She is a DUT Graduate who
+                  achieved a Gideon Merit Award.
                 </p>
               </CardBody>
               <CardFooter className={classes.justifyCenter}>
@@ -57,7 +57,7 @@ export default function TeamSection() {
                   justIcon
                   color="transparent"
                   target="_blank"
-                  href="https://www.instagram.com/hlengiwe737/tagged/"
+                  href="https://www.instagram.com/hlengsta007/"
                   className={classes.margin5}
                 >
                   <i className={classes.socials + " fab fa-instagram"} />
@@ -119,36 +119,22 @@ export default function TeamSection() {
           <GridItem xs={12} sm={12} md={4}>
             <Card plain>
               <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
-                <img src={team3} alt="..." className={imageClasses} />
+                <img src={ayanda} alt="..." className={imageClasses} />
               </GridItem>
               <h4 className={classes.cardTitle}>
-                Christian Louboutin
+                 Ayanda
                 <br />
-                <small className={classes.smallTitle}>Designer</small>
+                <small className={classes.smallTitle}>Administrator</small>
               </h4>
               <CardBody>
                 <p className={classes.description}>
-                  You can write here details about one of your team members. You
-                  can give more details about what they do. Feel free to add
-                  some <a href="#pablo">links</a> for people to be able to
-                  follow them outside the site.
+                  Ayanda, our Admin Ninja doing the most to ensure
+                  efficiency at the Academy. She is the lady that
+                  swiftly responds to all your inquiries regarding
+                  courses and end school.
                 </p>
               </CardBody>
               <CardFooter className={classes.justifyCenter}>
-                <Button
-                  justIcon
-                  color="transparent"
-                  className={classes.margin5}
-                >
-                  <i className={classes.socials + " fab fa-twitter"} />
-                </Button>
-                <Button
-                  justIcon
-                  color="transparent"
-                  className={classes.margin5}
-                >
-                  <i className={classes.socials + " fab fa-linkedin"} />
-                </Button>
               </CardFooter>
             </Card>
           </GridItem>
