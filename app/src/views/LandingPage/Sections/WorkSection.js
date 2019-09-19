@@ -22,9 +22,8 @@ export default function WorkSection() {
         <GridItem cs={12} sm={12} md={8}>
           <h2 className={classes.title}>Work with us</h2>
           <h4 className={classes.description}>
-            Be a part of the first Fashion Academy in 
-            KwaMashu (Durban,KwaZulu-Natal) Enquire
-            NOW about our Masterclasses!
+            Be a part of the first Fashion Academy in KwaMashu
+            (Durban,KwaZulu-Natal) Enquire NOW about our Masterclasses!
           </h4>
           <form>
             <GridContainer>

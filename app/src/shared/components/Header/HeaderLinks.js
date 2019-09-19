@@ -12,7 +12,7 @@ import ListItem from "@material-ui/core/ListItem";
 import Tooltip from "@material-ui/core/Tooltip";
 
 // @material-ui/icons
-import { Apps, Assignment } from "@material-ui/icons";
+import { Apps, Assignment, AccountCircle  } from "@material-ui/icons";
 
 // core components
 import CustomDropdown from "shared/components/CustomDropdown/CustomDropdown.js";
@@ -26,8 +26,9 @@ export default function HeaderLinks(props) {
   const classes = useStyles();
   return (
     <List className={classes.list}>
+      {/*
       <ListItem className={classes.listItem}>
-        {/*
+        
         <CustomDropdown
           noLiPadding
           buttonText="Components"
@@ -49,35 +50,17 @@ export default function HeaderLinks(props) {
             </a>
           ]}
         />
-        */}
       </ListItem>
+      */}
+      
       <ListItem className={classes.listItem}>
-        <Button
-          href="#"
-          color="transparent"
-          target="_blank"
-          className={classes.navLink}
-        >
-          <Apps className={classes.icons} /> Courses
-        </Button>
-      </ListItem>
-
-      <ListItem className={classes.listItem}>
-        <Button
-          href="#"
-          color="transparent"
-          target="_blank"
-          className={classes.navLink}
-        >
-          <Assignment className={classes.icons} /> Register Now !
-        </Button>
-      </ListItem>
-      <ListItem className={classes.listItem}>
-        {/*<Tooltip title="Delete">
+        {/*
+        <Tooltip title="Delete">
           <IconButton aria-label="Delete">
             <DeleteIcon />
           </IconButton>
-        </Tooltip>*/}
+        </Tooltip>
+        */}
         <Tooltip
           id="instagram-twitter"
           title="Follow us on twitter"
@@ -128,6 +111,46 @@ export default function HeaderLinks(props) {
           </Button>
         </Tooltip>
       </ListItem>
+      <ListItem className={classes.listItem}>
+        <Button
+          href="#"
+          color="transparent"
+          target="_blank"
+          className={classes.navLink}
+        >
+          <Apps className={classes.icons} /> Courses
+        </Button>
+      </ListItem>
+
+      <ListItem className={classes.listItem}>
+        <Button
+          href="#"
+          color="transparent"
+          target="_blank"
+          className={classes.navLink}
+        >
+          <Assignment className={classes.icons} /> Register Now !
+        </Button>
+      </ListItem>
+      <ListItem className={classes.listItem}>
+        <Link to={"/login-page"} className={classes.link}>
+          <Button
+            color="transparent"
+            className={classes.navLink}
+          >
+            <AccountCircle className={classes.icons} /> Sign in
+          </Button>
+        </Link>
+      </ListItem>
     </List>
   );
 }
+
+
+/*
+<Link to={"/login-page"} className={classes.link}>
+  <Button color="primary" size="lg" simple>
+    View Login Page
+  </Button>
+</Link>
+*/

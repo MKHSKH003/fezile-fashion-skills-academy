@@ -3,6 +3,7 @@ import React from "react";
 import classNames from "classnames";
 // nodejs library to set properties for components
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
@@ -61,7 +62,16 @@ export default function Header(props) {
     [classes.fixed]: fixed
   });
   // const brandComponent = <Button className={classes.title}>{brand}</Button>;
-  const brandComponent = <img src={require("assets/img/logo.png")} style={{height:'10vh'}} alt="logo" />
+  const brandComponent = (
+    <Link to={"/"}>
+      <img
+        src={require("assets/img/logo.png")}
+        style={{ height: "7vh" }}
+        alt="logo"
+      />
+    </Link>
+  );
+
   return (
     <AppBar className={appBarClasses}>
       <Toolbar className={classes.container}>
