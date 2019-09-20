@@ -22,8 +22,12 @@ import styles from "assets/jss/material-kit-react/components/headerLinksStyle.js
 
 const useStyles = makeStyles(styles);
 
-export default function HeaderLinks(props) {
+const HeaderLinks = ({
+  isUserLoggedIn,
+  user
+}) => {
   const classes = useStyles();
+
   return (
     <List className={classes.list}>
       {/*
@@ -133,12 +137,12 @@ export default function HeaderLinks(props) {
         </Button>
       </ListItem>
       <ListItem className={classes.listItem}>
-        <Link to={"/login-page"} className={classes.link}>
+        <Link to={ isUserLoggedIn ? '/' : "/login-page"} className={classes.link}>
           <Button
             color="transparent"
             className={classes.navLink}
           >
-            <AccountCircle className={classes.icons} /> Sign in
+            <AccountCircle className={classes.icons} /> {isUserLoggedIn ? user.Name : "Sign in"}
           </Button>
         </Link>
       </ListItem>
@@ -146,11 +150,19 @@ export default function HeaderLinks(props) {
   );
 }
 
-
 /*
-<Link to={"/login-page"} className={classes.link}>
-  <Button color="primary" size="lg" simple>
-    View Login Page
-  </Button>
-</Link>
+HeaderLinks.defaultProps = {
+  isUserLoggedIn: false
+};
+
+HeaderLinks.propTypes = {
+  user: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    firstName: PropTypes.string.isRequired,
+    lastName: PropTypes.string.isRequired
+  }).isRequired,
+  isUserLoggedIn: PropTypes.bool
+};
 */
+
+export default HeaderLinks

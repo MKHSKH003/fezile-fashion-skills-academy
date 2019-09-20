@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // @material-ui/core components
@@ -29,61 +30,57 @@ const dashboardRoutes = [];
 
 const useStyles = makeStyles(styles);
 
-export default function LandingPage(props) {
-  const classes = useStyles();
-  const { ...rest } = props;
-  return (
-    <div>
-      <Header
-        color="transparent"
-        routes={dashboardRoutes}
-        /* brand={"Fezile Fashion Skills Academy"} */
-        rightLinks={<HeaderLinks />}
-        fixed
-        changeColorOnScroll={{
-          height: 400,
-          color: "white"
-        }}
-        {...rest}
-      />
-      <Parallax />
-      {/*
-      <Parallax filter image={require("assets/img/background-2.jpg")}>
-        <div className={classes.container}>
-          <GridContainer>
-            <GridItem xs={12} sm={12} md={6}>
-              <h1 className={classes.title}>Your Story Starts With Us.</h1>
-              <h4>
-                Every landing page needs a small description after the big bold
-                title, that{"'"}s why we added this text here. Add here all the
-                information that can make you or your product create the first
-                impression.
-              </h4>
-              <br />
-              <Button
-                color="danger"
-                size="lg"
-                href="https://www.facebook.com/fezilefashionskillsacademy/videos/2130089043766044/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <i className="fas fa-play" />
-                Watch video
-              </Button>
-            </GridItem>
-          </GridContainer>
+const LandingPage = ({
+    isUserLoggedIn,
+    user,
+    onUserLogin
+}) => {
+    const classes = useStyles();
+
+    return (
+        <div>
+            <Header
+                color="transparent"
+                routes={dashboardRoutes}
+                rightLinks={
+                    <HeaderLinks 
+                        isUserLoggedIn={isUserLoggedIn}
+                        user={user} 
+                        onUserLogin={onUserLogin}
+                    />
+                }
+                fixed
+                changeColorOnScroll={{
+                    height: 400,
+                    color: "white"
+                }}
+            />
+            <Parallax />
+            <div className={classNames(classes.main, classes.mainRaised)}>
+                <div className={classes.container}>
+                    <ProductSection />
+                    <ProductCategories />
+                    <TeamSection />
+                    <WorkSection />
+                </div>
+            </div>
+            <Footer />
         </div>
-      </Parallax>
-      */}
-      <div className={classNames(classes.main, classes.mainRaised)}>
-        <div className={classes.container}>
-          <ProductSection />
-          <ProductCategories />
-          <TeamSection />
-          <WorkSection />
-        </div>
-      </div>
-      <Footer />
-    </div>
-  );
-}
+    );
+};
+
+LandingPage.defaultProps = {
+    isUserLoggedIn: false
+};
+
+LandingPage.propTypes = {
+    isUserLoggedIn: PropTypes.bool,
+    user: PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired,
+        surname: PropTypes.string.isRequired
+    }).isRequired,
+    onUserLogin: PropTypes.func.isRequired
+};
+
+export default LandingPage;
