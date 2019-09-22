@@ -19,15 +19,40 @@ import styles from "assets/jss/material-kit-react/views/landingPageSections/prod
 
 const useStyles = makeStyles(styles);
 
-export default function ProductSection() {
+export default function ProductSection({
+  userSession,
+  setUserSession
+}) {
   const classes = useStyles();
-  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <div className={classes.section}>
-      <Registration isOpen={isOpen} setIsOpen={setIsOpen} />
+      <Registration 
+        userSession={userSession}
+        setUserSession={setUserSession} 
+      />
       <GridContainer justify="center">
         <GridItem xs={12} sm={12} md={8}>
-          <Button color="success" size="lg" onClick={() => setIsOpen(true)}>
+          <Button 
+            color="success" size="lg"
+            onClick={() => userSession.state.isLoggedIn 
+              ? setUserSession({
+                  ...userSession,
+                  state: {
+                    ...userSession.state,
+                    registration: true 
+                  }
+                }) 
+              : setUserSession({
+                  ...userSession,
+                  state: {
+                    ...userSession.state,
+                    login: true,
+                    registration: true  
+                  }
+                })
+            }
+          >
             <i className="fas fa-bars" />
             Register Online !
           </Button>

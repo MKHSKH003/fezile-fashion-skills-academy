@@ -7,7 +7,7 @@ export const login = (baseUrl, userDetails) =>
         }
     }).then(response => response.json());
 
-export const signup = async (baseUrl, userDetails) =>
+export const signup = (baseUrl, userDetails) =>
     fetch(baseUrl + "user-signup", {
         method: "POST",
         body: JSON.stringify(userDetails),

@@ -1,0 +1,9 @@
+CREATE TABLE IF NOT EXISTS `targeton_Ffsa`.`User` 
+(
+ `ID` INT(11) NOT NULL AUTO_INCREMENT ,
+ `FirstName` VARCHAR(50) NOT NULL , 
+ `LastName` VARCHAR(50) NOT NULL , 
+ `Email` VARCHAR(50) NOT NULL , 
+ `Password` VARCHAR(100) NOT NULL ,
+  PRIMARY KEY (`ID`)
+) 

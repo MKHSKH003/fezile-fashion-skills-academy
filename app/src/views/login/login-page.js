@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
@@ -22,24 +22,39 @@ import CustomInput from "shared/components/CustomInput/CustomInput.js";
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
 
 import image from "assets/img/background-2.jpg";
+import { signup } from "api/login";
 
 const useStyles = makeStyles(styles);
 
-export default function LoginPage(props) {
-  const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
+const LoginPage = ({
+  userSession,
+  setUserSession,
+}) => {
+  const [userDetails, setUserDetails] = useState({
+    email: '',
+    password: ''
+  })
+  const [cardAnimaton, setCardAnimation] = useState("cardHidden");
   setTimeout(function() {
     setCardAnimation("");
   }, 700);
   const classes = useStyles();
-  const { ...rest } = props;
+
+  const change = () => console.log('changing...');
   return (
     <div>
       <Header
         absolute
         color="transparent"
         brand="Material Kit React"
-        rightLinks={<HeaderLinks />}
-        {...rest}
+        rightLinks={
+          <HeaderLinks 
+            userSession={userSession}
+            setUserSession={setUserSession}
+          />
+        } 
+        userSession={userSession}
+        setUserSession={setUserSession}
       />
       <div
         className={classes.pageHeader}
@@ -57,19 +72,25 @@ export default function LoginPage(props) {
                   <p className={classes.divider}>Login</p>
                   <CardBody>
                     <CustomInput
-                      labelText="User Name... (e.g firstname.lastname)"
-                      id="username"
+                      labelText="Email..."
+                      id="email"
                       formControlProps={{
                         fullWidth: true
                       }}
                       inputProps={{
-                        type: "text",
+                        type: "email",
+                        required: true,
                         endAdornment: (
                           <InputAdornment position="end">
-                            <People className={classes.inputIconsColor} />
+                            <Email className={classes.inputIconsColor} />
                           </InputAdornment>
                         )
                       }}
+                      value={userDetails.email}
+                      onChangeValue={value => setUserDetails({
+                        ...userDetails,
+                        email: value
+                      })}
                     />
                     <CustomInput
                       labelText="Password"
@@ -88,18 +109,37 @@ export default function LoginPage(props) {
                         ),
                         autoComplete: "off"
                       }}
+                      value={userDetails.password}
+                      onChangeValue={value => setUserDetails({
+                        ...userDetails,
+                        password: value
+                      })}
                     />
                   </CardBody>
                   <CardFooter className={classes.cardFooter}>
-                    <Button simple color="primary" size="lg">
+                    <Button 
+                      simple
+                      color="primary"
+                      size="lg"
+                      onClick={() => userSession.onLogin(userDetails)}
+                    >
                       Login
                     </Button>
                   </CardFooter>
                   <CardFooter className={classes.cardFooter}>
                     {"Don't have an account ? "}
-                    <Link to={"/sign-up"} className={classes.link}>
-                      &nbsp;sign up
-                    </Link>
+                      <a  href="#" 
+                          onClick={() => setUserSession({
+                              ...userSession,
+                              state: {
+                                ...userSession.state,
+                                signup: true,
+                                login: false  
+                              }
+                          })}
+                      >   
+                          &nbsp;sign up
+                      </a>
                   </CardFooter>
                 </form>
               </Card>
@@ -111,3 +151,5 @@ export default function LoginPage(props) {
     </div>
   );
 }
+
+export default LoginPage;

@@ -1,6 +1,6 @@
-import appsettings from "root/app.json";
+import appsettings from "app.json";
 
 const baseUrl = appsettings.ApiRestWebServer[appsettings.Environment];
 
-export const loginBaseUrl = baseUrl + "/login/";
-export const usersBaseUrl = baseUrl + "/users/";
+export const loginBaseUrl = baseUrl + "/api/login/";
+export const usersBaseUrl = baseUrl + "/api/users/";

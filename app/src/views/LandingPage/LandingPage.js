@@ -31,12 +31,11 @@ const dashboardRoutes = [];
 const useStyles = makeStyles(styles);
 
 const LandingPage = ({
-    isUserLoggedIn,
-    user,
-    onUserLogin
+    userSession,
+    setUserSession
 }) => {
     const classes = useStyles();
-
+    
     return (
         <div>
             <Header
@@ -44,21 +43,25 @@ const LandingPage = ({
                 routes={dashboardRoutes}
                 rightLinks={
                     <HeaderLinks 
-                        isUserLoggedIn={isUserLoggedIn}
-                        user={user} 
-                        onUserLogin={onUserLogin}
+                        userSession={userSession}
+                        setUserSession={setUserSession}
                     />
-                }
+                } 
                 fixed
                 changeColorOnScroll={{
                     height: 400,
                     color: "white"
                 }}
+                userSession={userSession}
+                setUserSession={setUserSession}
             />
             <Parallax />
             <div className={classNames(classes.main, classes.mainRaised)}>
                 <div className={classes.container}>
-                    <ProductSection />
+                    <ProductSection 
+                        userSession={userSession}
+                        setUserSession={setUserSession}
+                    />
                     <ProductCategories />
                     <TeamSection />
                     <WorkSection />
@@ -69,12 +72,7 @@ const LandingPage = ({
     );
 };
 
-LandingPage.defaultProps = {
-    isUserLoggedIn: false
-};
-
 LandingPage.propTypes = {
-    isUserLoggedIn: PropTypes.bool,
     user: PropTypes.shape({
         id: PropTypes.number.isRequired,
         name: PropTypes.string.isRequired,

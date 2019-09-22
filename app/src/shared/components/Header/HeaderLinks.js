@@ -23,8 +23,8 @@ import styles from "assets/jss/material-kit-react/components/headerLinksStyle.js
 const useStyles = makeStyles(styles);
 
 const HeaderLinks = ({
-  isUserLoggedIn,
-  user
+  userSession,
+  setUserSession,
 }) => {
   const classes = useStyles();
 
@@ -128,23 +128,44 @@ const HeaderLinks = ({
 
       <ListItem className={classes.listItem}>
         <Button
-          href="#"
           color="transparent"
-          target="_blank"
+          onClick={
+            () => userSession.state.isLoggedIn 
+            ? setUserSession({
+                ...userSession,
+                state: {
+                  ...userSession.state,
+                  registration: true 
+                }
+              }) 
+            : setUserSession({
+                ...userSession,
+                state: {
+                  ...userSession.state,
+                  login: true,
+                  registration: true  
+                }
+              })
+          }
           className={classes.navLink}
         >
-          <Assignment className={classes.icons} /> Register Now !
+          <Assignment className={classes.icons} /> Register Online !
         </Button>
       </ListItem>
       <ListItem className={classes.listItem}>
-        <Link to={ isUserLoggedIn ? '/' : "/login-page"} className={classes.link}>
-          <Button
+        <Button
             color="transparent"
             className={classes.navLink}
+            onClick={() => setUserSession({
+                ...userSession,
+                state: {
+                  ...userSession.state,
+                  login: true
+                }
+            })}
           >
-            <AccountCircle className={classes.icons} /> {isUserLoggedIn ? user.Name : "Sign in"}
-          </Button>
-        </Link>
+            <AccountCircle className={classes.icons} /> {userSession.state.isLoggedIn ? userSession.user.FirstName : "Sign in"}
+        </Button>
       </ListItem>
     </List>
   );

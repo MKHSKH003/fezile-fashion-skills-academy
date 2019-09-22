@@ -1,8 +1,0 @@
-{
-    "Environment": "Development",
-    "ApiRestWebServer": {
-        "Development": "10.13.153.22:5206",
-        "Production": "18.221.169.195:5206"
-    }
-
-}

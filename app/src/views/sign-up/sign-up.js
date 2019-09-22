@@ -1,5 +1,4 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import InputAdornment from "@material-ui/core/InputAdornment";
@@ -16,7 +15,6 @@ import GridItem from "shared/components/Grid/GridItem.js";
 import Button from "shared/components/CustomButtons/Button.js";
 import Card from "shared/components/Card/Card.js";
 import CardBody from "shared/components/Card/CardBody.js";
-import CardHeader from "shared/components/Card/CardHeader.js";
 import CardFooter from "shared/components/Card/CardFooter.js";
 import CustomInput from "shared/components/CustomInput/CustomInput.js";
 
@@ -26,21 +24,35 @@ import image from "assets/img/background-3.jpg";
 
 const useStyles = makeStyles(styles);
 
-export default function LoginPage(props) {
+const SignupPage = ({
+  userSession,
+  setUserSession
+}) => {
+  const [userDetails, setUserDetails] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: ''
+  })
   const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
   setTimeout(function () {
     setCardAnimation("");
   }, 700);
   const classes = useStyles();
-  const { ...rest } = props;
   return (
     <div>
       <Header
         absolute
         color="transparent"
         brand="Material Kit React"
-        rightLinks={<HeaderLinks />}
-        {...rest}
+        rightLinks={
+          <HeaderLinks 
+            userSession={userSession}
+            setUserSession={setUserSession}
+          />
+        }
+        userSession={userSession}
+        setUserSession={setUserSession}
       />
       <div
         className={classes.pageHeader}
@@ -55,40 +67,6 @@ export default function LoginPage(props) {
             <GridItem xs={12} sm={12} md={4}>
               <Card className={classes[cardAnimaton]}>
                 <form className={classes.form}>
-                  {/*
-                  <CardHeader color="primary" className={classes.cardHeader}>
-                    <h4>Login</h4>
-                    <div className={classes.socialLine}>
-                      <Button
-                        justIcon
-                        href="#pablo"
-                        target="_blank"
-                        color="transparent"
-                        onClick={e => e.preventDefault()}
-                      >
-                        <i className={"fab fa-twitter"} />
-                      </Button>
-                      <Button
-                        justIcon
-                        href="#pablo"
-                        target="_blank"
-                        color="transparent"
-                        onClick={e => e.preventDefault()}
-                      >
-                        <i className={"fab fa-facebook"} />
-                      </Button>
-                      <Button
-                        justIcon
-                        href="#pablo"
-                        target="_blank"
-                        color="transparent"
-                        onClick={e => e.preventDefault()}
-                      >
-                        <i className={"fab fa-google-plus-g"} />
-                      </Button>
-                    </div>
-                  </CardHeader>
-                  */}
                   <p className={classes.divider}>Sign up</p>
                   <CardBody>
                     <CustomInput
@@ -105,6 +83,11 @@ export default function LoginPage(props) {
                           </InputAdornment>
                         )
                       }}
+                      value={userDetails.firstName}
+                      onChangeValue={value => setUserDetails({
+                        ...userDetails,
+                        firstName: value
+                      })}
                     />
                     <CustomInput
                       labelText="Last Name..."
@@ -120,6 +103,11 @@ export default function LoginPage(props) {
                           </InputAdornment>
                         )
                       }}
+                      value={userDetails.lastName}
+                      onChangeValue={value => setUserDetails({
+                        ...userDetails,
+                        lastName: value
+                      })}
                     />
                     <CustomInput
                       labelText="Email..."
@@ -135,6 +123,11 @@ export default function LoginPage(props) {
                           </InputAdornment>
                         )
                       }}
+                      value={userDetails.email}
+                      onChangeValue={value => setUserDetails({
+                        ...userDetails,
+                        email: value
+                      })}
                     />
                     <CustomInput
                       labelText="Password"
@@ -153,18 +146,37 @@ export default function LoginPage(props) {
                         ),
                         autoComplete: "off"
                       }}
+                      value={userDetails.password}
+                      onChangeValue={value => setUserDetails({
+                        ...userDetails,
+                        password: value
+                      })}
                     />
                   </CardBody>
                   <CardFooter className={classes.cardFooter}>
-                    <Button simple color="primary" size="lg">
+                    <Button 
+                      simple 
+                      color="primary"
+                      size="lg"
+                      onClick={() => userSession.onSignup(userDetails)}
+                    >
                       Sign up
                     </Button>
                   </CardFooter>
                   <CardFooter className={classes.cardFooter}>
                     {"Already have an account ?"}
-                    <Link to={"/login-page"} className={classes.link}>
-                      &nbsp;login
-                    </Link>
+                    <a  href="#" 
+                        onClick={() => setUserSession({
+                          ...userSession,
+                          state: {
+                            ...userSession.state,
+                            signup: false,
+                            login: true  
+                          }
+                      })}
+                    >
+                        &nbsp;login
+                    </a>
                   </CardFooter>
                 </form>
               </Card>
@@ -176,3 +188,5 @@ export default function LoginPage(props) {
     </div>
   );
 }
+
+export default SignupPage;
