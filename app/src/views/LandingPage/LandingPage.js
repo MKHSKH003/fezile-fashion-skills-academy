@@ -38,6 +38,7 @@ const LandingPage = ({
     
     return (
         <div>
+            {!userSession.state.registration && !(userSession.state.login || userSession.state.signup) &&
             <Header
                 color="transparent"
                 routes={dashboardRoutes}
@@ -54,7 +55,7 @@ const LandingPage = ({
                 }}
                 userSession={userSession}
                 setUserSession={setUserSession}
-            />
+            />}
             <Parallax />
             <div className={classNames(classes.main, classes.mainRaised)}>
                 <div className={classes.container}>

@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
-import { Button, Wizard } from '@patternfly/react-core';
+import React, { useState } from "react";
+import { Button, Wizard } from "@patternfly/react-core";
+
+import StudentDetails from "./sections/studentDetails.js";
 
 const Registration = ({
   userSession,
@@ -25,7 +27,7 @@ const Registration = ({
     }
   })
   const steps = [
-    { name: 'Student Details', component: <p>Step 1</p> },
+    { name: 'Student Details', component: <StudentDetails /> },
     { name: 'Step 2', component: <p>Step 2</p> },
     { name: 'Step 3', component: <p>Step 3</p> },
     { name: 'Step 4', component: <p>Step 4</p> },
@@ -34,9 +36,8 @@ const Registration = ({
 
   return (
     <React.Fragment>
-      {userSession.state.onRegistration && (
         <Wizard
-          isOpen={userSession.state.onRegistration}
+          isOpen={true}
           onClose={() => setUserSession({
               ...userSession,
               state: {
@@ -49,7 +50,6 @@ const Registration = ({
           description="Application For Admission"
           steps={steps}
         />
-      )}
     </React.Fragment>
   );
 };

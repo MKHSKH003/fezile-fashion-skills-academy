@@ -11,6 +11,15 @@ import LoginPage from "views/login/login-page.js";
 import SignupPage from "views/sign-up/sign-up.js";
 
 const Container = () => {
+    const [userSession, setUserSession] = useState({
+        state: {
+            login: false,
+            signup: false,
+            registration: false,
+            isLoggedIn: false
+        }
+    });
+
     const login = useApi({
         action: loginDetails => loginApi.login(loginBaseUrl, loginDetails),
         initialValue: [],
@@ -50,29 +59,19 @@ const Container = () => {
         },
         onError: e => toast.error(e.message == "Failed to fetch" ? "Poor internet connection" : e.message)
     }, []);
-
-    const [userSession, setUserSession] = useState({
-        state: {
-            login: false,
-            signup: false,
-            registration: false,
-            isLoggedIn: false
-        },
-        onLogin: login.execute,
-        onSignup: signup.execute
-    });
     
-    console.log('userSession', userSession);
     return (
         userSession.state.login || userSession.state.signup 
         ? userSession.state.login 
             ? <LoginPage 
                 userSession={userSession}
                 setUserSession={setUserSession}
+                onLogin={login}
               />
             : <SignupPage 
                 userSession={userSession}
                 setUserSession={setUserSession}
+                onSignup={signup.execute}
               />
         :<LandingPage
             userSession={userSession}

@@ -26,7 +26,8 @@ const useStyles = makeStyles(styles);
 
 const SignupPage = ({
   userSession,
-  setUserSession
+  setUserSession,
+  onSignup
 }) => {
   const [userDetails, setUserDetails] = useState({
     firstName: '',
@@ -158,7 +159,7 @@ const SignupPage = ({
                       simple 
                       color="primary"
                       size="lg"
-                      onClick={() => userSession.onSignup(userDetails)}
+                      onClick={() => onSignup(userDetails)}
                     >
                       Sign up
                     </Button>

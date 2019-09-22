@@ -7,6 +7,9 @@ import Icon from "@material-ui/core/Icon";
 // @material-ui/icons
 import Email from "@material-ui/icons/Email";
 import People from "@material-ui/icons/People";
+
+import { Spinner } from "react-bootstrap"
+
 // core components
 import Header from "shared/components/Header/Header.js";
 import HeaderLinks from "shared/components/Header/HeaderLinks.js";
@@ -29,6 +32,7 @@ const useStyles = makeStyles(styles);
 const LoginPage = ({
   userSession,
   setUserSession,
+  onLogin
 }) => {
   const [userDetails, setUserDetails] = useState({
     email: '',
@@ -121,9 +125,9 @@ const LoginPage = ({
                       simple
                       color="primary"
                       size="lg"
-                      onClick={() => userSession.onLogin(userDetails)}
+                      onClick={() => onLogin.execute(userDetails)}
                     >
-                      Login
+                      <Spinner animation="border" variant="primary" /> Login
                     </Button>
                   </CardFooter>
                   <CardFooter className={classes.cardFooter}>
