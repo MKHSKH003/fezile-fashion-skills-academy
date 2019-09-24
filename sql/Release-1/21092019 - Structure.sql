@@ -75,6 +75,9 @@ CREATE TABLE IF NOT EXISTS `Marketing`
 	GuidanceConsellorID INT(11) NULL,
 	CONSTRAINT PF_Ffsa_Marketing
 		PRIMARY KEY (ID),
+	CONSTRAINT FK_Marketing_MarketingMedia
+		FOREIGN KEY (MarketingMediaID)
+		REFERENCES MarketingMedia(ID)
 	CONSTRAINT FK_Marketing_GuidanceConsellor
 		FOREIGN KEY (GuidanceConsellorID)
 		REFERENCES MarketingMediaGuidanceConsellor(ID)

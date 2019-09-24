@@ -12,6 +12,11 @@ import SignupPage from "views/sign-up/sign-up.js";
 
 const Container = () => {
     const [userSession, setUserSession] = useState({
+        user:{
+            FirstName: "Skhumbuzo",
+            LastName: "Mkhungo",
+            Email: "MKHSKH003@myuct.ac.za"
+        },
         state: {
             login: false,
             signup: false,

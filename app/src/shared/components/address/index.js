@@ -1,45 +1,74 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { TextField } from '@material-ui/core';
 
+const CustomeTextField = ({
+    label,
+    placeholder,
+    helperText,
+    field,
+    type,
+    studentDetails,
+    setStudentDetails
+}) => (
+        <TextField
+            id={label}
+            type={type}
+            placeholder={placeholder}
+            onChange={event => setStudentDetails({
+                ...studentDetails,
+                [field]: {
+                    ...studentDetails[field],
+                    [label]: event.target.value
+                }
+            })}
+            fullWidth={true} margin={'normal'}
+            helperText={helperText}
+        />
+    )
 const Address = ({
-    helperText
+    helperText,
+    field,
+    studentDetails,
+    setStudentDetails
 }) => {
-    const [address, setAddress] = useState({
-          line1: '',
-          line2: '',
-          line3: '',
-          postalCode: ''
-    });
 
     return (
         <>
-            <TextField
-                id="line1"
+            <CustomeTextField
+                label={'line1'}
                 type="text"
                 placeholder={"Line 1"}
-                fullWidth={true} margin={'normal'}
                 helperText={helperText}
+                field={field}
+                studentDetails={studentDetails}
+                setStudentDetails={setStudentDetails}
             />
-            <TextField
-                id="line2"
+            <CustomeTextField
+                label={'line2'}
                 type="text"
                 placeholder={"Line 2"}
-                fullWidth={true} margin={'normal'}
                 helperText={helperText}
+                field={field}
+                studentDetails={studentDetails}
+                setStudentDetails={setStudentDetails}
             />
-            <TextField
-                id="line3"
+            <CustomeTextField
+                label={'line3'}
                 type="text"
                 placeholder={"Line 3"}
-                fullWidth={true} margin={'normal'}
                 helperText={helperText}
+                field={field}
+                studentDetails={studentDetails}
+                setStudentDetails={setStudentDetails}
             />
-            <TextField
-                id="postalCode"
+            <CustomeTextField
+                label={'postalCode'}
                 type="number"
                 placeholder={"Postal Code"}
-                fullWidth={true} margin={'normal'}
                 helperText={helperText}
+                field={field}
+                studentDetails={studentDetails}
+                setStudentDetails={setStudentDetails}
             />
         </>
     )
