@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import { TextField } from '@material-ui/core';
 
-//import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
-import FormHelperText from '@material-ui/core/FormHelperText';
+import Button from "@material-ui/core/Button";
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import NativeSelect from '@material-ui/core/NativeSelect';
+
+import Address from 'shared/components/address/';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -34,24 +34,34 @@ const useStyles = makeStyles(theme => ({
 
 export default function CenteredGrid() {
     const classes = useStyles();
+    
+    const [studentDetails, setStudentDetails] = useState({
+          surname: '',
+          firstnames: '',
+          idNumber: '',
+          residentialAddress: {},
+          postalAddress: {},
+          telWork: '',
+          telHome: '',
+          cell: '',
+          fax: '',
+          Email: '',
+          title: '',
+          race: '',
+          otherRace: '',
+          gender: '',
+          disabilitiesOrMedicalConditionAffectStudies: 0,
+          natureOfDisabilityOrMedicalCondition: ''
+      })
 
     return (
         <div className={classes.root}>
-            <h3>Student Details</h3>
             <Grid container spacing={3}>
                 <Grid item xs={12} sm={12} md={6} >
                     <Paper className={classes.paper}>
                         <TextField id="Surname" type="text" placeholder={"Surname"} fullWidth={true} margin={'normal'} />
                         <TextField id="firstNames" type="text" placeholder={"First Names"} fullWidth={true} margin={'normal'} />
                         <TextField id="id" type="number" placeholder={"ID Number"} fullWidth={true} margin={'normal'} />
-                        <TextField 
-                            id="address"
-                            type="text" 
-                            placeholder={"Residential Address (Street)"}
-                            fullWidth={true} margin={'normal'} 
-                            multiline={true}
-                            helperText="Student residential address for the duration."
-                        />
                     </Paper>
                 </Grid>
                 <Grid item xs={12} sm={12} md={6} >
@@ -116,20 +126,65 @@ export default function CenteredGrid() {
                         </FormControl>
                     </Paper>
                 </Grid>
-                <Grid item xs={6}>
-                    <Paper className={classes.paper}>xs=6</Paper>
+                <Grid item xs={12} sm={12} md={6} >
+                    <Paper className={classes.paper}>
+                        <Address helperText={'Student residential address (Street) for the duration.'}/>
+                    </Paper>
                 </Grid>
-                <Grid item xs={3}>
-                    <Paper className={classes.paper}>xs=3</Paper>
+                <Grid item xs={12} sm={12} md={6} >
+                    <Paper className={classes.paper}>
+                        <Address helperText={'Student postal address (Street) if different.'}/>
+                    </Paper>
                 </Grid>
-                <Grid item xs={3}>
-                    <Paper className={classes.paper}>xs=3</Paper>
+                <Grid item xs={12} sm={12} md={6} >
+                    <Paper className={classes.paper}>
+                        <TextField id="telWork" type="text" placeholder={"Tel (W)"} fullWidth={true} margin={'normal'} />
+                        <TextField id="telHome" type="text" placeholder={"Tel (H)"} fullWidth={true} margin={'normal'} />
+                        <TextField id="cell" type="text" placeholder={"Cell"} fullWidth={true} margin={'normal'} />
+                        <TextField id="fax" type="text" placeholder={"Fax"} fullWidth={true} margin={'normal'} />
+                        <TextField id="email" type="text" placeholder={"Email"} fullWidth={true} margin={'normal'} />
+                    </Paper>
                 </Grid>
-                <Grid item xs={3}>
-                    <Paper className={classes.paper}>xs=3</Paper>
+                <Grid item xs={12} sm={12} md={6} >
+                    <Paper className={classes.paper}>
+                        <FormControl className={classes.formControl}>
+                            <InputLabel htmlFor="disabilities/medical conditions" >Do you have disabilities / medical conditions</InputLabel>
+                            <Select
+                                native
+                                autoWidth
+                                labelWidth={2}
+                                value={studentDetails.disabilitiesOrMedicalConditionAffectStudies}
+                                onChange={ event => setStudentDetails({
+                                    ...studentDetails,
+                                    disabilitiesOrMedicalConditionAffectStudies: event.target.value
+                                })}
+                            >
+                                <option value="" />
+                                <option value={1}>Yes</option>
+                                <option value={0}>No</option>
+                                
+                            </Select>
+                            {setStudentDetails.disabilitiesOrMedicalConditionAffectStudies === 1 &&
+                                <TextField 
+                                    id="natureOfDisabilityOrCondition" 
+                                    type="text" 
+                                    placeholder={"Nature of the disability or condition"}
+                                    fullWidth={true} margin={'normal'} 
+                                    helperText={"State the nature of the disability or condition"}
+                                />
+                            }
+                        </FormControl>
+                    </Paper>
                 </Grid>
-                <Grid item xs={3}>
-                    <Paper className={classes.paper}>xs=3</Paper>
+                <Grid item xs={12} sm={12} md={12} >
+                    <Paper className={classes.paper}>
+                        <Button 
+                            variant="contained"
+                            color="primary"
+                            onClick={() => console.log('setStudentDetails', setStudentDetails)}
+                        > Save
+                        </Button>
+                    </Paper>
                 </Grid>
             </Grid>
         </div>

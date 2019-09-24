@@ -1,5 +1,71 @@
+#--------------- INSERT INTO Marketing Media ---------------#
 
-#--------------- INSERT INTO `Fees` ---------------#
+INSERT INTO `MarketingMedia` (`Description`)
+SELECT * FROM (SELECT 'Exhibition') as temp
+WHERE NOT EXISTS(
+    SELECT 1
+    FROM `MarketingMedia` 
+    WHERE `Description` = 'Exhibition'
+);
+
+INSERT INTO `MarketingMedia` (`Description`)
+SELECT * FROM (SELECT 'Newspaper') as temp
+WHERE NOT EXISTS(
+    SELECT 1
+    FROM `MarketingMedia` 
+    WHERE `Description` = 'Newspaper'
+);
+
+INSERT INTO `MarketingMedia` (`Description`)
+SELECT * FROM (SELECT 'Internet(Website)') as temp
+WHERE NOT EXISTS(
+    SELECT 1
+    FROM `MarketingMedia` 
+    WHERE `Description` = 'Internet(Website)'
+);
+
+INSERT INTO `MarketingMedia` (`Description`)
+SELECT * FROM (SELECT 'Friends') as temp
+WHERE NOT EXISTS(
+    SELECT 1
+    FROM `MarketingMedia` 
+    WHERE `Description` = 'Friends'
+);
+
+INSERT INTO `MarketingMedia` (`Description`)
+SELECT * FROM (SELECT 'Family/Parents') as temp
+WHERE NOT EXISTS(
+    SELECT 1
+    FROM `MarketingMedia` 
+    WHERE `Description` = 'Family/Parents'
+);
+
+INSERT INTO `MarketingMedia` (`Description`)
+SELECT * FROM (SELECT 'Posters') as temp
+WHERE NOT EXISTS(
+    SELECT 1
+    FROM `MarketingMedia` 
+    WHERE `Description` = 'Posters'
+);
+
+INSERT INTO `MarketingMedia` (`Description`)
+SELECT * FROM (SELECT 'School Visit') as temp
+WHERE NOT EXISTS(
+    SELECT 1
+    FROM `MarketingMedia` 
+    WHERE `Description` = 'School Visit'
+);
+
+INSERT INTO `MarketingMedia` (`Description`)
+SELECT * FROM (SELECT 'Guidance Consellor') as temp
+WHERE NOT EXISTS(
+    SELECT 1
+    FROM `MarketingMedia` 
+    WHERE `Description` = 'Guidance Consellor'
+);
+
+
+#--------------- INSERT INTO Fees ---------------#
 
 INSERT INTO `Fees` (`Amount`, `Description`)
 SELECT * FROM (SELECT '38600', 'R18 700 (Year 1). 7% discount is issued if fees are paid upfront in full. 5% discount is issued if full fees are paid by June, R19 900 (Year 2 ). 7% discount is issued if fees are paid upfront in full. 5% discount is issued if full fees are paid by June.') as temp
@@ -25,7 +91,8 @@ WHERE NOT EXISTS(
     WHERE `Amount` = '3800' AND `Description` = 'R3800 ( incl. reg fees of R1 900).'
 );
 
-#--------------- INSERT INTO `CourseDurationType` ---------------#
+
+#--------------- INSERT INTO Course Duration Type ---------------#
 
 INSERT INTO `CourseDurationType` (`Description`)
 SELECT * FROM (SELECT 'Full time') as temp
@@ -43,25 +110,27 @@ WHERE NOT EXISTS(
     WHERE `Description` = 'Short'
 );
 
-#--------------- INSERT INTO `CertificateType` ---------------#
 
-INSERT INTO `CertificateType` (`Description`)
+#--------------- INSERT INTO Course Certificate ---------------#
+
+INSERT INTO `CourseCertificate` (`Description`)
 SELECT * FROM (SELECT 'Skills programme certificate') as temp
 WHERE NOT EXISTS(
     SELECT 1
-    FROM `CertificateType` 
+    FROM `CourseCertificate` 
     WHERE `Description` = 'Skills programme certificate'
 );
 
-INSERT INTO `CertificateType` (`Description`)
+INSERT INTO `CourseCertificate` (`Description`)
 SELECT * FROM (SELECT 'National certificate') as temp
 WHERE NOT EXISTS(
     SELECT 1
-    FROM `CertificateType` 
+    FROM `CourseCertificate` 
     WHERE `Description` = 'National certificate'
 );
 
-#--------------- INSERT INTO `CourseSchedule` ---------------#
+
+#--------------- INSERT INTO Course Schedule ---------------#
 
 INSERT INTO `CourseSchedule` (`Description`)
 SELECT * FROM (SELECT 'Monday- Thurs 8am-4pm & Friday 8am-12pm') as temp
@@ -80,7 +149,7 @@ WHERE NOT EXISTS(
 );
 
 
-#--------------- INSERT INTO `CourseDuration` ---------------#
+#--------------- INSERT INTO CourseDuration ---------------#
 
 INSERT INTO `CourseDuration` (`Description`)
 SELECT * FROM (SELECT '1 Year') as temp
@@ -107,8 +176,7 @@ WHERE NOT EXISTS(
 );
 
 
-
-#--------------- INSERT INTO `CourseSyllabus` ---------------#
+#--------------- INSERT INTO CourseSyllabus ---------------#
 
 INSERT INTO `CourseSyllabus` (`Description`)
 SELECT * FROM (SELECT '
@@ -301,7 +369,8 @@ WHERE NOT EXISTS(
     WHERE `Description` like '%CLOTHING DESIGN DEVELOPMENT, ENTREPRENEURSHIP & RETAIL%'
 );
 
-#--------------- INSERT INTO `CourseTechnicalSample` ---------------#
+
+#--------------- INSERT INTO Course Technical Sample ---------------#
 
 INSERT INTO `CourseTechnicalSample` (`Description`)
 SELECT * FROM (SELECT '
@@ -336,7 +405,8 @@ WHERE NOT EXISTS(
     WHERE `Description` like '%BRIDAL GARMENT CONSTRUCTION AND TECHNOLOGY SHORT COURSE%'
 );
 
-#--------------- INSERT INTO `Course` ---------------#
+
+#--------------- INSERT INTO Course ---------------#
 
 INSERT INTO `Course`(`Name`, `CourseDurationTypeID`, `CertificateTypeID`, `CourseDurationID`, `FeesID`, `CourseScheduleID`, `CourseSyllabusID`, `CourseTechnicalSampleID`)
 SELECT * FROM (SELECT 'CLOTHING DESIGN DEVELOPMENT, ENTREPRENEURSHIP & RETAIL','1','2','1' AS 'CourseDurationID','2' AS 'FeesID','1' AS 'CourseScheduleID','7',NULL) as temp
@@ -416,4 +486,90 @@ WHERE NOT EXISTS(
     SELECT 1
     FROM `Course` 
     WHERE `Name` = 'BRIDAL GARMENT CONSTRUCTION AND TECHNOLOGY SHORT COURSE'
+);
+
+
+#--------------- INSERT INTO High School Senior Certificate ---------------#
+
+INSERT INTO `HighSchoolSeniorCertificate` (`Description`)
+SELECT * FROM (SELECT 'Full Exeption') as temp
+WHERE NOT EXISTS(
+    SELECT 1
+    FROM `HighSchoolSeniorCertificate` 
+    WHERE `Description` = 'Full Exeption'
+);
+
+INSERT INTO `HighSchoolSeniorCertificate` (`Description`)
+SELECT * FROM (SELECT 'Ordinary Conditional Exemption Mature') as temp
+WHERE NOT EXISTS(
+    SELECT 1
+    FROM `HighSchoolSeniorCertificate` 
+    WHERE `Description` = 'Ordinary Conditional Exemption Mature'
+);
+
+INSERT INTO `HighSchoolSeniorCertificate` (`Description`)
+SELECT * FROM (SELECT 'Age Conditional Exemption') as temp
+WHERE NOT EXISTS(
+    SELECT 1
+    FROM `HighSchoolSeniorCertificate` 
+    WHERE `Description` = 'Age Conditional Exemption'
+);
+
+INSERT INTO `HighSchoolSeniorCertificate` (`Description`)
+SELECT * FROM (SELECT 'Grade 11 final') as temp
+WHERE NOT EXISTS(
+    SELECT 1
+    FROM `HighSchoolSeniorCertificate` 
+    WHERE `Description` = 'Grade 11 final'
+);
+
+INSERT INTO `HighSchoolSeniorCertificate` (`Description`)
+SELECT * FROM (SELECT 'Grade 11 mid-final') as temp
+WHERE NOT EXISTS(
+    SELECT 1
+    FROM `HighSchoolSeniorCertificate` 
+    WHERE `Description` = 'Grade 11 mid-final'
+);
+
+INSERT INTO `HighSchoolSeniorCertificate` (`Description`)
+SELECT * FROM (SELECT 'Grade 12 final') as temp
+WHERE NOT EXISTS(
+    SELECT 1
+    FROM `HighSchoolSeniorCertificate` 
+    WHERE `Description` = 'Grade 12 final'
+);
+
+INSERT INTO `HighSchoolSeniorCertificate` (`Description`)
+SELECT * FROM (SELECT 'Previous Qualification') as temp
+WHERE NOT EXISTS(
+    SELECT 1
+    FROM `HighSchoolSeniorCertificate` 
+    WHERE `Description` = 'Previous Qualification'
+);
+
+INSERT INTO `HighSchoolSeniorCertificate` (`Description`)
+SELECT * FROM (SELECT 'Recognition of Prior Learning (RPL)') as temp
+WHERE NOT EXISTS(
+    SELECT 1
+    FROM `HighSchoolSeniorCertificate` 
+    WHERE `Description` = 'Recognition of Prior Learning (RPL)'
+);
+
+
+#--------------- INSERT INTO Boolean ---------------#
+
+INSERT INTO `Boolean` (`Description`)
+SELECT * FROM (SELECT 'True') as temp
+WHERE NOT EXISTS(
+    SELECT 1
+    FROM `Boolean` 
+    WHERE `Description` = 'True'
+);
+
+INSERT INTO `Boolean` (`Description`)
+SELECT * FROM (SELECT 'False') as temp
+WHERE NOT EXISTS(
+    SELECT 1
+    FROM `Boolean` 
+    WHERE `Description` = 'False'
 );
