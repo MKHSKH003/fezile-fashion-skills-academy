@@ -294,6 +294,7 @@ CREATE TABLE IF NOT EXISTS `ApplicantDeclaration`
 	IDOrPassportNumber INT(11) NOT NULL, 
 	ApplicantSignatureID  INT(11) NOT NULL ,
 	WitnessSignatureID  INT(11) NOT NULL ,
+	ParentOrGuardianDetailsSignatureID  INT(11) NOT NULL ,
 	CONSTRAINT PF_Ffsa_ApplicantDeclaration	
 		PRIMARY KEY (ID),
 	CONSTRAINT FK_ApplicantDeclaration_ApplicantSignature
@@ -301,6 +302,9 @@ CREATE TABLE IF NOT EXISTS `ApplicantDeclaration`
 		REFERENCES Signature(ID),
 	CONSTRAINT FK_ApplicantDeclaration_WitnessSignature
 		FOREIGN KEY (WitnessSignatureID)
+		REFERENCES Signature(ID),
+	CONSTRAINT FK_ApplicantDeclaration_ParentOrGuardianDetailsSignature
+		FOREIGN KEY (ParentOrGuardianDetailsSignatureID)
 		REFERENCES Signature(ID)
 );
 

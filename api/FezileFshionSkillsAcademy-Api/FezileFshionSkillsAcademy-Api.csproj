@@ -5,6 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="scafold\**" />
+    <Content Remove="scafold\**" />
+    <EmbeddedResource Remove="scafold\**" />
+    <None Remove="scafold\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\Courses\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
