@@ -35,6 +35,8 @@ namespace FezileFashionSkillsAcademy.Services
 
         public UserSignup Signup(Models.User user)
         {
+            _emailsService.SendConfirmationEmail(user.FirstName, user.Email, user.Password);
+
             var users = _ffsaDbContext.Users;
             UserSignup userSignup = new UserSignup();
 
@@ -48,7 +50,6 @@ namespace FezileFashionSkillsAcademy.Services
             }
             else
             {
-                //_emailsService.SendConfirmationEmail(user.FirstName, user.Email, user.Password);
                 var dbNewUser = new Entities.User()
                 {
                     FirstName = user.FirstName,

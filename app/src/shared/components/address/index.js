@@ -7,29 +7,31 @@ const CustomeTextField = ({
     helperText,
     field,
     type,
-    studentDetails,
-    setStudentDetails
+    objectDetails,
+    setObjectDetails
 }) => (
         <TextField
             id={label}
             type={type}
             placeholder={placeholder}
-            onChange={event => setStudentDetails({
-                ...studentDetails,
+            value={objectDetails[field][label]}
+            onChange={event => setObjectDetails({
+                ...objectDetails,
                 [field]: {
-                    ...studentDetails[field],
+                    ...objectDetails[field],
                     [label]: event.target.value
                 }
             })}
-            fullWidth={true} margin={'normal'}
+            fullWidth={true} 
+            margin={'normal'}
             helperText={helperText}
         />
     )
 const Address = ({
     helperText,
     field,
-    studentDetails,
-    setStudentDetails
+    objectDetails,
+    setObjectDetails
 }) => {
 
     return (
@@ -40,8 +42,8 @@ const Address = ({
                 placeholder={"Line 1"}
                 helperText={helperText}
                 field={field}
-                studentDetails={studentDetails}
-                setStudentDetails={setStudentDetails}
+                objectDetails={objectDetails}
+                setObjectDetails={setObjectDetails}
             />
             <CustomeTextField
                 label={'line2'}
@@ -49,8 +51,8 @@ const Address = ({
                 placeholder={"Line 2"}
                 helperText={helperText}
                 field={field}
-                studentDetails={studentDetails}
-                setStudentDetails={setStudentDetails}
+                objectDetails={objectDetails}
+                setObjectDetails={setObjectDetails}
             />
             <CustomeTextField
                 label={'line3'}
@@ -58,8 +60,8 @@ const Address = ({
                 placeholder={"Line 3"}
                 helperText={helperText}
                 field={field}
-                studentDetails={studentDetails}
-                setStudentDetails={setStudentDetails}
+                objectDetails={objectDetails}
+                setObjectDetails={setObjectDetails}
             />
             <CustomeTextField
                 label={'postalCode'}
@@ -67,8 +69,8 @@ const Address = ({
                 placeholder={"Postal Code"}
                 helperText={helperText}
                 field={field}
-                studentDetails={studentDetails}
-                setStudentDetails={setStudentDetails}
+                objectDetails={objectDetails}
+                setObjectDetails={setObjectDetails}
             />
         </>
     )

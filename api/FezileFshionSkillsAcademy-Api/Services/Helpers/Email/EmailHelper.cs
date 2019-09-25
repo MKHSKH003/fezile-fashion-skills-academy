@@ -27,15 +27,20 @@ namespace FezileFashionSkillsAcademy.Services.shared.Helpers
                 EnableSsl = false
             };
             var message = new StringBuilder();
-            message.Append("Hi " + "ddd" + "\n\n");
-            message.Append("This is a confirmation email that you have been successfully registered with FEZILE FASHION SKILLS ACADEMY, welcome." + "\n\n");
+            message.Append("Hi " + name + "\n\n");
+            message.Append("This is a confirmation email that you have been successfully registered with Fezile Fashion Skills Academy, welcome." + "\n\n");
 
             message.Append("USERNAME: " + email + "\n");
             message.Append("PASSWORD: " + password + " (keep you password safe do not share it with anyone.)" + "\n\n");
 
             message.Append("Kind Regards" + "\n" + "Client Support");
 
-            client.Send("infos@targetonline.co.za", email, "REGISTRATION CONFIRMATION", message.ToString());
+            client.Send("info@targetonline.co.za", email, "REGISTRATION CONFIRMATION", message.ToString());
+        }
+
+        public void sendApplicationDetails(Models.Application application)
+        {
+
         }
     }
 }

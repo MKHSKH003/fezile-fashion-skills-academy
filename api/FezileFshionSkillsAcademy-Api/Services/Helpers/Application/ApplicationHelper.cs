@@ -185,26 +185,13 @@ namespace FezileFashionSkillsAcademy.Services.shared.Helpers
                 Year = highSchoolRecord.Year,
                 Country = highSchoolRecord.Country,
                 Aggregate = highSchoolRecord.Aggregate,
-                HighSchoolSeniorCertificateId = saveHighSchoolSeniorCertificate(highSchoolRecord.HighSchoolSeniorCertificate)
+                HighSchoolSeniorCertificateId = highSchoolRecord.HighSchoolSeniorCertificateId
             };
 
             _ffsaDbContext.Add(dbHighSchoolRecord);
             _ffsaDbContext.SaveChanges();
 
             return dbHighSchoolRecord.Id;
-        }
-
-        public int saveHighSchoolSeniorCertificate(HighSchoolSeniorCertificate highSchoolSeniorCertificate)
-        {
-            var dbHighSchoolSeniorCertificate = new HighSchoolSeniorCertificate()
-            {
-                Description = highSchoolSeniorCertificate.Description
-            };
-
-            _ffsaDbContext.Add(dbHighSchoolSeniorCertificate);
-            _ffsaDbContext.SaveChanges();
-
-            return dbHighSchoolSeniorCertificate.Id;
         }
 
         public int SaveGuidanceConsellor(Models.MarketingMediaGuidanceConsellor MarketingMediaGuidanceConsellor)

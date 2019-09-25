@@ -6,22 +6,23 @@ import useStyles from '../shared/utils/use-styles';
 import FormControlSelect from '../shared/components/form-control-select';
 import CustomTextField from '../shared/components/custom-text-field';
 
+const marketingMediaOptions = [
+    "",
+    "Exhibition",
+    "Newspaper",
+    "Internet(Website)",
+    "Friends",
+    "Family/Parents",
+    "Posters",
+    "School Visit",
+    "Guidance Consellor"
+]
+
 const Marketing = ({
     marketingDetails,
     setMarketingDetails
 }) => {
     const classes = useStyles();
-    const marketingMediaOptions = [
-        "",
-        "Exhibition",
-        "Newspaper",
-        "Internet(Website)",
-        "Friends",
-        "Family/Parents",
-        "Posters",
-        "School Visit",
-        "Guidance Consellor"
-    ]
     
     return (
         <div className={classes.root}>

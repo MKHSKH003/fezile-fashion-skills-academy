@@ -3,6 +3,9 @@ import { Wizard } from "@patternfly/react-core";
 
 import StudentDetails from "./sections/student-details/student-details"
 import Marketing from "./sections/Marketing";
+import Course from "./sections/Course";
+import ParentOrGuardianDetails from "./sections/ParentOrGuardianDetails";
+import AcademicHistory from "./sections/AcademicHistory";
 
 const Registration = ({
   userSession,
@@ -33,11 +36,63 @@ const Registration = ({
       guidanceConsellorContact: ''
   })
 
+  const [course, setCourse] = useState({
+      courseId: ''
+  })
+
+  const [parentOrGuardianDetails, setParentOrGuardianDetails] = useState({
+      relationship: '',
+      idNumber: '',
+      telWork: '',
+      telHome: '',
+      cell: '',
+      email: '',
+      residentialAddress: {},
+      postalAddress: {},
+  })
+
+  const [academicHistory, setAcademicHistory] = useState({
+      highSchoolRecord: {
+        lastHighSchoolAttended: '',
+        year: '',
+        country: '',
+        aggregate: '',
+        highSchoolSeniorCertificateId: ''
+      },
+      tertiaryStudyRecord: {
+        tertiaryYear1Record: {
+          qualificationDescription: '',
+          institution: '',
+          totalCredits: '',
+          yearsOfStudy: '',
+          completedId: ''
+        },
+        tertiaryYear2Record: {
+          tertiaryYear1Record: {
+            qualificationDescription: '',
+            institution: '',
+            totalCredits: '',
+            yearsOfStudy: '',
+            completedId: ''
+          },
+        },
+        tertiaryYear3Record: {
+          tertiaryYear1Record: {
+            qualificationDescription: '',
+            institution: '',
+            totalCredits: '',
+            yearsOfStudy: '',
+            completedId: ''
+          },
+        }
+      },
+  })
+
   const steps = [
     { 
       name: 'Student Details', 
       component: 
-      <StudentDetails 
+      <StudentDetails
         studentDetails={studentDetails}
         setStudentDetails={setStudentDetails}
       /> 
@@ -50,9 +105,30 @@ const Registration = ({
         setMarketingDetails={setMarketingDetails}
       /> 
     },
-    { name: 'Course', component: <p>Course</p> },
-    { name: 'Parent / Guardian Details', component: <p>Parent / Guardian Details</p> },
-    { name: 'Academic History', component: <p>Academic History</p> },
+    { 
+      name: 'Course',
+      component: 
+      <Course 
+        course={course}
+        setCourse={setCourse}
+      /> 
+    },
+    { 
+      name: 'Parent / Guardian Details',
+      component: 
+      <ParentOrGuardianDetails
+        parentOrGuardianDetails={parentOrGuardianDetails}
+        setParentOrGuardianDetails={setParentOrGuardianDetails}
+      /> 
+    },
+    { 
+      name: 'Academic History',
+      component: 
+      <AcademicHistory
+        academicHistory={academicHistory}
+        setAcademicHistory={setAcademicHistory}
+      /> 
+    },
     { name: 'Declaration', component: <p>Declaration</p>, hideCancelButton: true, nextButtonText: 'Submit'}
   ];
 
@@ -60,7 +136,7 @@ const Registration = ({
     <React.Fragment>
         <Wizard
           isOpen={true}
-          onSave={ ()=> console.log('submitting...', marketingDetails) } 
+          onSave={ ()=> console.log('submitting...',studentDetails ,marketingDetails, course, parentOrGuardianDetails, academicHistory) } 
           onClose={() => setUserSession({
               ...userSession,
               state: {

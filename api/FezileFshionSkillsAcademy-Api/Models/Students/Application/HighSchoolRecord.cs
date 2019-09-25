@@ -9,6 +9,6 @@ namespace FezileFashionSkillsAcademy.Models
         public int? Year { get; set; }
         public string Country { get; set; }
         public string Aggregate { get; set; }
-        public HighSchoolSeniorCertificate HighSchoolSeniorCertificate { get; set; }
+        public int? HighSchoolSeniorCertificateId { get; set; }
     }
 }
