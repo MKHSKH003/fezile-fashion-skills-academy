@@ -6,10 +6,12 @@ import Marketing from "./sections/Marketing";
 import Course from "./sections/Course";
 import ParentOrGuardianDetails from "./sections/ParentOrGuardianDetails";
 import AcademicHistory from "./sections/AcademicHistory";
+import DeclarationDetails from "./sections/DeclarationDetails";
 
 const Registration = ({
   userSession,
-  setUserSession
+  setUserSession,
+  submitApplication
 }) => {
   const [studentDetails, setStudentDetails] = useState({
       surname: userSession.user.LastName,
@@ -88,55 +90,99 @@ const Registration = ({
       },
   })
 
+  const [declarationDetails, setDeclarationDetails] = useState({
+    applicantDeclaration: {
+      fullName: '',
+      IdorPassportNumber: '',
+      applicantSignature:{
+        signatureInitials: '',
+        date: Date.now()
+      },
+      witnessSignature:{
+        signatureInitials: '',
+        date: Date.now()
+      },
+      parentOrGuardianDetailsSignature:{
+        signatureInitials: '',
+        date: Date.now()
+      }
+    },
+    benifactorDeclaration:{
+      signature:{
+        signatureInitials: '',
+        date: Date.now()
+      },
+      idNumber: ''
+    }
+  })
+
   const steps = [
     { 
       name: 'Student Details', 
       component: 
-      <StudentDetails
-        studentDetails={studentDetails}
-        setStudentDetails={setStudentDetails}
-      /> 
+        <StudentDetails
+          studentDetails={studentDetails}
+          setStudentDetails={setStudentDetails}
+        /> 
     },
     { 
       name: 'Marketing', 
       component: 
-      <Marketing 
-        marketingDetails={marketingDetails}
-        setMarketingDetails={setMarketingDetails}
-      /> 
+        <Marketing 
+          marketingDetails={marketingDetails}
+          setMarketingDetails={setMarketingDetails}
+        /> 
     },
     { 
       name: 'Course',
       component: 
-      <Course 
-        course={course}
-        setCourse={setCourse}
-      /> 
+        <Course 
+          course={course}
+          setCourse={setCourse}
+        /> 
     },
     { 
       name: 'Parent / Guardian Details',
       component: 
-      <ParentOrGuardianDetails
-        parentOrGuardianDetails={parentOrGuardianDetails}
-        setParentOrGuardianDetails={setParentOrGuardianDetails}
-      /> 
+        <ParentOrGuardianDetails
+          parentOrGuardianDetails={parentOrGuardianDetails}
+          setParentOrGuardianDetails={setParentOrGuardianDetails}
+        /> 
     },
     { 
       name: 'Academic History',
       component: 
-      <AcademicHistory
-        academicHistory={academicHistory}
-        setAcademicHistory={setAcademicHistory}
-      /> 
+        <AcademicHistory
+          academicHistory={academicHistory}
+          setAcademicHistory={setAcademicHistory}
+        /> 
     },
-    { name: 'Declaration', component: <p>Declaration</p>, hideCancelButton: true, nextButtonText: 'Submit'}
+    { 
+      name: 'Declaration', 
+      component: 
+        <DeclarationDetails
+          declarationDetails={declarationDetails}
+          setDeclarationDetails={setDeclarationDetails}
+        />, 
+      hideCancelButton: true, 
+      nextButtonText: 'Submit'
+    }
   ];
 
   return (
     <React.Fragment>
         <Wizard
           isOpen={true}
-          onSave={ ()=> console.log('submitting...',studentDetails ,marketingDetails, course, parentOrGuardianDetails, academicHistory) } 
+          onSave={()=> {
+            submitApplication({
+              studentDetails: studentDetails,
+              marketing: marketingDetails,
+              courseId: course,
+              parentOrGuardianDetails: parentOrGuardianDetails,
+              academicHistory: academicHistory,
+              declaration: declarationDetails
+            })
+          }} 
           onClose={() => setUserSession({
               ...userSession,
               state: {

@@ -13,7 +13,7 @@ import GridContainer from "shared/components/Grid/GridContainer.js";
 import GridItem from "shared/components/Grid/GridItem.js";
 import InfoArea from "shared/components/InfoArea/InfoArea.js";
 import Button from "shared/components/CustomButtons/Button.js";
-import Registration from "shared/components/registration/registration";
+import Registration from "shared/components/registration";
 
 import styles from "assets/jss/material-kit-react/views/landingPageSections/productStyle.js";
 

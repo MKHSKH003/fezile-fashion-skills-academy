@@ -26,7 +26,7 @@ namespace FezileFshionSkillsAcademy.Services.Validations.Logins
                 return (true, "Email already exists!");
             }
 
-            return (true, "userEmailCorrect");
+            return (true, "userDetailsApproved.");
         }
     }
 }

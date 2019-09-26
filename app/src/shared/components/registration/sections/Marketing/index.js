@@ -3,8 +3,8 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 
 import useStyles from '../shared/utils/use-styles';
-import FormControlSelect from '../shared/components/form-control-select';
-import CustomTextField from '../shared/components/custom-text-field';
+import FormControlSelect from 'shared/components/dimensional-form-control-select/1D-form-control-select';
+import CustomTextField from 'shared/components/dimensional-text-fields/1D-text-field';
 
 const marketingMediaOptions = [
     "",

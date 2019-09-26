@@ -40,7 +40,7 @@ namespace FezileFashionSkillsAcademy.Services
         public UserSignup Signup(Models.User user)
         {
             var verifyUserEmail = _loginsValidation.verifyUserEmail(user.Email);
-            UserSignup userSignup = new UserSignup();
+            UserSignup userSignup = new UserSignup() { message = verifyUserEmail.message };
 
             if (verifyUserEmail.userEmailCorrect)
             {

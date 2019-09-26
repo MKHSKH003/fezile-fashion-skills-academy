@@ -1,35 +1,10 @@
 import React from 'react';
-import { TextField } from '@material-ui/core';
 
-const CustomeTextField = ({
-    label,
-    placeholder,
-    helperText,
-    field,
-    type,
-    objectDetails,
-    setObjectDetails
-}) => (
-        <TextField
-            id={label}
-            type={type}
-            placeholder={placeholder}
-            value={objectDetails[field][label]}
-            onChange={event => setObjectDetails({
-                ...objectDetails,
-                [field]: {
-                    ...objectDetails[field],
-                    [label]: event.target.value
-                }
-            })}
-            fullWidth={true} 
-            margin={'normal'}
-            helperText={helperText}
-        />
-    )
+import CustomeTextField from '../dimensional-text-fields/2D-text-field'
+
 const Address = ({
     helperText,
-    field,
+    field1,
     objectDetails,
     setObjectDetails
 }) => {
@@ -37,38 +12,38 @@ const Address = ({
     return (
         <>
             <CustomeTextField
-                label={'line1'}
+                field1={field1}
+                field2={'line1'}
                 type="text"
                 placeholder={"Line 1"}
                 helperText={helperText}
-                field={field}
                 objectDetails={objectDetails}
                 setObjectDetails={setObjectDetails}
             />
             <CustomeTextField
-                label={'line2'}
+                field2={'line2'}
                 type="text"
                 placeholder={"Line 2"}
                 helperText={helperText}
-                field={field}
+                field1={field1}
                 objectDetails={objectDetails}
                 setObjectDetails={setObjectDetails}
             />
             <CustomeTextField
-                label={'line3'}
+                field2={'line3'}
                 type="text"
                 placeholder={"Line 3"}
                 helperText={helperText}
-                field={field}
+                field1={field1}
                 objectDetails={objectDetails}
                 setObjectDetails={setObjectDetails}
             />
             <CustomeTextField
-                label={'postalCode'}
+                field2={'postalCode'}
                 type="number"
                 placeholder={"Postal Code"}
                 helperText={helperText}
-                field={field}
+                field1={field1}
                 objectDetails={objectDetails}
                 setObjectDetails={setObjectDetails}
             />

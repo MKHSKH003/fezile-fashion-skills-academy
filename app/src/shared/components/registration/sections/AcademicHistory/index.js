@@ -1,18 +1,12 @@
 import React, { useState } from 'react';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import { TextField } from '@material-ui/core';
 
-import InputLabel from '@material-ui/core/InputLabel';
-import Button from "@material-ui/core/Button";
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
-
-import Address from 'shared/components/address/';
 import useStyles from '../shared/utils/use-styles';
-import FormControlSelect from '../shared/components/form-control-select';
-import CustomTextField from '../shared/components/Academic-history-text-field';
-import ThreeDTextField from '../shared/components/3D-text-field';
+import TwoDControlSelect from 'shared/components/dimensional-form-control-select/2D-form-control-select';
+import ThreeDControlSelect from 'shared/components/dimensional-form-control-select/3D-form-control-select';
+import TwoDTextField from 'shared/components/dimensional-text-fields/2D-text-field';
+import ThreeDTextField from 'shared/components/dimensional-text-fields/3D-text-field';
 
 const highSchoolSeniorCertificates = [
     "",
@@ -31,52 +25,33 @@ const AcademicHistory = ({
     setAcademicHistory
 }) => {
     const classes = useStyles();
-    const [extras, setExtras] = useState({
-        race: ''
-    })
-    /*
-    highSchoolRecord: {
-        lastHighSchoolAttended: '',
-        year: '',
-        country: '',
-        aggregate: '',
-        highSchoolSeniorCertificateId: ''
-      },
-
-    tertiaryYear1Record: {
-        qualificationDescription: '',
-        institution: '',
-        totalCredits: '',
-        yearsOfStudy: '',
-        completedId: ''
-    },
-    */
+ 
     return (
         <div className={classes.root}>
             <Grid container spacing={3}>
                 <Grid item xs={12} sm={12} md={6} >
                     <Paper className={classes.paper}>
-                        <CustomTextField
+                        <TwoDTextField
                             type="text"
-                            field={'highSchoolRecord'}
-                            label={'lastHighSchoolAttended'}
+                            field1={'highSchoolRecord'}
+                            field2={'lastHighSchoolAttended'}
                             value={academicHistory.highSchoolRecord.lastHighSchoolAttended}
                             placeholder={"Last High School Attended"}
                             objectDetails={academicHistory}
                             setObjectDetails={setAcademicHistory}
                         />
-                        <CustomTextField
+                        <TwoDTextField
                             type="number"
-                            field={'highSchoolRecord'}
-                            label={'year'}
+                            field1={'highSchoolRecord'}
+                            field2={'year'}
                             placeholder={"Year"}
                             objectDetails={academicHistory}
                             setObjectDetails={setAcademicHistory}
                         />
-                        <CustomTextField
+                        <TwoDTextField
                             type="text"
-                            field={'highSchoolRecord'}
-                            label={'country'}
+                            field1={'highSchoolRecord'}
+                            field2={'country'}
                             placeholder={"Country"}
                             objectDetails={academicHistory}
                             setObjectDetails={setAcademicHistory}
@@ -85,19 +60,19 @@ const AcademicHistory = ({
                 </Grid>
                 <Grid item xs={12} sm={12} md={6} >
                     <Paper className={classes.paper}>
-                        <CustomTextField
+                        <TwoDTextField
                             type="number"
-                            field={'highSchoolRecord'}
-                            label={'aggregate'}
+                            field1={'highSchoolRecord'}
+                            field2={'aggregate'}
                             placeholder={"Aggregate"}
                             objectDetails={academicHistory}
                             setObjectDetails={setAcademicHistory}
                         />
-                        <FormControlSelect
-                            field={'highSchoolRecord'}
+                        <TwoDControlSelect
+                            field1={'highSchoolRecord'}
+                            field2={'highSchoolSeniorCertificateId'}
                             label={"High School Senior Certificate"}
                             options={highSchoolSeniorCertificates}
-                            index={true}
                             classes={classes}
                             objectDetails={academicHistory}
                             setObjectDetails={setAcademicHistory}
@@ -109,9 +84,9 @@ const AcademicHistory = ({
                     <Paper className={classes.paper}>
                         <ThreeDTextField
                             type="text"
-                            field={'tertiaryStudyRecord'}
-                            field1={'tertiaryYear1Record'}
-                            field2={'qualificationDescription'}
+                            field1={'tertiaryStudyRecord'}
+                            field2={'tertiaryYear1Record'}
+                            field3={'qualificationDescription'}
                             helperText={'Tertiary Year 1 Record'}
                             placeholder={"Qualification Description"}
                             objectDetails={academicHistory}
@@ -119,9 +94,9 @@ const AcademicHistory = ({
                         />
                         <ThreeDTextField
                             type="text"
-                            field={'tertiaryStudyRecord'}
-                            field1={'tertiaryYear1Record'}
-                            field2={'institution'}
+                            field1={'tertiaryStudyRecord'}
+                            field2={'tertiaryYear1Record'}
+                            field3={'institution'}
                             helperText={'Tertiary Year 1 Record'}
                             placeholder={"Institution"}
                             objectDetails={academicHistory}
@@ -129,9 +104,9 @@ const AcademicHistory = ({
                         />
                         <ThreeDTextField
                             type="text"
-                            field={'tertiaryStudyRecord'}
-                            field1={'tertiaryYear1Record'}
-                            field2={'totalCredits'}
+                            field1={'tertiaryStudyRecord'}
+                            field2={'tertiaryYear1Record'}
+                            field3={'totalCredits'}
                             helperText={'Tertiary Year 1 Record'}
                             placeholder={"Total Credits"}
                             objectDetails={academicHistory}
@@ -139,17 +114,131 @@ const AcademicHistory = ({
                         />
                         <ThreeDTextField
                             type="text"
-                            field={'tertiaryStudyRecord'}
-                            field1={'tertiaryYear1Record'}
-                            field2={'yearsOfStudy'}
+                            field1={'tertiaryStudyRecord'}
+                            field2={'tertiaryYear1Record'}
+                            field3={'yearsOfStudy'}
                             helperText={'Tertiary Year 1 Record'}
                             placeholder={"Year Of Study"}
                             objectDetails={academicHistory}
                             setObjectDetails={setAcademicHistory}
                         />
     
-                        <FormControlSelect
-                            field={'completedId'}
+                        <TwoDControlSelect
+                            field1={'tertiaryStudyRecord'}
+                            field2={'tertiaryYear1Record'}
+                            field3={'completedId'}
+                            label={"Completed ?"}
+                            options={["", "Yes", "No"]}
+                            index={true}
+                            classes={classes}
+                            objectDetails={academicHistory}
+                            setObjectDetails={setAcademicHistory}
+                        />
+                    </Paper>
+                </Grid>
+                <Grid item xs={12} sm={12} md={6} >
+                    <Paper className={classes.paper}>
+                        <ThreeDTextField
+                            type="text"
+                            field1={'tertiaryStudyRecord'}
+                            field2={'tertiaryYear2Record'}
+                            field3={'qualificationDescription'}
+                            helperText={'Tertiary Year 2 Record'}
+                            placeholder={"Qualification Description"}
+                            objectDetails={academicHistory}
+                            setObjectDetails={setAcademicHistory}
+                        />
+                        <ThreeDTextField
+                            type="text"
+                            field1={'tertiaryStudyRecord'}
+                            field2={'tertiaryYear2Record'}
+                            field3={'institution'}
+                            helperText={'Tertiary Year 2 Record'}
+                            placeholder={"Institution"}
+                            objectDetails={academicHistory}
+                            setObjectDetails={setAcademicHistory}
+                        />
+                        <ThreeDTextField
+                            type="text"
+                            field1={'tertiaryStudyRecord'}
+                            field2={'tertiaryYear2Record'}
+                            field3={'totalCredits'}
+                            helperText={'Tertiary Year 2 Record'}
+                            placeholder={"Total Credits"}
+                            objectDetails={academicHistory}
+                            setObjectDetails={setAcademicHistory}
+                        />
+                        <ThreeDTextField
+                            type="text"
+                            field1={'tertiaryStudyRecord'}
+                            field2={'tertiaryYear2Record'}
+                            field3={'yearsOfStudy'}
+                            helperText={'Tertiary Year 2 Record'}
+                            placeholder={"Year Of Study"}
+                            objectDetails={academicHistory}
+                            setObjectDetails={setAcademicHistory}
+                        />
+    
+                        <TwoDControlSelect
+                            field1={'tertiaryStudyRecord'}
+                            field2={'tertiaryYear2Record'}
+                            field3={'completedId'}
+                            label={"Completed ?"}
+                            options={["", "Yes", "No"]}
+                            index={true}
+                            classes={classes}
+                            objectDetails={academicHistory}
+                            setObjectDetails={setAcademicHistory}
+                        />
+                    </Paper>
+                </Grid>
+                <Grid item xs={12} sm={12} md={6} >
+                    <Paper className={classes.paper}>
+                        <ThreeDTextField
+                            type="text"
+                            field1={'tertiaryStudyRecord'}
+                            field2={'tertiaryYear3Record'}
+                            field3={'qualificationDescription'}
+                            helperText={'Tertiary Year 3 Record'}
+                            placeholder={"Qualification Description"}
+                            objectDetails={academicHistory}
+                            setObjectDetails={setAcademicHistory}
+                        />
+                        <ThreeDTextField
+                            type="text"
+                            field1={'tertiaryStudyRecord'}
+                            field2={'tertiaryYear3Record'}
+                            field3={'institution'}
+                            helperText={'Tertiary Year 3 Record'}
+                            placeholder={"Institution"}
+                            objectDetails={academicHistory}
+                            setObjectDetails={setAcademicHistory}
+                        />
+                        <ThreeDTextField
+                            type="text"
+                            field1={'tertiaryStudyRecord'}
+                            field2={'tertiaryYear3Record'}
+                            field3={'totalCredits'}
+                            helperText={'Tertiary Year 3 Record'}
+                            placeholder={"Total Credits"}
+                            objectDetails={academicHistory}
+                            setObjectDetails={setAcademicHistory}
+                        />
+                        <ThreeDTextField
+                            type="text"
+                            field1={'tertiaryStudyRecord'}
+                            field2={'tertiaryYear3Record'}
+                            field3={'yearsOfStudy'}
+                            helperText={'Tertiary Year 3 Record'}
+                            placeholder={"Year Of Study"}
+                            objectDetails={academicHistory}
+                            setObjectDetails={setAcademicHistory}
+                        />
+    
+                        <TwoDControlSelect
+                            field1={'tertiaryStudyRecord'}
+                            field2={'tertiaryYear3Record'}
+                            field3={'completedId'}
                             label={"Completed ?"}
                             options={["", "Yes", "No"]}
                             index={true}

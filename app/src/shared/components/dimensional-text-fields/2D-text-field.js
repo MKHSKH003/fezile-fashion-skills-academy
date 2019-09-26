@@ -3,11 +3,11 @@ import React from 'react';
 import { TextField } from '@material-ui/core';
 
 const AcademicHistoryTextField = ({
-    field,
+    field1,
     placeholder,
     helperText,
     type,
-    label,
+    field2,
     objectDetails,
     setObjectDetails
 }) => (
@@ -16,12 +16,12 @@ const AcademicHistoryTextField = ({
             placeholder={placeholder}
             helperText={helperText}
             fullWidth={true}
-            value={objectDetails[field][label]}
+            value={objectDetails[field1][field2]}
             onChange={event => setObjectDetails({
                 ...objectDetails,
-                [field]: {
-                    ...objectDetails[field],
-                   [label]: event.target.value
+                [field1]: {
+                    ...objectDetails[field1],
+                   [field2]: event.target.value
                 }
             })}
             margin={'normal'}

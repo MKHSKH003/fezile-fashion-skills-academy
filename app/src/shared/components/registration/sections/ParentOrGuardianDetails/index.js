@@ -1,17 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import { TextField } from '@material-ui/core';
-
-import InputLabel from '@material-ui/core/InputLabel';
-import Button from "@material-ui/core/Button";
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
 
 import Address from 'shared/components/address/';
 import useStyles from '../shared/utils/use-styles';
-import FormControlSelect from '../shared/components/form-control-select';
-import CustomTextField from '../shared/components/custom-text-field';
+import CustomTextField from 'shared/components/dimensional-text-fields/1D-text-field';
 
 const ParentOrGuardianDetails = ({
     parentOrGuardianDetails,
@@ -76,7 +69,7 @@ const ParentOrGuardianDetails = ({
                     <Paper className={classes.paper}>
                         <Address
                             helperText={'Residential address (Street).'}
-                            field={'residentialAddress'}
+                            field1={'residentialAddress'}
                             objectDetails={parentOrGuardianDetails}
                             setObjectDetails={setParentOrGuardianDetails}
                         />
@@ -86,7 +79,7 @@ const ParentOrGuardianDetails = ({
                     <Paper className={classes.paper}>
                         <Address
                             helperText={'Postal address (Street) if different.'}
-                            field={'postalAddress'}
+                            field1={'postalAddress'}
                             objectDetails={parentOrGuardianDetails}
                             setObjectDetails={setParentOrGuardianDetails}
                         />
