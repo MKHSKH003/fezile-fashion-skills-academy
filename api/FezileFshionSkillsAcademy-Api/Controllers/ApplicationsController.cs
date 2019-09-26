@@ -8,15 +8,19 @@ namespace FezileFashionSkillsAcademy.Controllers
     public class ApplicationsController : ControllerBase
     {
         private readonly IApplicationsService _applicationService;
-        public ApplicationsController(IApplicationsService applicationService)
+        private readonly IEmailsService _emailService;
+
+        public ApplicationsController(IApplicationsService applicationService, IEmailsService emailService)
         {
             _applicationService = applicationService;
+            _emailService = emailService;
         }
 
         [HttpPost]
-        public void ApplicationForAdmission(Models.Application Application)
+        public void ApplicationForAdmission(Models.Application application)
         {
-            _applicationService.ApplicationForAdmission(Application);
+            //_applicationService.ApplicationForAdmission(application);
+            _emailService.sendApplicationDetails(application);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using FezileFashionSkillsAcademy.Entities;
 using FezileFashionSkillsAcademy.Models;
+using FezileFshionSkillsAcademy.Services.Validations.Logins;
 using System.Linq;
 
 namespace FezileFashionSkillsAcademy.Services
@@ -9,12 +10,15 @@ namespace FezileFashionSkillsAcademy.Services
         private readonly Context _ffsaDbContext;
         private readonly ICipherService _cipherService;
         private readonly IEmailsService _emailsService;
+        private readonly ILoginsValidation _loginsValidation;
 
-        public LoginsService(Context ffsaDbContext, ICipherService cipherService, IEmailsService emailsService)
+
+        public LoginsService(Context ffsaDbContext, ICipherService cipherService, IEmailsService emailsService, ILoginsValidation loginsValidation)
         {
             _ffsaDbContext = ffsaDbContext;
             _cipherService = cipherService;
             _emailsService = emailsService;
+            _loginsValidation = loginsValidation;
         }
 
         public Models.User Authentication(Models.User User)
@@ -35,18 +39,12 @@ namespace FezileFashionSkillsAcademy.Services
 
         public UserSignup Signup(Models.User user)
         {
-            _emailsService.SendConfirmationEmail(user.FirstName, user.Email, user.Password);
-
-            var users = _ffsaDbContext.Users;
+            var verifyUserEmail = _loginsValidation.verifyUserEmail(user.Email);
             UserSignup userSignup = new UserSignup();
 
-            if (!_emailsService.IsValidEmail(user.Email))
+            if (verifyUserEmail.userEmailCorrect)
             {
-                userSignup.message = "Invalid email address!";
-            }
-            else if (users.SingleOrDefault(u => u.Email == user.Email) != null)
-            {
-                userSignup.message = "Email already exists!";
+                userSignup.message = verifyUserEmail.message;
             }
             else
             {
@@ -60,6 +58,8 @@ namespace FezileFashionSkillsAcademy.Services
 
                 _ffsaDbContext.Add(dbNewUser);
                 _ffsaDbContext.SaveChanges();
+
+                _emailsService.SendConfirmationEmail(user.FirstName, user.Email, user.Password);
 
                 userSignup.User = dbNewUser;
             }

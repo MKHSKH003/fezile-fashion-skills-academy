@@ -10,7 +10,7 @@ namespace FezileFashionSkillsAcademy.Models.Configuration
         public string Key { get; set; }
         public string EmailAccount { get; set; }
         public string EmailPassword { get; set; }
-        public string TempEmailPassword { get; set; }
+        public string FFSA { get; set; }
         public string Host { get; set; }
         public int Port { get; set; }
         public string Database { get; set; }
