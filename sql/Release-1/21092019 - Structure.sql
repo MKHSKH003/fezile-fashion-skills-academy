@@ -311,6 +311,7 @@ CREATE TABLE IF NOT EXISTS `ApplicantDeclaration`
 CREATE TABLE IF NOT EXISTS `BenifactorDeclaration`
 (
 	ID INT(11) NOT NULL AUTO_INCREMENT, 
+	FullName VARCHAR(100) NULL,
 	SignatureID  INT(11) NOT NULL ,
 	IDNumber INT(11) NOT NULL, 
 	CONSTRAINT PF_Ffsa_BenifactorDeclaration	

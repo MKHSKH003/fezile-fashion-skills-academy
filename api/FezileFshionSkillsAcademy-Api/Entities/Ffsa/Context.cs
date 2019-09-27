@@ -13,29 +13,29 @@ namespace FezileFashionSkillsAcademy.Entities
             _environmentConfig = environmentConfig.Value;
         }
 
-        public virtual DbSet<AcademicHistory> AcademicHistory { get; set; }
-        public virtual DbSet<Address> Address { get; set; }
-        public virtual DbSet<ApplicantDeclaration> ApplicantDeclaration { get; set; }
-        public virtual DbSet<Application> Application { get; set; }
-        public virtual DbSet<BenifactorDeclaration> BenifactorDeclaration { get; set; }
-        public virtual DbSet<Course> Course { get; set; }
-        public virtual DbSet<CourseCertificate> CourseCertificate { get; set; }
-        public virtual DbSet<CourseDuration> CourseDuration { get; set; }
-        public virtual DbSet<CourseSchedule> CourseSchedule { get; set; }
+        public virtual DbSet<AcademicHistory> AcademicHistories { get; set; }
+        public virtual DbSet<Address> Addresses { get; set; }
+        public virtual DbSet<ApplicantDeclaration> ApplicantDeclarations { get; set; }
+        public virtual DbSet<Application> Applications { get; set; }
+        public virtual DbSet<BenifactorDeclaration> BenifactorDeclarations { get; set; }
+        public virtual DbSet<Course> Courses { get; set; }
+        public virtual DbSet<CourseCertificate> CourseCertificates { get; set; }
+        public virtual DbSet<CourseDuration> CourseDurations { get; set; }
+        public virtual DbSet<CourseSchedule> CourseSchedules { get; set; }
         public virtual DbSet<CourseSyllabus> CourseSyllabus { get; set; }
-        public virtual DbSet<CourseTechnicalSample> CourseTechnicalSample { get; set; }
-        public virtual DbSet<Declaration> Declaration { get; set; }
+        public virtual DbSet<CourseTechnicalSample> CourseTechnicalSamples { get; set; }
+        public virtual DbSet<Declaration> Declarations { get; set; }
         public virtual DbSet<Fees> Fees { get; set; }
-        public virtual DbSet<HighSchoolRecord> HighSchoolRecord { get; set; }
-        public virtual DbSet<HighSchoolSeniorCertificate> HighSchoolSeniorCertificate { get; set; }
+        public virtual DbSet<HighSchoolRecord> HighSchoolRecords { get; set; }
+        public virtual DbSet<HighSchoolSeniorCertificate> HighSchoolSeniorCertificates { get; set; }
         public virtual DbSet<Marketing> Marketing { get; set; }
-        public virtual DbSet<MarketingMedia> MarketingMedia { get; set; }
-        public virtual DbSet<MarketingMediaGuidanceConsellor> MarketingMediaGuidanceConsellor { get; set; }
+        public virtual DbSet<MarketingMedia> MarketingPlatforms { get; set; }
+        public virtual DbSet<MarketingMediaGuidanceConsellor> MarketingMediaGuidanceConsellors { get; set; }
         public virtual DbSet<ParentOrGuardianDetails> ParentOrGuardianDetails { get; set; }
-        public virtual DbSet<Signature> Signature { get; set; }
+        public virtual DbSet<Signature> Signatures { get; set; }
         public virtual DbSet<StudentDetails> StudentDetails { get; set; }
-        public virtual DbSet<TertiaryYearRecord> TertiaryYearRecord { get; set; }
-        public virtual DbSet<TertiaryStudyRecord> TertiaryStudyRecord { get; set; }
+        public virtual DbSet<TertiaryYearRecord> TertiaryYearRecords { get; set; }
+        public virtual DbSet<TertiaryStudyRecord> TertiaryStudyRecords { get; set; }
         public virtual DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -190,6 +190,10 @@ namespace FezileFashionSkillsAcademy.Entities
                 entity.Property(e => e.Id)
                     .HasColumnName("ID")
                     .HasColumnType("int(11)");
+
+                entity.Property(e => e.FullName)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Idnumber)
                     .HasColumnName("IDNumber")
