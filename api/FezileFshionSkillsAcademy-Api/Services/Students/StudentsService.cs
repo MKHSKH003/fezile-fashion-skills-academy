@@ -17,7 +17,5 @@ namespace FezileFashionSkillsAcademy.Services
             _ffsaDbContext = ffsaDbContext;
             _emailsService = emailsService;
         }
-
-        
     }
 }

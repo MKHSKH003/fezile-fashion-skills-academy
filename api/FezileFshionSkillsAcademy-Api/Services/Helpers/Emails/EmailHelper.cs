@@ -45,10 +45,103 @@ namespace FezileFashionSkillsAcademy.Services.shared.Helpers
             message.Body += constructStudentDetailsBodySection(application.StudentDetails);
             message.Body += constructMarketingDetailsBodySection(application.Marketing);
             message.Body += constructCourseDetailsBodySection(application.CourseId+"");
+            message.Body += constructParentOrGuardianDetailsBodySection(application.ParentOrGuardianDetails);
+            message.Body += constructAcademicHistoryBodySection(application.AcademicHistory);
+            message.Body += constructDeclarationBodySection(application.Declaration);
 
             message.Body += "Kind Regards" + SystemConstants.lineBreak + "Client Support";
 
             return message;
+        }
+
+        public string constructDeclarationBodySection(Models.Declaration declaration)
+        {
+            string declarationBody = "<b>6. DECLARATION (Compulsory)</b>" + SystemConstants.lineSkip;
+
+            string[] applicantValues = {
+                declaration.ApplicantDeclaration.ApplicantSignature.SignatureInitials,
+                declaration.ApplicantDeclaration.ApplicantSignature.Date,
+                declaration.ApplicantDeclaration.WitnessSignature.SignatureInitials,
+                declaration.ApplicantDeclaration.WitnessSignature.Date,
+                declaration.ApplicantDeclaration.ParentOrGuardianDetailsSignature.SignatureInitials,
+                declaration.ApplicantDeclaration.ParentOrGuardianDetailsSignature.Date,
+            };
+
+            string[] benifactorValues = {
+                declaration.BenifactorDeclaration.Signature.SignatureInitials,
+                declaration.BenifactorDeclaration.Signature.Date,
+                declaration.BenifactorDeclaration.Idnumber.ToString(),
+            };
+
+            declarationBody += "I, <b><u>   " + declaration.ApplicantDeclaration.FullName + "   </u></b> (Full Name)," +
+                "ID/Passport Number: <b><u>   " + declaration.ApplicantDeclaration.IdorPassportNumber + "   </u></b> , " +
+                "the undersigned, declare that all the particulars supplied by me in this form are true, " +
+                "complete and correct. I accept that incorrect or misleading information could lead to the cancellation of this application." + SystemConstants.lineSkip;
+
+            declarationBody += ConstructTable(SystemConstants.applicantTitles, applicantValues, "Applicant");
+
+            declarationBody += "<i>This section must be completed by the benefactor, i.e. the person who will be responsible for the payment of all tuition fees.</i>" + SystemConstants.lineSkip;
+
+            declarationBody += "I, <b><u>   " + declaration.BenifactorDeclaration.fullName + "   </u></b> (Full Name), the undersigned, hereby acknowledge myself to be jointly and separately responsible for monies, " +
+                "which the above mentioned applicant may at any stage be owing to FFSA (Pty) Ltd in terms of the agreement that he/she concluded with FFSA (Pty) Ltd, as set out above, including any change thereto." + SystemConstants.lineSkip;
+
+            return declarationBody += ConstructTable(SystemConstants.benifactorTitles, benifactorValues, "Parent/Guardian/Benefactor");
+        }
+
+        public string constructAcademicHistoryBodySection(Models.AcademicHistory academicHistory)
+        {
+            string[] values = {
+                "",
+                academicHistory.HighSchoolRecord.LasHighSchoolAttended,
+                academicHistory.HighSchoolRecord.Year.ToString(),
+                academicHistory.HighSchoolRecord.Country,
+                academicHistory.HighSchoolRecord.Aggregate,
+                academicHistory.HighSchoolRecord.HighSchoolSeniorCertificateId.ToString(),
+                "",
+                "",
+                "",
+                academicHistory.TertiaryStudyRecord.TertiaryYear1Record.QualificationDescription,
+                academicHistory.TertiaryStudyRecord.TertiaryYear1Record.Institution,
+                academicHistory.TertiaryStudyRecord.TertiaryYear1Record.TotalCredits.ToString(),
+                academicHistory.TertiaryStudyRecord.TertiaryYear1Record.YearsOfStudy.ToString(),
+                academicHistory.TertiaryStudyRecord.TertiaryYear1Record.CompletedId.ToString(),
+                "",
+                academicHistory.TertiaryStudyRecord.TertiaryYear2Record.QualificationDescription,
+                academicHistory.TertiaryStudyRecord.TertiaryYear2Record.Institution,
+                academicHistory.TertiaryStudyRecord.TertiaryYear2Record.TotalCredits.ToString(),
+                academicHistory.TertiaryStudyRecord.TertiaryYear2Record.YearsOfStudy.ToString(),
+                academicHistory.TertiaryStudyRecord.TertiaryYear2Record.CompletedId.ToString(),
+                "",
+                academicHistory.TertiaryStudyRecord.TertiaryYear3Record.QualificationDescription,
+                academicHistory.TertiaryStudyRecord.TertiaryYear3Record.Institution,
+                academicHistory.TertiaryStudyRecord.TertiaryYear3Record.TotalCredits.ToString(),
+                academicHistory.TertiaryStudyRecord.TertiaryYear3Record.YearsOfStudy.ToString(),
+                academicHistory.TertiaryStudyRecord.TertiaryYear3Record.CompletedId.ToString(),
+            };
+
+            return ConstructTable(SystemConstants.academicHistoryTitles, values, "5. ACADEMIC HISTORY");
+        }
+
+        public string constructParentOrGuardianDetailsBodySection(Models.ParentOrGuardianDetails parentOrGuardianDetails)
+        {
+            string[] values = {
+                parentOrGuardianDetails.Relationship,
+                parentOrGuardianDetails.Idnumber.ToString(),
+                parentOrGuardianDetails.ResidentialAddress.Line1,
+                parentOrGuardianDetails.ResidentialAddress.Line2,
+                parentOrGuardianDetails.ResidentialAddress.Line3,
+                parentOrGuardianDetails.ResidentialAddress.PostalCode.ToString(),
+                parentOrGuardianDetails.PostalAddress.Line1,
+                parentOrGuardianDetails.PostalAddress.Line2,
+                parentOrGuardianDetails.PostalAddress.Line3,
+                parentOrGuardianDetails.PostalAddress.PostalCode.ToString(),
+                parentOrGuardianDetails.TelHome,
+                parentOrGuardianDetails.TelWork,
+                parentOrGuardianDetails.Cell,
+                parentOrGuardianDetails.Email
+            };
+
+            return ConstructTable(SystemConstants.parentOrGuardianTitles, values, "4. PARENT/GUARDIAN");
         }
 
         public string constructCourseDetailsBodySection(string course)
@@ -103,7 +196,7 @@ namespace FezileFashionSkillsAcademy.Services.shared.Helpers
 
         public string ConstructTable(string[] tableTiles, string[] values, string header)
         {
-            string bodySection = header + SystemConstants.lineSkip;
+            string bodySection = "<b>" + header + "</b>" + SystemConstants.lineSkip;
 
             bodySection += SystemConstants.htmlTableStart;
 
