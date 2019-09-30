@@ -1,0 +1,30 @@
+.MuiFormControlLabel-root.formControlLabel {
+    display: flex;
+    margin-left: 0;
+}
+
+.MuiTypography-body1 {
+        font-size: none !important;
+        font-weight: none;
+        line-height: 1.5;
+        letter-spacing: 0.00938em;
+        padding: 2rem;
+}
+
+.MuiTypography-root.MuiFormControlLabel-label.MuiTypography-body1 {
+    font-size: 0.7rem;
+}
+
+.pf-c-wizard__main {
+    position: sticky
+}
+
+.MuiTypography-root.typography-centered {
+    display: flex;
+    justify-content: center;
+}
+
+.maps {
+    width: 43rem !important;
+    height: 10rem !important;
+}
