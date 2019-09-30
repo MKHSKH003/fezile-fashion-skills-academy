@@ -3,6 +3,7 @@ using FezileFashionSkillsAcademy.Models.Configuration;
 using FezileFshionSkillsAcademy.Utils.Constants;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
+using System.Net;
 using System.Net.Mail;
 using System.Text;
 
@@ -44,6 +45,19 @@ namespace FezileFashionSkillsAcademy.Services.shared.Helpers
             message.Append("Kind Regards" + "\n" + "Client Support");
 
             return message.ToString();
+        }
+
+        public void constructEmailBody(Models.Email email)
+        {
+            var message = new StringBuilder();
+            message.Append("Hi Team" + "\n\n");
+            message.Append("This is a confirmation email that we have recieved your application for course:");
+
+            message.Append("The team wiil be in touch with you soon." + "\n\n");
+
+            message.Append("Kind Regards" + "\n" + "Client Support");
+
+            //return message.ToString();
         }
 
         public MailMessage construcApplicationDetailsBody(Models.Application application)
@@ -224,6 +238,15 @@ namespace FezileFashionSkillsAcademy.Services.shared.Helpers
             bodySection = bodySection + SystemConstants.htmlTableEnd;
 
             return bodySection + SystemConstants.lineSkip;
+        }
+
+        public SmtpClient smtpClient()
+        {
+            return new SmtpClient(_environmentConfig.Host, _environmentConfig.Port)
+            {
+                Credentials = new NetworkCredential(_environmentConfig.EmailAccount, _environmentConfig.EmailPassword),
+                EnableSsl = false
+            };
         }
     }
 }

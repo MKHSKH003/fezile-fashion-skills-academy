@@ -32,40 +32,45 @@ const useStyles = makeStyles(styles);
 
 const LandingPage = ({
     userSession,
-    setUserSession
+    setUserSession,
+    sendEmail
 }) => {
     const classes = useStyles();
-    
+
     return (
         <div>
             {!userSession.state.registration && !(userSession.state.login || userSession.state.signup) &&
-            <Header
-                color="transparent"
-                routes={dashboardRoutes}
-                rightLinks={
-                    <HeaderLinks 
-                        userSession={userSession}
-                        setUserSession={setUserSession}
-                    />
-                } 
-                fixed
-                changeColorOnScroll={{
-                    height: 400,
-                    color: "white"
-                }}
-                userSession={userSession}
-                setUserSession={setUserSession}
-            />}
+                <Header
+                    color="transparent"
+                    routes={dashboardRoutes}
+                    rightLinks={
+                        <HeaderLinks
+                            userSession={userSession}
+                            setUserSession={setUserSession}
+                        />
+                    }
+                    fixed
+                    changeColorOnScroll={{
+                        height: 400,
+                        color: "white"
+                    }}
+                    userSession={userSession}
+                    setUserSession={setUserSession}
+                />}
             <Parallax />
             <div className={classNames(classes.main, classes.mainRaised)}>
                 <div className={classes.container}>
-                    <ProductSection 
+                    <ProductSection
                         userSession={userSession}
                         setUserSession={setUserSession}
                     />
                     {/*<ProductCategories />*/}
                     <TeamSection />
-                    <WorkSection />
+                    <WorkSection
+                        userSession={userSession}
+                        setUserSession={setUserSession}
+                        sendEmail={sendEmail}
+                    />
                 </div>
             </div>
             <Footer />

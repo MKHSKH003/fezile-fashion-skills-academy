@@ -1,9 +1,11 @@
-import * as loginApi from "./login";
+import * as loginsApi from "./logins";
 import * as usersApi from "./users";
-import * as applicationForAdmissionApi from "./applicationForAdmission"
+import * as emailsApi from "./emails";
+import * as applicationsApi from "./applications"
 
 export { 
     usersApi, 
-    loginApi,
-    applicationForAdmissionApi
+    loginsApi,
+    applicationsApi,
+    emailsApi
 };

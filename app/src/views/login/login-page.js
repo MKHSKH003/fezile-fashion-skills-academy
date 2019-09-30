@@ -25,7 +25,6 @@ import CustomInput from "shared/components/CustomInput/CustomInput.js";
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
 
 import image from "assets/img/background-2.jpg";
-import { signup } from "api/login";
 
 const useStyles = makeStyles(styles);
 

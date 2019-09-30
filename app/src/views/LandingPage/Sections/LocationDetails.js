@@ -1,3 +1,5 @@
+import "index.css";
+
 import React from 'react';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
@@ -7,36 +9,27 @@ import Icon from '@material-ui/core/Icon';
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 
 const useStyles = makeStyles(theme => ({
-    root: {
-        //flexGrow: 1,
-    },
     paper: {
         padding: theme.spacing(2),
         textAlign: 'center',
         color: theme.palette.text.secondary,
         //boxShadow: 'none'
     },
-    socialIcons: {
-        position: "relative",
-        fontSize: "20px !important",
-    },
-    label: {
-        margin: '0.5rem'
+    formControlLabel: {
+        display: "flex !important" ,
+        'justify-content': 'space-evenly'
     }
 }));
 
 const CustomControlLabel = ({
     icon,
-    label,
-    classes
+    label
 }) =>
-        <FormControlLabel
-            control={<Icon className={icon} color="primary" />}
-            classes={{
-                label: classes.label
-            }}
-            label={label}
-        />
+    <FormControlLabel
+        className={'formControlLabel'}
+        control={<Icon className={icon} color="primary" />}
+        label={label}
+    />
 
 const LocationDetails = () => {
     const classes = useStyles();
@@ -47,23 +40,20 @@ const LocationDetails = () => {
                 <Grid item xs={12} sm={4} md={4} >
                     <Paper className={classes.paper}>
                         <Grid  >
-                            <CustomControlLabel 
+                            <CustomControlLabel
                                 icon={'fa fa-envelope'}
-                                classes={classes}
                                 label={"admin@ffsaza.co.za"}
                             />
                         </Grid>
                         <Grid >
                             <CustomControlLabel 
                                 icon={'fa fa-phone'} 
-                                classes={classes}
                                 label={"031-100-0141 Cell& What’s app: 0670658662"}
                             />
                         </Grid>
                         <Grid >
                             <CustomControlLabel 
                                 icon={'fa fa-home'} 
-                                classes={classes} 
                                 label={"272 Savannah Park Unit 10 16th Road Randjies Park Midrand Gauteng 1685"}
                             />
                         </Grid>
@@ -74,8 +64,8 @@ const LocationDetails = () => {
                         Maps
                     </Paper>
                 </Grid>
-        </Grid>
-    </div>)
+            </Grid>
+        </div>)
 }
 export default LocationDetails;
 

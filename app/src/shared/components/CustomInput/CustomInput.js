@@ -34,7 +34,6 @@ export default function CustomInput(props) {
     [" " + classes.labelRootSuccess]: success && !error
   });
 
-  const [name, setName]= React.useState('skhu')
   const underlineClasses = classNames({
     [classes.underlineError]: error,
     [classes.underlineSuccess]: success && !error,

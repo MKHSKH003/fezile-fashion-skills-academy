@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 
 import useApi from "shared/utils/react-use-api";
 
-import { applicationForAdmissionApi } from "api";
+import { applicationsApi } from "api";
 import { applicationsBaseUrl } from "shared/constants/api-selectors";
 
 import Registration from "./registration";
@@ -13,13 +13,11 @@ const Container = ({
     setUserSession
 }) => {
     const submitApplication = useApi({
-        action: applicationDetails => {
-            applicationForAdmissionApi.applicationForAdmission(applicationsBaseUrl, applicationDetails)
-        },
+        action: applicationDetails => applicationsApi.applicationForAdmission(applicationsBaseUrl, applicationDetails),
         initialValue: [],
         defer: true,
         onSuccess: () => {
-            toast.success("Application submitted successfully. FFSA Team will be in touch with you Soon.");
+            toast.success("Application submitted successfully, FFSA team will be in touch with you Soon.");
         },
         onError: e => toast.error(e.message == "Failed to fetch" ? "Failed to submit application, please try again later." : e.message)
     },[]);

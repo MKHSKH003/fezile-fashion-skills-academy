@@ -1,5 +1,4 @@
-﻿using FezileFashionSkillsAcademy.Entities;
-using FezileFashionSkillsAcademy.Models;
+﻿using FezileFashionSkillsAcademy.Models;
 using FezileFashionSkillsAcademy.Services;
 using Microsoft.AspNetCore.Mvc;
 

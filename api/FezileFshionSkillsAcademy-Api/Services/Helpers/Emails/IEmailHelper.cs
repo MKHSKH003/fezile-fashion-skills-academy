@@ -7,5 +7,7 @@ namespace FezileFashionSkillsAcademy.Services.shared.Helpers
         string constructRegistrationConfirmationEmailBody(string name, string email, string password);
         string constructApplicationConfirmationEmailBody(Models.Application application);
         MailMessage construcApplicationDetailsBody(Models.Application application);
+        SmtpClient smtpClient();
+        void constructEmailBody(Models.Email email);
     }
 }

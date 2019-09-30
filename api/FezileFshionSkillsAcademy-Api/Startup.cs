@@ -19,6 +19,7 @@ using Newtonsoft.Json;
 using Swashbuckle.AspNetCore.Swagger;
 using FezileFashionSkillsAcademy.Services.shared.Helpers;
 using FezileFshionSkillsAcademy.Services.Validations.Logins;
+using FezileFshionSkillsAcademy.Services.Validations.Emails;
 
 namespace FezileFashionSkillsAcademy
 {
@@ -55,6 +56,7 @@ namespace FezileFashionSkillsAcademy
             services.AddScoped<IStudentsService, StudentsService>();
             services.AddScoped<IApplicationHelper, ApplicationHelper>();
             services.AddScoped<IEmailHelper, EmailHelper>();
+            services.AddScoped<IEmailsValidation, EmailsValidation>(); 
 
             services.AddCors();
             services.AddMvc(options =>
