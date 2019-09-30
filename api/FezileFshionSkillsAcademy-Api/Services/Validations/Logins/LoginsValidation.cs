@@ -19,14 +19,14 @@ namespace FezileFshionSkillsAcademy.Services.Validations.Logins
         {
             if (!_emailsService.IsValidEmail(userEmail))
             {
-                return (true, "Invalid email address!");
+                return (false, "Invalid email address!");
             }
             else if (_ffsaDbContext.Users.SingleOrDefault(u => u.Email == userEmail) != null)
             {
-                return (true, "Email already exists!");
+                return (false, "Email already exists!");
             }
 
-            return (true, "userDetailsApproved.");
+            return (true, "User Details Approved.");
         }
     }
 }

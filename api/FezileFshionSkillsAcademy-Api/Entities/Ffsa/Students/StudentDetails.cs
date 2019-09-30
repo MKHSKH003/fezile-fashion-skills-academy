@@ -8,7 +8,7 @@ namespace FezileFashionSkillsAcademy.Entities
         public int Id { get; set; }
         public string Surname { get; set; }
         public string FirstNames { get; set; }
-        public int? Idnumber { get; set; }
+        public string Idnumber { get; set; }
         public int? ResidentialAddressId { get; set; }
         public int? PostalAddressId { get; set; }
         public string TelWork { get; set; }

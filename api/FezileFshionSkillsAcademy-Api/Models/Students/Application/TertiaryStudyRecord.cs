@@ -1,6 +1,4 @@
-﻿using FezileFashionSkillsAcademy.Entities;
-
-namespace FezileFashionSkillsAcademy.Models
+﻿namespace FezileFashionSkillsAcademy.Models
 {
     public partial class TertiaryStudyRecord
     {

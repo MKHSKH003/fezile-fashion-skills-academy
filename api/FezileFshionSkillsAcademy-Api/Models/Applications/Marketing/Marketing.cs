@@ -7,6 +7,7 @@ namespace FezileFashionSkillsAcademy.Models
     {
         public int Id { get; set; }
         public int MarketingMediaId { get; set; }
+        public string MarketingMedia { get; set; }
         public MarketingMediaGuidanceConsellor MarketingMediaGuidanceConsellor { get; set; }
     }
 }

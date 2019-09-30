@@ -6,15 +6,15 @@ import FormControlSelect from 'shared/components/dimensional-form-control-select
 
 const courses = [
     "",
-    "CLOTHING DESIGN DEVELOPMENT, ENTREPRENEURSHIP & RETAIL",
-    "CLOTHING TECHNOLOGY AND ENTREPRENEURSHIP- FULL TIME COURSE",
-    "APPLIED DESIGN SHORT COURSE",
-    "BASIC PATTERN SKILLS AND DESIGN SHORT COURSE",
-    "ADVANCED PATTERN SKILLS AND DESIGN SHORT COURSE",
-    "BASIC GARMENT CONSTRUCTION AND TECHNOLOGY SHORT COURSE",
-    "ADVANCED GARMENT CONSTRUCTION AND TECHNOLOGY SHORT COURSE",
-    "BRIDAL PATTERN TECHNOLOGY SHORT COURSE",
-    "BRIDAL GARMENT CONSTRUCTION AND TECHNOLOGY SHORT COURSE"
+    "Clothing Design Development, Entrepreneurship & Retail",
+    "Clothing Technology And Entrepreneurship - Full Time Course",
+    "Applied Design Short Course",
+    "Basic Pattern Skills And Design Short Course",
+    "Advanced Pattern Skills And Design Short Course",
+    "Basic Garment Construction And Technology Short Course",
+    "Advanced Basic Garment Construction And Technology Short Course",
+    "Bridal Pattern Technology Short Course",
+    "Bridal Garment Construction And Technology Short Course"
 ]
 
 const Course = ({
@@ -27,7 +27,8 @@ const Course = ({
         <div className={classes.root}>
             <Grid container spacing={3}>
                 <FormControlSelect
-                    field={'courseId'}
+                    field={'Id'}
+                    fieldName={'Name'}
                     label={"Select course"}
                     index={true}
                     options={courses}

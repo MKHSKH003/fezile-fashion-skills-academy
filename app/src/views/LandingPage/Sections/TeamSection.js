@@ -107,17 +107,7 @@ export default function TeamSection() {
                   achieved a Gideon Merit Award.
                 </p>
               </CardBody>
-              <CardFooter className={classes.justifyCenter}>
-                <Button
-                  justIcon
-                  color="transparent"
-                  target="_blank"
-                  href="https://www.instagram.com/hlengsta007/"
-                  className={classes.margin5}
-                >
-                  <i className={classes.socials + " fab fa-instagram"} />
-                </Button>
-              </CardFooter>
+      
             </Card>
           </GridItem>
           <GridItem xs={12} sm={12} md={4}/>

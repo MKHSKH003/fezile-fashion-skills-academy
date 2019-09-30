@@ -4,7 +4,7 @@ import Grid from '@material-ui/core/Grid';
 
 import useStyles from '../shared/utils/use-styles';
 import FormControlSelect from 'shared/components/dimensional-form-control-select/1D-form-control-select';
-import CustomTextField from 'shared/components/dimensional-text-fields/1D-text-field';
+import CustomTextField from 'shared/components/dimensional-text-fields/2D-text-field';
 
 const marketingMediaOptions = [
     "",
@@ -37,6 +37,7 @@ const Marketing = ({
                     <Paper className={classes.paper}>
                         <FormControlSelect
                             field={'marketingMediaId'}
+                            fieldName={'marketingMedia'}
                             label={"Marketing Media"}
                             index={true}
                             options={marketingMediaOptions}
@@ -49,7 +50,8 @@ const Marketing = ({
                             <>
                                 <CustomTextField
                                     type="text"
-                                    field={'guidanceConsellorName'}
+                                    field1={'marketingMediaGuidanceConsellor'}
+                                    field2={'Name'}
                                     placeholder={"Guidance Consellor Name"}
                                     helperText={"Please provide Name of Guidance Consellor."}
                                     objectDetails={marketingDetails}
@@ -57,7 +59,8 @@ const Marketing = ({
                                 />
                                 <CustomTextField
                                     type="text"
-                                    field={'guidanceConsellorContact'}
+                                    field1={'marketingMediaGuidanceConsellor'}
+                                    field2={'Contact'}
                                     placeholder={"Guidance Consellor Contact"}
                                     helperText={"Please provide Contact of Guidance Consellor."}
                                     objectDetails={marketingDetails}

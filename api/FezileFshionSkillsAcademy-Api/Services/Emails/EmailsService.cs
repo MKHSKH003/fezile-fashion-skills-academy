@@ -24,7 +24,7 @@ namespace FezileFashionSkillsAcademy.Services
             _emailhelper = emailhelper;
         }
 
-        public void SendConfirmationEmail(string name, string email, string password)
+        public void SendRegistrationConfirmationEmail(string name, string email, string password)
         {
             var client = new SmtpClient(_environmentConfig.Host, _environmentConfig.Port)
             {
@@ -32,7 +32,18 @@ namespace FezileFashionSkillsAcademy.Services
                 EnableSsl = false
             };
             
-            client.Send("info@targetonline.co.za", email, "REGISTRATION CONFIRMATION", _emailhelper.constructConfirmationEmailBody(name, email, password));
+            client.Send("info@targetonline.co.za", email, "REGISTRATION CONFIRMATION", _emailhelper.constructRegistrationConfirmationEmailBody(name, email, password));
+        }
+
+        public void SendApplicationConfirmationEmail(Models.Application application)
+        {
+            var client = new SmtpClient(_environmentConfig.Host, _environmentConfig.Port)
+            {
+                Credentials = new NetworkCredential(_environmentConfig.EmailAccount, _environmentConfig.EmailPassword),
+                EnableSsl = false
+            };
+
+            client.Send("info@targetonline.co.za", application.StudentDetails.Email, "APPLICATION CONFIRMATION", _emailhelper.constructApplicationConfirmationEmailBody(application));
         }
 
         public bool IsValidEmail(string emailAddress)

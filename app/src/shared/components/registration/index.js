@@ -13,20 +13,22 @@ const Container = ({
     setUserSession
 }) => {
     const submitApplication = useApi({
-        action: applicationDetails => applicationForAdmissionApi.applicationForAdmission(applicationsBaseUrl, applicationDetails),
+        action: applicationDetails => {
+            applicationForAdmissionApi.applicationForAdmission(applicationsBaseUrl, applicationDetails)
+        },
         initialValue: [],
         defer: true,
-        onSuccess: results => {
-            toast.success("Application submitted successfully.");
+        onSuccess: () => {
+            toast.success("Application submitted successfully. FFSA Team will be in touch with you Soon.");
         },
-        onError: e => toast.error(e.message == "Failed to fetch" ? "Poor internet connection" : "Failed to submit application, try again.")
+        onError: e => toast.error(e.message == "Failed to fetch" ? "Failed to submit application, please try again later." : e.message)
     },[]);
     
     return (
         <Registration
             userSession={userSession}
             setUserSession={setUserSession}
-            submitApplication={submitApplication.execute}
+            submitApplication={submitApplication}
         />
     );
 };

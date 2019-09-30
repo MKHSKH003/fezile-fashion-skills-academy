@@ -47,11 +47,12 @@ const AcademicHistory = ({
       }
     },
     benifactorDeclaration:{
+        fullName: '',
+        idNumber: '',
       signature:{
         signatureInitials: '',
         date: ''
-      },
-      idNumber: ''
+      }
     }
   })
 
@@ -61,26 +62,33 @@ const AcademicHistory = ({
         <div className={classes.root}>
             <Grid container spacing={3}>
                 <Grid item xs={12} sm={12} md={6} >
-                    <Paper className={classes.paper}>
-                        <TwoDTextField
-                            type="text"
-                            field1={'benifactorDeclaration'}
-                            field2={'fullName'}
-                            placeholder={"Full name"}
-                            helperText={'Applicant Declaration'}
-                            objectDetails={declarationDetails}
-                            setObjectDetails={setDeclarationDetails}
-                        />
-                        <TwoDTextField
-                            type="number"
-                            field1={'applicantDeclaration'}
-                            field2={'IdorPassportNumber'}
-                            placeholder={"ID / Passport number"}
-                            helperText={'Applicant Declaration'}
-                            objectDetails={declarationDetails}
-                            setObjectDetails={setDeclarationDetails}
-                        />
-                    </Paper>
+                    <TwoDTextField
+                        type="text"
+                        field1={'benifactorDeclaration'}
+                        field2={'fullName'}
+                        placeholder={"I, (fullName)"}
+                        helperText={'Applicant Declaration'}
+                        objectDetails={declarationDetails}
+                        setObjectDetails={setDeclarationDetails}
+                    />
+                </Grid>
+                <Grid item xs={12} sm={12} md={6} >
+                    <TwoDTextField
+                        type="number"
+                        field1={'applicantDeclaration'}
+                        field2={'IdorPassportNumber'}
+                        placeholder={"ID / Passport number"}
+                        helperText={'Applicant Declaration'}
+                        objectDetails={declarationDetails}
+                        setObjectDetails={setDeclarationDetails}
+                    />
+                </Grid>
+                <Grid item xs={12} sm={12} md={12} >
+                    <label className={'align-text-center'}>
+                        the undersigned, declare that all the particulars supplied by me in this form are true,
+                        complete and correct. I accept that incorrect or
+                        misleading information could lead to the cancellation of this application.
+                    </label>
                 </Grid>
                 <Grid item xs={12} sm={12} md={6} >
                     <Paper className={classes.paper}>
@@ -94,7 +102,6 @@ const AcademicHistory = ({
                         />
                     </Paper>
                 </Grid>
-
                 <Grid item xs={12} sm={12} md={6} >
                     <Paper className={classes.paper}>
                         <Signature
@@ -119,21 +126,51 @@ const AcademicHistory = ({
                         />
                     </Paper>
                 </Grid>
+                <Grid item xs={12} sm={12} md={12} >
+                    <label className={'align-text-center'}>
+                        This section must be completed by the benefactor,
+                        i.e. the person who will be responsible for the payment of all tuition fees.
+                    </label>
+                </Grid>
+                <Grid item xs={12} sm={12} md={6} >
+                    <TwoDTextField
+                        type="text"
+                        field1={'benifactorDeclaration'}
+                        field2={'fullName'}
+                        placeholder={"I, (fullName)"}
+                        helperText={'Benifactor Declaration'}
+                        objectDetails={declarationDetails}
+                        setObjectDetails={setDeclarationDetails}
+                    />
+                </Grid>
+                <Grid item xs={12} sm={12} md={12} >
+                    <label className={'align-text-center'}>
+                        the undersigned, hereby acknowledge myself to be jointly and
+                        separately responsible for monies, which the above mentioned 
+                        applicant may at any stage be owing to FFSA (Pty) Ltd in terms
+                        of the agreement that he/she concluded with FFSA (Pty) Ltd, as 
+                        set out above, including any change thereto.
+                    </label>
+                </Grid>
                 <Grid item xs={12} sm={12} md={6} >
                     <Paper className={classes.paper}>
-                    <TwoDTextField
-                            type="number"
-                            field1={'benifactorDeclaration'}
-                            field2={'idNumber'}
-                            placeholder={"ID Number"}
-                            helperText={'Benifactor Declaration'}
-                            objectDetails={declarationDetails}
-                            setObjectDetails={setDeclarationDetails}
-                        />
                         <Signature
                             field1={'benifactorDeclaration'}
                             field2={'signature'}
                             placeholder={"Benifactor Signature Initials"}
+                            helperText={'Benifactor Declaration'}
+                            objectDetails={declarationDetails}
+                            setObjectDetails={setDeclarationDetails}
+                        />
+                    </Paper>
+                </Grid>
+                <Grid item xs={12} sm={12} md={6} >
+                    <Paper className={classes.paper}>
+                        <TwoDTextField
+                            type="number"
+                            field1={'benifactorDeclaration'}
+                            field2={'idNumber'}
+                            placeholder={"ID Number"}
                             helperText={'Benifactor Declaration'}
                             objectDetails={declarationDetails}
                             setObjectDetails={setDeclarationDetails}

@@ -43,8 +43,8 @@
         };
 
         public static string[] parentOrGuardianTitles = {
-                "Relationship",
-                "ID Number",
+                "Relationship:",
+                "ID Number:",
                 "Residential Address (Street):",
                 "Residential Address (Suburb):",
                 "Residential Address (Town):",
@@ -56,36 +56,36 @@
                 "Tel (H):",
                 "Tel (W):",
                 "Cell:",
-                "Email"
+                "Email:"
         };
 
         public static string[] academicHistoryTitles = {
                 "<b> a. High School Record </b>",
                 "Last High School Attended",
-                "Year",
-                "Country",
-                "Aggregate",
-                "Select the type of Senior Certificate",
+                "Year:",
+                "Country:",
+                "Aggregate:",
+                "Select the type of Senior Certificate:",
                 "",
                 "<b> b. Tertiary Study Record </b>",
                 "If previous qualification, please provide details:",
-                "Qualification Description",
-                "Institution",
-                "Total Credits",
+                "Qualification Description:",
+                "Institution:",
+                "Total Credits:",
                 "Year(s) of study:",
-                "Completed",
+                "Completed:",
                 "",
-                "Qualification Description",
-                "Institution",
-                "Total Credits",
+                "Qualification Description:",
+                "Institution:",
+                "Total Credits:",
                 "Year(s) of study:",
-                "Completed",
+                "Completed:",
                 "",
-               "Qualification Description",
-                "Institution",
-                "Total Credits",
+               "Qualification Description:",
+                "Institution:",
+                "Total Credits:",
                 "Year(s) of study:",
-                "Completed",
+                "Completed:",
         };
 
         public static string[] applicantTitles = {
@@ -94,7 +94,7 @@
                 "Witness:",
                 "Date:",
                 "Parent/Legal guardian:",
-                "Date",
+                "Date:",
             };
         public static string[] benifactorTitles = {
                 "Signature:",

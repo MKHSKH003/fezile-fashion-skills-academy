@@ -1,8 +1,8 @@
 export const applicationForAdmission = (baseUrl, applicationDetails) =>
-    fetch(baseUrl + "authenticate-user", {
+    fetch(baseUrl, {
         method: "POST",
         body: JSON.stringify(applicationDetails),
         headers: {
             "Content-Type": "application/json"
         }
-    }).then(response => response.json());
+    });

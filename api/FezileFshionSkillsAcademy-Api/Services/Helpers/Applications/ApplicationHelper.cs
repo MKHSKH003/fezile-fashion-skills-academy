@@ -160,7 +160,7 @@ namespace FezileFashionSkillsAcademy.Services.shared.Helpers
             return dbTertiaryStudyRecord.Id;
         }
 
-        public int SaveTertiaryYearRecord(TertiaryYearRecord tertiaryYearRecord)
+        public int SaveTertiaryYearRecord(Models.TertiaryYearRecord tertiaryYearRecord)
         {
             var dbTertiaryYearRecord = new TertiaryYearRecord()
             {

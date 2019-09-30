@@ -19,7 +19,7 @@ namespace FezileFashionSkillsAcademy.Services.shared.Helpers
             _environmentConfig = environmentConfig.Value;
         }
 
-        public string constructConfirmationEmailBody(string name, string email, string password)
+        public string constructRegistrationConfirmationEmailBody(string name, string email, string password)
         {
             var message = new StringBuilder();
             message.Append("Hi " + name + "\n\n");
@@ -33,6 +33,19 @@ namespace FezileFashionSkillsAcademy.Services.shared.Helpers
             return  message.ToString();
         }
 
+        public string constructApplicationConfirmationEmailBody(Models.Application application)
+        {
+            var message = new StringBuilder();
+            message.Append("Hi " + application.StudentDetails.FirstNames + "\n\n");
+            message.Append("This is a confirmation email that we have recieved your application for course: " + application.Course.Name + "\n");
+
+            message.Append("The team wiil be in touch with you soon." + "\n\n");
+
+            message.Append("Kind Regards" + "\n" + "Client Support");
+
+            return message.ToString();
+        }
+
         public MailMessage construcApplicationDetailsBody(Models.Application application)
         {
             MailMessage message = new MailMessage("info@targetonline.co.za", _environmentConfig.FFSA);
@@ -44,7 +57,7 @@ namespace FezileFashionSkillsAcademy.Services.shared.Helpers
 
             message.Body += constructStudentDetailsBodySection(application.StudentDetails);
             message.Body += constructMarketingDetailsBodySection(application.Marketing);
-            message.Body += constructCourseDetailsBodySection(application.CourseId+"");
+            message.Body += constructCourseDetailsBodySection(application.Course.Name);
             message.Body += constructParentOrGuardianDetailsBodySection(application.ParentOrGuardianDetails);
             message.Body += constructAcademicHistoryBodySection(application.AcademicHistory);
             message.Body += constructDeclarationBodySection(application.Declaration);
@@ -96,7 +109,7 @@ namespace FezileFashionSkillsAcademy.Services.shared.Helpers
                 academicHistory.HighSchoolRecord.Year.ToString(),
                 academicHistory.HighSchoolRecord.Country,
                 academicHistory.HighSchoolRecord.Aggregate,
-                academicHistory.HighSchoolRecord.HighSchoolSeniorCertificateId.ToString(),
+                academicHistory.HighSchoolRecord.HighSchoolSeniorCertificate,
                 "",
                 "",
                 "",
@@ -104,19 +117,19 @@ namespace FezileFashionSkillsAcademy.Services.shared.Helpers
                 academicHistory.TertiaryStudyRecord.TertiaryYear1Record.Institution,
                 academicHistory.TertiaryStudyRecord.TertiaryYear1Record.TotalCredits.ToString(),
                 academicHistory.TertiaryStudyRecord.TertiaryYear1Record.YearsOfStudy.ToString(),
-                academicHistory.TertiaryStudyRecord.TertiaryYear1Record.CompletedId.ToString(),
+                academicHistory.TertiaryStudyRecord.TertiaryYear1Record.Completed,
                 "",
                 academicHistory.TertiaryStudyRecord.TertiaryYear2Record.QualificationDescription,
                 academicHistory.TertiaryStudyRecord.TertiaryYear2Record.Institution,
                 academicHistory.TertiaryStudyRecord.TertiaryYear2Record.TotalCredits.ToString(),
                 academicHistory.TertiaryStudyRecord.TertiaryYear2Record.YearsOfStudy.ToString(),
-                academicHistory.TertiaryStudyRecord.TertiaryYear2Record.CompletedId.ToString(),
+                academicHistory.TertiaryStudyRecord.TertiaryYear2Record.Completed,
                 "",
                 academicHistory.TertiaryStudyRecord.TertiaryYear3Record.QualificationDescription,
                 academicHistory.TertiaryStudyRecord.TertiaryYear3Record.Institution,
                 academicHistory.TertiaryStudyRecord.TertiaryYear3Record.TotalCredits.ToString(),
                 academicHistory.TertiaryStudyRecord.TertiaryYear3Record.YearsOfStudy.ToString(),
-                academicHistory.TertiaryStudyRecord.TertiaryYear3Record.CompletedId.ToString(),
+                academicHistory.TertiaryStudyRecord.TertiaryYear3Record.Completed,
             };
 
             return ConstructTable(SystemConstants.academicHistoryTitles, values, "5. ACADEMIC HISTORY");
@@ -155,7 +168,7 @@ namespace FezileFashionSkillsAcademy.Services.shared.Helpers
         public string constructMarketingDetailsBodySection(Models.Marketing marketingDetails)
         {
             string[] values = {
-                marketingDetails.MarketingMediaId+"",
+                marketingDetails.MarketingMedia,
                 "",
                 marketingDetails.MarketingMediaGuidanceConsellor.Name,
                 marketingDetails.MarketingMediaGuidanceConsellor.Contact,

@@ -1,0 +1,7 @@
+TRUNCATE TABLE Application;
+TRUNCATE TABLE StudentDetails;
+TRUNCATE TABLE Marketing;
+TRUNCATE TABLE ParentOrGuardianDetails;
+TRUNCATE TABLE AcademicHistory;
+TRUNCATE TABLE Declaration;
+TRUNCATE TABLE Signature;

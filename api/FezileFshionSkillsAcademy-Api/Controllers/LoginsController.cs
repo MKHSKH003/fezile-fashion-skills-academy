@@ -5,26 +5,26 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FezileFashionSkillsAcademy.Controllers
 {
-    [Route("api/login")]
+    [Route("api/logins")]
     [ApiController]
     public class LoginsController : ControllerBase
     {
-        private readonly ILoginsService _loginService;
-        public LoginsController(ILoginsService loginService)
+        private readonly ILoginsService _loginsService;
+        public LoginsController(ILoginsService loginsService)
         {
-            _loginService = loginService;
+            _loginsService = loginsService;
         }
 
         [HttpPost("authenticate-user")]
         public ActionResult<Models.User> Authentication(Models.User User)
         {
-            return _loginService.Authentication(User);
+            return _loginsService.Authentication(User);
         }
 
         [HttpPost("user-signup")]
         public ActionResult<UserSignup> Signup(Models.User user)
         {
-            return _loginService.Signup(user);
+            return _loginsService.Signup(user);
         }
     }
 }

@@ -11,6 +11,7 @@ import CustomInput from "shared/components/CustomInput/CustomInput.js";
 import Button from "shared/components/CustomButtons/Button.js";
 
 import styles from "assets/jss/material-kit-react/views/landingPageSections/workStyle.js";
+import LocationDetails from "./LocationDetails";
 
 const useStyles = makeStyles(styles);
 
@@ -19,8 +20,11 @@ export default function WorkSection() {
   return (
     <div className={classes.section}>
       <GridContainer justify="center">
+        <GridItem cs={12} sm={12} md={12} className={classes.locationdetails}>
+          <h2 className={classes.title}>Get in touch</h2>
+          <LocationDetails  />
+        </GridItem>
         <GridItem cs={12} sm={12} md={8}>
-          <h2 className={classes.title}>Work with us</h2>
           <h4 className={classes.description}>
             Be a part of the first Fashion Academy in KwaMashu
             (Durban,KwaZulu-Natal) Enquire NOW about our Masterclasses!

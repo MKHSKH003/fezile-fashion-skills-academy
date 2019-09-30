@@ -117,8 +117,8 @@ namespace FezileFashionSkillsAcademy.Entities
                     .IsUnicode(false);
 
                 entity.Property(e => e.IdorPassportNumber)
-                    .HasColumnName("IDOrPassportNumber")
-                    .HasColumnType("int(11)");
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
 
                 entity.Property(e => e.WitnessSignatureId)
                     .HasColumnName("WitnessSignatureID")
@@ -196,8 +196,8 @@ namespace FezileFashionSkillsAcademy.Entities
                     .IsUnicode(false);
 
                 entity.Property(e => e.Idnumber)
-                    .HasColumnName("IDNumber")
-                    .HasColumnType("int(11)");
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
 
                 entity.Property(e => e.SignatureId)
                     .HasColumnName("SignatureID")
@@ -494,8 +494,8 @@ namespace FezileFashionSkillsAcademy.Entities
                     .IsUnicode(false);
 
                 entity.Property(e => e.Idnumber)
-                    .HasColumnName("IDNumber")
-                    .HasColumnType("int(11)");
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
 
                 entity.Property(e => e.PostalAddressId)
                     .HasColumnName("PostalAddressID")
@@ -578,8 +578,8 @@ namespace FezileFashionSkillsAcademy.Entities
                     .IsUnicode(false);
 
                 entity.Property(e => e.Idnumber)
-                    .HasColumnName("IDNumber")
-                    .HasColumnType("int(11)");
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
 
                 entity.Property(e => e.NatureOfDisabilityOrMedicalCondition)
                     .HasMaxLength(100)

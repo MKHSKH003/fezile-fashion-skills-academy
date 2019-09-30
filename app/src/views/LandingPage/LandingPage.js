@@ -63,7 +63,7 @@ const LandingPage = ({
                         userSession={userSession}
                         setUserSession={setUserSession}
                     />
-                    <ProductCategories />
+                    {/*<ProductCategories />*/}
                     <TeamSection />
                     <WorkSection />
                 </div>

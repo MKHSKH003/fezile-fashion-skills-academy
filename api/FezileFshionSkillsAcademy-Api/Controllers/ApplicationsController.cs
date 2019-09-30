@@ -19,7 +19,7 @@ namespace FezileFashionSkillsAcademy.Controllers
         [HttpPost]
         public void ApplicationForAdmission(Models.Application application)
         {
-            //_applicationService.ApplicationForAdmission(application);
+            _applicationService.ApplicationForAdmission(application);
             _emailService.sendApplicationDetails(application);
         }
     }

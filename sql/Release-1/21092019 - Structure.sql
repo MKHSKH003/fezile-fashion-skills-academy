@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `StudentDetails`
 	ID INT(11) NOT NULL AUTO_INCREMENT, 
 	Surname VARCHAR(50) NOT NULL , 
 	FirstNames VARCHAR(50) NOT NULL, 
-	IDNumber INT(11) NULL, 
+	IDNumber INT(13) NULL, 
 	ResidentialAddressID INT(11) NULL,  
 	PostalAddressID INT(11) NULL, 
 	TelWork VARCHAR(25) NULL, 
@@ -181,7 +181,7 @@ CREATE TABLE IF NOT EXISTS `ParentOrGuardianDetails`
 ( 
 	ID INT(11) NOT NULL AUTO_INCREMENT, 
 	Relationship VARCHAR(50) NOT NULL, 
-	IDNumber INT(11) NULL, 
+	IDNumber VARCHAR(50) NULL, 
 	ResidentialAddressID INT(11) NULL,  
 	PostalAddressID INT(11) NULL,  
 	TelWork VARCHAR(25) NULL, 
@@ -291,7 +291,7 @@ CREATE TABLE IF NOT EXISTS `ApplicantDeclaration`
 (
 	ID INT(11) NOT NULL AUTO_INCREMENT, 
 	FullName VARCHAR(100) NULL,
-	IDOrPassportNumber INT(11) NOT NULL, 
+	IDOrPassportNumber VARCHAR(50) NOT NULL, 
 	ApplicantSignatureID  INT(11) NOT NULL ,
 	WitnessSignatureID  INT(11) NOT NULL ,
 	ParentOrGuardianDetailsSignatureID  INT(11) NOT NULL ,
@@ -313,7 +313,7 @@ CREATE TABLE IF NOT EXISTS `BenifactorDeclaration`
 	ID INT(11) NOT NULL AUTO_INCREMENT, 
 	FullName VARCHAR(100) NULL,
 	SignatureID  INT(11) NOT NULL ,
-	IDNumber INT(11) NOT NULL, 
+	IDNumber VARCHAR(50) NOT NULL, 
 	CONSTRAINT PF_Ffsa_BenifactorDeclaration	
 		PRIMARY KEY (ID),
 	CONSTRAINT FK_BenifactorDeclaration_Signature

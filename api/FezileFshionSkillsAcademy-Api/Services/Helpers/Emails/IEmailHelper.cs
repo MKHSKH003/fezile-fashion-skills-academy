@@ -4,7 +4,8 @@ namespace FezileFashionSkillsAcademy.Services.shared.Helpers
 {
     public interface IEmailHelper
     {
-        string constructConfirmationEmailBody(string name, string email, string password);
+        string constructRegistrationConfirmationEmailBody(string name, string email, string password);
+        string constructApplicationConfirmationEmailBody(Models.Application application);
         MailMessage construcApplicationDetailsBody(Models.Application application);
     }
 }

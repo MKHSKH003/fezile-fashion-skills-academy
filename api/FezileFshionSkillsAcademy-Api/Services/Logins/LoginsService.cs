@@ -42,7 +42,7 @@ namespace FezileFashionSkillsAcademy.Services
             var verifyUserEmail = _loginsValidation.verifyUserEmail(user.Email);
             UserSignup userSignup = new UserSignup() { message = verifyUserEmail.message };
 
-            if (verifyUserEmail.userEmailCorrect)
+            if (!verifyUserEmail.userEmailCorrect)
             {
                 userSignup.message = verifyUserEmail.message;
             }
@@ -59,7 +59,7 @@ namespace FezileFashionSkillsAcademy.Services
                 _ffsaDbContext.Add(dbNewUser);
                 _ffsaDbContext.SaveChanges();
 
-                _emailsService.SendConfirmationEmail(user.FirstName, user.Email, user.Password);
+                _emailsService.SendRegistrationConfirmationEmail(user.FirstName, user.Email, user.Password);
 
                 userSignup.User = dbNewUser;
             }

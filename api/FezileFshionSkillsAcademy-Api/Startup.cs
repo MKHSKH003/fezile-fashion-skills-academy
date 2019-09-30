@@ -18,6 +18,7 @@ using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using Swashbuckle.AspNetCore.Swagger;
 using FezileFashionSkillsAcademy.Services.shared.Helpers;
+using FezileFshionSkillsAcademy.Services.Validations.Logins;
 
 namespace FezileFashionSkillsAcademy
 {
@@ -47,6 +48,7 @@ namespace FezileFashionSkillsAcademy
             // services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddScoped<ILoginsService, LoginsService>();
+            services.AddScoped<ILoginsValidation, LoginsValidation>();
             services.AddScoped<ICipherService, CipherService>();
             services.AddScoped<IEmailsService, EmailsService>();
             services.AddScoped<IApplicationsService, ApplicationsService>();

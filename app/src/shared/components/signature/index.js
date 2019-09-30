@@ -35,14 +35,14 @@ const Signature = ({
                     variant="inline"
                     format="MM/dd/yyyy"
                     id="date-picker-inline"
-                    value={objectDetails[field1][field2]['date']}
+                    value={(objectDetails[field1][field2]['date'])}
                     onChange={value => setObjectDetails({
                         ...objectDetails,
                         [field1]: {
                             ...objectDetails[field1],
                             [field2]: {
                                 ...objectDetails[field1][field2],
-                                ['date']: value
+                                ['date']: value.toDateString()
                             }
                         }
                     })}

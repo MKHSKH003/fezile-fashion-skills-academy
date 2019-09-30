@@ -117,7 +117,7 @@ const HeaderLinks = ({
       </ListItem>
       <ListItem className={classes.listItem}>
         <Button
-          href="#"
+          href="/courses"
           color="transparent"
           target="_blank"
           className={classes.navLink}

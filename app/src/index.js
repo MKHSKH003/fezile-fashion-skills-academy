@@ -14,6 +14,7 @@ import "assets/scss/material-kit-react.scss?v=1.8.0";
 import Components from "views/Components/Components.js";
 import LandingPage from "views/LandingPage";
 import ProfilePage from "views/ProfilePage/ProfilePage.js";
+import Courses from "views/courses";
 
 var hist = createBrowserHistory();
 
@@ -23,7 +24,7 @@ ReactDOM.render(
             <Switch>
                 <Route path="/" exact component={LandingPage} />
                 <Route path="/profile-page" component={ProfilePage} />
-                <Route path="/components" component={Components} />
+                <Route path="/courses" component={Courses} />
             </Switch>
         </Router>
         <ToastContainer />
