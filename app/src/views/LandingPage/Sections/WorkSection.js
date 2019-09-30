@@ -11,7 +11,7 @@ import CustomInput from "shared/components/CustomInput/CustomInput.js";
 import Button from "shared/components/CustomButtons/Button.js";
 
 import styles from "assets/jss/material-kit-react/views/landingPageSections/workStyle.js";
-import LocationDetails from "./LocationDetails";
+import LocationDetails from "./Location Details/LocationDetails";
 
 const useStyles = makeStyles(styles);
 
