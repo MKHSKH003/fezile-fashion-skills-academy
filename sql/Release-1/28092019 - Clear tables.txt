@@ -5,3 +5,4 @@ TRUNCATE TABLE ParentOrGuardianDetails;
 TRUNCATE TABLE AcademicHistory;
 TRUNCATE TABLE Declaration;
 TRUNCATE TABLE Signature;
+TRUNCATE TABLE User;

@@ -1,5 +1,6 @@
 import { title } from "assets/jss/material-kit-react.js";
 
+
 const workStyle = {
   section: {
     //padding: "70px 0"
@@ -11,7 +12,7 @@ const workStyle = {
     marginTop: "30px",
     minHeight: "32px",
     textDecoration: "none",
-    textAlign: "center"
+    textAlign: "center",
   },
   locationdetails: {
     marginBottom: "50px",

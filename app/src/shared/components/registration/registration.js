@@ -12,30 +12,30 @@ const Registration = ({
   const [studentDetails, setStudentDetails] = useState({
     surname: userSession.user.LastName,
     firstNames: userSession.user.FirstName,
-    idNumber: '9205145972085',
+    idNumber: '',
     residentialAddress: {
-      line1: '6 Stcokey Road',
-      line2: 'Kenwyn',
-      line3: 'Capetown',
-      postalCode: '77700'
+      line1: '',
+      line2: '',
+      line3: '',
+      postalCode: ''
     },
     postalAddress: {
-      line1: 'Allan Gray 1 Silo',
-      line2: 'V & A Waterfront',
-      line3: 'Capetown',
-      postalCode: '77700'
+      line1: '',
+      line2: '',
+      line3: '',
+      postalCode: ''
     },
-    telWork: '0219094714',
+    telWork: '',
     telHome: '',
-    cell: '0845310089',
+    cell: '',
     fax: '',
     email: userSession.user.Email,
-    title: 'Mr',
-    race: 'Black',
+    title: '',
+    race: '',
     otherRace: '',
-    gender: 'Male',
-    disabilitiesOrMedicalConditionAffectStudies: 'Yes',
-    natureOfDisabilityOrMedicalCondition: 'Im on a wheelchair'
+    gender: '',
+    disabilitiesOrMedicalConditionAffectStudies: '',
+    natureOfDisabilityOrMedicalCondition: '',
   })
 
   const [marketingDetails, setMarketingDetails] = useState({
@@ -53,38 +53,38 @@ const Registration = ({
   })
 
   const [parentOrGuardianDetails, setParentOrGuardianDetails] = useState({
-      relationship: 'Mother',
-      idNumber: '896483846264',
+      relationship: '',
+      idNumber: '',
       telWork: '',
       telHome: '',
-      cell: '0764824409',
-      email: 'Bajabulile@gmail.com',
+      cell: '',
+      email: '',
       residentialAddress: {
-        line1: 'AA 827 Simelane road',
-        line2: 'Umlazi Township',
-        line3: 'Durban',
-        postalCode: '4031'
+        line1: '',
+        line2: '',
+        line3: '',
+        postalCode: '',
       },
       postalAddress: {},
   })
 
   const [academicHistory, setAcademicHistory] = useState({
     highSchoolRecord: {
-      lastHighSchoolAttended: 'Umlazi Comtech High School',
-      year: '2011',
-      country: 'South Africa',
-      aggregate: '70',
-      highSchoolSeniorCertificateId: '6',
-      highSchoolSeniorCertificate: 'Grade 12 final'
+      lastHighSchoolAttended: '',
+      year: '',
+      country: '',
+      aggregate: '',
+      highSchoolSeniorCertificateId: '',
+      highSchoolSeniorCertificate: '',
     },
     tertiaryStudyRecord: {
       tertiaryYear1Record: {
-        qualificationDescription: 'Bsc Computer Science',
-        institution: 'University Of CapeTown',
-        totalCredits: '100',
-        yearsOfStudy: '4',
-        completedId: '1',
-        completed: 'Yes'
+        qualificationDescription: '',
+        institution: '',
+        totalCredits: '',
+        yearsOfStudy: '',
+        completedId: '',
+        completed: '',
       },
       tertiaryYear2Record: {
         tertiaryYear1Record: {
@@ -111,26 +111,26 @@ const Registration = ({
 
   const [declarationDetails, setDeclarationDetails] = useState({
     applicantDeclaration: {
-      fullName: 'Skhumbuzo Mkhungo',
-      IdorPassportNumber: '9005145972083',
+      fullName: '',
+      IdorPassportNumber: '',
       applicantSignature: {
-        signatureInitials: 'S.C',
+        signatureInitials: '',
         date: new Date().toDateString()
       },
       witnessSignature: {
-        signatureInitials: 'V.F',
+        signatureInitials: '',
         date: new Date().toDateString()
       },
       parentOrGuardianDetailsSignature: {
-        signatureInitials: 'B.M',
+        signatureInitials: '',
         date: new Date().toDateString()
       }
     },
     benifactorDeclaration: {
-      fullName: 'Bajabulile Mkhungo',
-      idNumber: '895145972083',
+      fullName: '',
+      idNumber: '',
       signature: {
-        signatureInitials: 'B.M',
+        signatureInitials: '',
         date: new Date().toDateString()
       }
     }

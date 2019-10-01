@@ -14,13 +14,16 @@ import course1 from 'assets/img/courses/4.jpg';
 import course2 from 'assets/img/courses/5.jpg';
 import course3 from 'assets/img/courses/6.jpg';
 
-import course4 from 'assets/img/courses/7.jpg';
-import course5 from 'assets/img/courses/8.jpg';
+import course4 from 'assets/img/courses/77.jpg';
+import course5 from 'assets/img/courses/88.jpg';
 import course6 from 'assets/img/courses/9.jpg';
 
-import course7 from 'assets/img/courses/1.jpg';
-import course8 from 'assets/img/courses/2.jpg';
-import course9 from 'assets/img/courses/3.jpg';
+import course11 from 'assets/img/courses/1-s.jpg';
+import course22 from 'assets/img/courses/2-s.jpg';
+import course33 from 'assets/img/courses/3-s.jpg';
+
+import course44 from 'assets/img/courses/44.jpg';
+import course55 from 'assets/img/courses/55.jpg';
 
 const styles = theme => ({
     root: {
@@ -38,6 +41,29 @@ const styles = theme => ({
         padding: 0,
         borderRadius: 0,
         height: '30rem',
+        [theme.breakpoints.down('sm')]: {
+            width: '100% !important',
+            height: 100,
+        },
+        '&:hover': {
+            zIndex: 1,
+        },
+        '&:hover $imageBackdrop': {
+            opacity: 0.15,
+        },
+        '&:hover $imageMarked': {
+            opacity: 0,
+        },
+        '&:hover $imageTitle': {
+            border: '4px solid currentColor',
+        },
+    },
+    imageWrapper2: {
+        position: 'relative',
+        display: 'block',
+        padding: 0,
+        borderRadius: 0,
+        height: '40rem',
         [theme.breakpoints.down('sm')]: {
             width: '100% !important',
             height: 100,
@@ -135,33 +161,46 @@ const Courses = ({
         {
             url: course4,
             title: 'Register Now !',
-            width: '33.33%',
+            width: '50%',
         },
         {
             url: course5,
             title: 'Register Now !',
-            width: '33.33%',
+            width: '50%',
         },
-        {
+        /*{
             url: course6,
             title: 'Register Now !',
             width: '33.33%',
         },
+        */
     ];
 
-    const shortCourses = [
+    const shortCourses1 = [
         {
-            url: course7,
+            url: course11,
             title: 'Register Now !',
             width: '33.33%',
         },
         {
-            url: course8,
+            url: course22,
             title: 'Register Now !',
             width: '33.33%',
         },
         {
-            url: course9,
+            url: course33,
+            title: 'Register Now !',
+            width: '33.33%',
+        }
+    ];
+    const shortCourses2 = [
+        {
+            url: course44,
+            title: 'Register Now !',
+            width: '33.33%',
+        },
+        {
+            url: course55,
             title: 'Register Now !',
             width: '33.33%',
         }
@@ -179,43 +218,13 @@ const Courses = ({
                         <Typography variant="h4" marked="center" align="center" component="h2">
                             <h2 className={classes.title}>Full Time Courses for 2020</h2>
                         </Typography>
-                        <div className={classes.images}>
-                            {fullTimeCourses1.map(image => (
-                                <ButtonBase
-                                    key={image.title}
-                                    className={classes.imageWrapper}
-                                    href="/"
-                                    style={{
-                                        width: image.width,
-                                    }}
-                                >
-                                    <div
-                                        className={classes.imageSrc}
-                                        style={{
-                                            backgroundImage: `url(${image.url})`,
-                                        }}
-                                    />
-                                    <div className={classes.imageBackdrop} />
-                                    <div className={classes.imageButton}>
-                                        <Typography
-                                            component="h3"
-                                            variant="h6"
-                                            color="inherit"
-                                            className={classes.imageTitle}
-                                        >
-                                            {image.title}
-                                            <div className={classes.imageMarked} />
-                                        </Typography>
-                                    </div>
-                                </ButtonBase>
-                            ))}
-                        </div>
+
                         <div className={classes.images}>
                             {fullTimeCourses2.map(image => (
                                 <ButtonBase
                                     key={image.title}
                                     href="/"
-                                    className={classes.imageWrapper}
+                                    className={classes.imageWrapper2}
                                     style={{
                                         width: image.width,
                                     }}
@@ -247,7 +256,7 @@ const Courses = ({
                             <h2 className={classes.title}>Short Courses for 2019</h2>
                         </Typography>
                         <div className={classes.images}>
-                            {shortCourses.map(image => (
+                            {shortCourses1.map(image => (
                                 <ButtonBase
                                     key={image.title}
                                     href="/"
@@ -277,6 +286,38 @@ const Courses = ({
                                 </ButtonBase>
                             ))}
                         </div>
+                        <div className={classes.images}>
+                            {shortCourses2.map(image => (
+                                <ButtonBase
+                                    key={image.title}
+                                    href="/"
+                                    className={classes.imageWrapper}
+                                    style={{
+                                        width: image.width,
+                                    }}
+                                >
+                                    <div
+                                        className={classes.imageSrc}
+                                        style={{
+                                            backgroundImage: `url(${image.url})`,
+                                        }}
+                                    />
+                                    <div className={classes.imageBackdrop} />
+                                    <div className={classes.imageButton}>
+                                        <Typography
+                                            component="h3"
+                                            variant="h6"
+                                            color="inherit"
+                                            className={classes.imageTitle}
+                                        >
+                                            {image.title}
+                                            <div className={classes.imageMarked} />
+                                        </Typography>
+                                    </div>
+                                </ButtonBase>
+                            ))}
+                        </div>
+
 
                     </Container>
                 </div>
