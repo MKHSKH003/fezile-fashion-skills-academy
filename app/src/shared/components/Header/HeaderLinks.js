@@ -116,14 +116,13 @@ const HeaderLinks = ({
         </Tooltip>
       </ListItem>
       <ListItem className={classes.listItem}>
-        <Button
-          href="/courses"
-          color="transparent"
-          target="_blank"
-          className={classes.navLink}
-        >
-          <Apps className={classes.icons} /> Courses
-        </Button>
+          <Link 
+            to="/courses"
+            color="transparent"
+            className={classes.navLink}
+          >
+            <Apps className={classes.icons} /> Courses
+          </Link>
       </ListItem>
 
       <ListItem className={classes.listItem}>

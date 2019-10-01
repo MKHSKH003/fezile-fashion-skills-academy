@@ -5,6 +5,7 @@ import useApi from "shared/utils/react-use-api";
 
 import { loginsApi, emailsApi } from "api";
 import { loginsBaseUrl, emailsBaseUrl } from "shared/constants/api-selectors";
+import Spinner from "shared/components/spinner/spinner.js";
 
 import LandingPage from "./LandingPage";
 import LoginPage from "views/login/login-page.js";
@@ -90,8 +91,12 @@ const Container = () => {
         onError: e => toast.error(e.message == "Failed to fetch" ? "Poor internet connection." : e.message)
     }, []);
     
+    const inProgress = login.inProgress || signup.inProgress || sendEmail.inProgress;
     return (
-        userSession.state.login || userSession.state.signup 
+        <Spinner
+            isLoading={inProgress}
+        >
+        {userSession.state.login || userSession.state.signup 
             ? userSession.state.login 
                 ? <LoginPage 
                     userSession={userSession}
@@ -108,6 +113,8 @@ const Container = () => {
                 setUserSession={setUserSession}
                 sendEmail={sendEmail.execute}
             />
+        }
+        </Spinner>
     );
 };
 

@@ -24,6 +24,7 @@ import course33 from 'assets/img/courses/3-s.jpg';
 
 import course44 from 'assets/img/courses/44.jpg';
 import course55 from 'assets/img/courses/55.jpg';
+import course66 from 'assets/img/courses/99.jpg';
 
 const styles = theme => ({
     root: {
@@ -201,6 +202,11 @@ const Courses = ({
         },
         {
             url: course55,
+            title: 'Register Now !',
+            width: '33.33%',
+        },
+        {
+            url: course66,
             title: 'Register Now !',
             width: '33.33%',
         }
