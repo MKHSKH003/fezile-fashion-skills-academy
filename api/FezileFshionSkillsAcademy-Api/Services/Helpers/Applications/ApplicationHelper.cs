@@ -104,6 +104,7 @@ namespace FezileFashionSkillsAcademy.Services.shared.Helpers
         {
             var dbBenifactorDeclaration = new BenifactorDeclaration()
             {
+                FullName = benifactorDeclaration.fullName,
                 SignatureId = SaveSignature(benifactorDeclaration.Signature),
                 Idnumber = benifactorDeclaration.Idnumber
             };
