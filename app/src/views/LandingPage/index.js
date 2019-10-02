@@ -28,6 +28,9 @@ const Container = () => {
             name: '',
             emailAddress: '',
             message: '',
+        },
+        inProgress: {
+            submitApplication: false
         }
     });
 
@@ -91,7 +94,7 @@ const Container = () => {
         onError: e => toast.error(e.message == "Failed to fetch" ? "Poor internet connection." : e.message)
     }, []);
     
-    const inProgress = login.inProgress || signup.inProgress || sendEmail.inProgress;
+    const inProgress = login.inProgress || signup.inProgress || sendEmail.inProgress || userSession.inProgress.submitApplication;
     return (
         <Spinner
             isLoading={inProgress}

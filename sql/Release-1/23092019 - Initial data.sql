@@ -554,22 +554,3 @@ WHERE NOT EXISTS(
     FROM `HighSchoolSeniorCertificate` 
     WHERE `Description` = 'Recognition of Prior Learning (RPL)'
 );
-
-
-#--------------- INSERT INTO Boolean ---------------#
-
-INSERT INTO `Boolean` (`Description`)
-SELECT * FROM (SELECT 'True') as temp
-WHERE NOT EXISTS(
-    SELECT 1
-    FROM `Boolean` 
-    WHERE `Description` = 'True'
-);
-
-INSERT INTO `Boolean` (`Description`)
-SELECT * FROM (SELECT 'False') as temp
-WHERE NOT EXISTS(
-    SELECT 1
-    FROM `Boolean` 
-    WHERE `Description` = 'False'
-);

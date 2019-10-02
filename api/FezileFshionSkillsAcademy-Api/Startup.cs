@@ -1,20 +1,13 @@
-﻿using System;
-using System.Buffers;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Buffers;
 using FezileFashionSkillsAcademy.Services;
 using FezileFashionSkillsAcademy.Models.Configuration;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using Swashbuckle.AspNetCore.Swagger;
 using FezileFashionSkillsAcademy.Services.shared.Helpers;
@@ -100,9 +93,17 @@ namespace FezileFashionSkillsAcademy
             app.UseHttpsRedirection();
 
             app.UseCors(
-                options => options.WithOrigins("http://18.221.169.195:5206", "http://localhost:5206", "http://localhost:3002")
-                .AllowAnyHeader()
-                .AllowAnyMethod()
+                options => options.WithOrigins(
+                    "https://targetonline-api.tk:5206",
+                    "http://18.221.169.195:5206", 
+                    "http://localhost:5206", 
+                    "http://localhost:3002",
+                    "http://ffsaza.co.za",
+                    "http://www.ffsaza.co.za",
+                    "https://ffsaza.co.za",
+                    "https://www.ffsaza.co.za"
+                ).AllowAnyHeader()
+                 .AllowAnyMethod()
             );
             app.UseMvc();
             app.UseSwagger();

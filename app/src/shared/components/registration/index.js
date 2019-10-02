@@ -17,6 +17,17 @@ const Container = ({
         initialValue: [],
         defer: true,
         onSuccess: () => {
+            setUserSession({
+                ...userSession,
+                state: {
+                    ...userSession.state,
+                    registration: false
+                },
+                inProgress: {
+                    ...userSession.inProgress,
+                    submitApplication: false
+                }
+            });
             toast.success("Application submitted successfully, FFSA team will be in touch with you Soon.");
         },
         onError: e => toast.error(e.message == "Failed to fetch" ? "Failed to submit application, please try again later." : e.message)

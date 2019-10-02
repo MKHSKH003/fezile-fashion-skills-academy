@@ -3,7 +3,7 @@
     "Environment": "Production",
     "ApiRestWebServer": {
         "Development": "http://localhost:5206",
-        "Production": "http://18.221.169.195:5206"
+        "Production": "https://targetonline-api.tk:5206"
     }
 
 }

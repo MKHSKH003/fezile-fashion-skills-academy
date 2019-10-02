@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace FezileFashionSkillsAcademy.Entities
+﻿namespace FezileFashionSkillsAcademy.Entities
 {
     public class StudentDetails
     {

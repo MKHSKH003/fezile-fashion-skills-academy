@@ -1,4 +1,4 @@
-USE targeton_Ffsa_Dev;
+USE targeton_Ffsa;
 
 CREATE TABLE IF NOT EXISTS `User`
 (
@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS `Marketing`
 		PRIMARY KEY (ID),
 	CONSTRAINT FK_Marketing_MarketingMedia
 		FOREIGN KEY (MarketingMediaID)
-		REFERENCES MarketingMedia(ID)
+		REFERENCES MarketingMedia(ID),
 	CONSTRAINT FK_Marketing_GuidanceConsellor
 		FOREIGN KEY (GuidanceConsellorID)
 		REFERENCES MarketingMediaGuidanceConsellor(ID)
@@ -219,14 +219,6 @@ CREATE TABLE IF NOT EXISTS `HighSchoolRecord`
 	CONSTRAINT FK_HighSchoolRecord_HighSchoolSeniorCertificate
 		FOREIGN KEY (HighSchoolSeniorCertificateID)
 		REFERENCES HighSchoolSeniorCertificate(ID)
-);
-
-CREATE TABLE IF NOT EXISTS `Boolean`
-( 
-	ID INT(11) NOT NULL AUTO_INCREMENT, 
-	Description VARCHAR(10) NOT NULL, 
-	CONSTRAINT PF_Ffsa_Boolean	
-		PRIMARY KEY (ID)
 );
 
 CREATE TABLE IF NOT EXISTS `TertiaryYearRecord` 

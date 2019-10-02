@@ -649,7 +649,7 @@ namespace FezileFashionSkillsAcademy.Entities
 
             modelBuilder.Entity<TertiaryStudyRecord>(entity =>
             {
-                entity.ToTable("TertiaryStudyRecord", "targeton_Ffsa_Dev");
+                entity.ToTable("TertiaryStudyRecord", _environmentConfig.Database);
 
                 entity.HasIndex(e => e.TertiaryYear1RecordId)
                     .HasName("FK_TertiaryYearRecord_TertiaryYear1Record");

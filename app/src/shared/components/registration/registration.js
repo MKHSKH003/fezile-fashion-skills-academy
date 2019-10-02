@@ -53,19 +53,19 @@ const Registration = ({
   })
 
   const [parentOrGuardianDetails, setParentOrGuardianDetails] = useState({
-      relationship: '',
-      idNumber: '',
-      telWork: '',
-      telHome: '',
-      cell: '',
-      email: '',
-      residentialAddress: {
-        line1: '',
-        line2: '',
-        line3: '',
-        postalCode: '',
-      },
-      postalAddress: {},
+    relationship: '',
+    idNumber: '',
+    telWork: '',
+    telHome: '',
+    cell: '',
+    email: '',
+    residentialAddress: {
+      line1: '',
+      line2: '',
+      line3: '',
+      postalCode: '',
+    },
+    postalAddress: {},
   })
 
   const [academicHistory, setAcademicHistory] = useState({
@@ -136,7 +136,7 @@ const Registration = ({
     }
   })
 
-  const closeWizard = () =>setUserSession({
+  const closeWizard = () => setUserSession({
     ...userSession,
     state: {
       ...userSession.state,
@@ -157,12 +157,24 @@ const Registration = ({
               parentOrGuardianDetails: parentOrGuardianDetails,
               academicHistory: academicHistory,
               declaration: declarationDetails
-          }, 
+            },
             submitApplication
           );
-          if(validationResults) closeWizard();
+          if (validationResults) {
+              setUserSession({
+                ...userSession,
+                state: {
+                  ...userSession.state,
+                  registration: false
+                },
+                inProgress: {
+                  ...userSession.inProgress,
+                  submitApplication: true
+                }
+              })
+          }
         }}
-        onClose={() => closeWizard() }
+        onClose={() => closeWizard()}
         title={"Online Registration"}
         description={"Application For Admission"}
         steps={Steps({

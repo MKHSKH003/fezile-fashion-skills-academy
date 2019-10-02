@@ -64,7 +64,7 @@ const AcademicHistory = ({
                 <Grid item xs={12} sm={12} md={6} >
                     <TwoDTextField
                         type="text"
-                        field1={'benifactorDeclaration'}
+                        field1={'applicantDeclaration'}
                         field2={'fullName'}
                         placeholder={"I, (fullName)"}
                         helperText={'Applicant Declaration'}
