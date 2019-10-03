@@ -1,0 +1,12 @@
+DROP TABLE IF EXISTS `targeton_Ffsa`.`User`
+DROP TABLE IF EXISTS `targeton_Ffsa_Dev`.`StudentDetails`
+DROP TABLE IF EXISTS `targeton_Ffsa_Dev`.`Media`
+DROP TABLE IF EXISTS `targeton_Ffsa_Dev`.`Marketing`
+DROP TABLE IF EXISTS `targeton_Ffsa_Dev`.`Fees`
+DROP TABLE IF EXISTS `targeton_Ffsa_Dev`.`CourseDurationType`
+DROP TABLE IF EXISTS `targeton_Ffsa_Dev`.`CertificateType`
+DROP TABLE IF EXISTS `targeton_Ffsa_Dev`.`CourseSchedule`
+DROP TABLE IF EXISTS `targeton_Ffsa_Dev`.`CourseDuration`
+DROP TABLE IF EXISTS `targeton_Ffsa_Dev`.`CourseSyllabus`
+DROP TABLE IF EXISTS `targeton_Ffsa_Dev`.`CourseTechnicalSample`
+DROP TABLE IF EXISTS `targeton_Ffsa_Dev`.`Course`

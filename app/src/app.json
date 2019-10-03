@@ -1,0 +1,9 @@
+{
+    "MapsApiKey": "AIzaSyBURgGZ-uZWId-6qeleDUIDNylozQaAY0w",
+    "Environment": "Production",
+    "ApiRestWebServer": {
+        "Development": "http://localhost:5206",
+        "Production": "https://targetonline-api.tk:5206"
+    }
+
+}

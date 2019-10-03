@@ -19,15 +19,25 @@ import styles from "assets/jss/material-kit-react/components/headerStyle.js";
 
 const useStyles = makeStyles(styles);
 
-export default function Header(props) {
+const Header = ({
+  userSession,
+  setUserSession,
+  changeColorOnScroll,
+  color,
+  rightLinks,
+  leftLinks,
+  brand,
+  fixed,
+  absolute
+}) => {
   const classes = useStyles();
   const [mobileOpen, setMobileOpen] = React.useState(false);
   React.useEffect(() => {
-    if (props.changeColorOnScroll) {
+    if (changeColorOnScroll) {
       window.addEventListener("scroll", headerColorChange);
     }
     return function cleanup() {
-      if (props.changeColorOnScroll) {
+      if (changeColorOnScroll) {
         window.removeEventListener("scroll", headerColorChange);
       }
     };
@@ -36,7 +46,6 @@ export default function Header(props) {
     setMobileOpen(!mobileOpen);
   };
   const headerColorChange = () => {
-    const { color, changeColorOnScroll } = props;
     const windowsScrollTop = window.pageYOffset;
     if (windowsScrollTop > changeColorOnScroll.height) {
       document.body
@@ -54,7 +63,7 @@ export default function Header(props) {
         .classList.remove(classes[changeColorOnScroll.color]);
     }
   };
-  const { color, rightLinks, leftLinks, brand, fixed, absolute } = props;
+
   const appBarClasses = classNames({
     [classes.appBar]: true,
     [classes[color]]: color,
@@ -63,13 +72,20 @@ export default function Header(props) {
   });
   // const brandComponent = <Button className={classes.title}>{brand}</Button>;
   const brandComponent = (
-    <Link to={"/"}>
       <img
         src={require("assets/img/logo.png")}
         style={{ height: "7vh" }}
         alt="logo"
+        onClick={() => setUserSession({
+            ...userSession,
+            state: {
+              ...userSession.state,
+              signup: false,
+              login: false,
+              registration: false 
+            }
+        })}
       />
-    </Link>
   );
 
   return (
@@ -118,8 +134,6 @@ export default function Header(props) {
   );
 }
 
-
-
 Header.defaultProp = {
   color: "white"
 };
@@ -162,3 +176,6 @@ Header.propTypes = {
     ]).isRequired
   })
 };
+
+
+export default Header;

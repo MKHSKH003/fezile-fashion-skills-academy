@@ -24,13 +24,16 @@ export default function CustomInput(props) {
     error,
     white,
     inputRootCustomClasses,
-    success
+    success,
+    value,
+    onChangeValue
   } = props;
 
   const labelClasses = classNames({
     [" " + classes.labelRootError]: error,
     [" " + classes.labelRootSuccess]: success && !error
   });
+
   const underlineClasses = classNames({
     [classes.underlineError]: error,
     [classes.underlineSuccess]: success && !error,
@@ -72,6 +75,8 @@ export default function CustomInput(props) {
           underline: underlineClasses
         }}
         id={id}
+        value={value}
+        onChange={event => onChangeValue(event.target.value)}
         {...inputProps}
       />
     </FormControl>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -11,16 +11,25 @@ import CustomInput from "shared/components/CustomInput/CustomInput.js";
 import Button from "shared/components/CustomButtons/Button.js";
 
 import styles from "assets/jss/material-kit-react/views/landingPageSections/workStyle.js";
+import LocationDetails from "./Location Details/LocationDetails";
 
 const useStyles = makeStyles(styles);
 
-export default function WorkSection() {
+const WorkSection = ({
+  userSession,
+  setUserSession,
+  sendEmail
+}) => {
   const classes = useStyles();
+
   return (
     <div className={classes.section}>
       <GridContainer justify="center">
+        <GridItem cs={12} sm={12} md={12} className={classes.locationdetails}>
+          <h2 className={classes.title}>Get in touch</h2>
+          <LocationDetails  />
+        </GridItem>
         <GridItem cs={12} sm={12} md={8}>
-          <h2 className={classes.title}>Work with us</h2>
           <h4 className={classes.description}>
             Be a part of the first Fashion Academy in KwaMashu
             (Durban,KwaZulu-Natal) Enquire NOW about our Masterclasses!
@@ -31,6 +40,14 @@ export default function WorkSection() {
                 <CustomInput
                   labelText="Your Name"
                   id="name"
+                  value={userSession.emailDetails.name}
+                  onChangeValue={value => setUserSession({
+                    ...userSession,
+                    emailDetails: {
+                      ...userSession.emailDetails,
+                      name: value
+                    }
+                  })}
                   formControlProps={{
                     fullWidth: true
                   }}
@@ -40,6 +57,14 @@ export default function WorkSection() {
                 <CustomInput
                   labelText="Your Email"
                   id="email"
+                  value={userSession.emailDetails.emailAddress}
+                  onChangeValue={value => setUserSession({
+                    ...userSession,
+                    emailDetails: {
+                      ...userSession.emailDetails,
+                      emailAddress: value
+                    }
+                  })}
                   formControlProps={{
                     fullWidth: true
                   }}
@@ -48,6 +73,14 @@ export default function WorkSection() {
               <CustomInput
                 labelText="Your Message"
                 id="message"
+                value={userSession.emailDetails.message}
+                  onChangeValue={value => setUserSession({
+                    ...userSession,
+                    emailDetails: {
+                      ...userSession.emailDetails,
+                      message: value
+                    }
+                  })}
                 formControlProps={{
                   fullWidth: true,
                   className: classes.textArea
@@ -59,7 +92,12 @@ export default function WorkSection() {
               />
               <GridContainer justify="center">
                 <GridItem xs={12} sm={12} md={4} className={classes.textCenter}>
-                  <Button color="primary">Send Message</Button>
+                  <Button 
+                    color="primary"
+                    onClick={() => sendEmail(userSession.emailDetails)}
+                  >
+                    Send Message
+                  </Button>
                 </GridItem>
               </GridContainer>
             </GridContainer>
@@ -69,3 +107,5 @@ export default function WorkSection() {
     </div>
   );
 }
+
+export default WorkSection;

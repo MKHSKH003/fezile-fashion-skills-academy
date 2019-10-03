@@ -22,8 +22,12 @@ import styles from "assets/jss/material-kit-react/components/headerLinksStyle.js
 
 const useStyles = makeStyles(styles);
 
-export default function HeaderLinks(props) {
+const HeaderLinks = ({
+  userSession,
+  setUserSession,
+}) => {
   const classes = useStyles();
+
   return (
     <List className={classes.list}>
       {/*
@@ -112,45 +116,73 @@ export default function HeaderLinks(props) {
         </Tooltip>
       </ListItem>
       <ListItem className={classes.listItem}>
-        <Button
-          href="#"
-          color="transparent"
-          target="_blank"
-          className={classes.navLink}
-        >
-          <Apps className={classes.icons} /> Courses
-        </Button>
+          <Link 
+            to="/courses"
+            color="transparent"
+            className={classes.navLink}
+          >
+            <Apps className={classes.icons} /> Courses
+          </Link>
       </ListItem>
 
       <ListItem className={classes.listItem}>
         <Button
-          href="#"
           color="transparent"
-          target="_blank"
+          onClick={
+            () => userSession.state.isLoggedIn 
+            ? setUserSession({
+                ...userSession,
+                state: {
+                  ...userSession.state,
+                  registration: true 
+                }
+              }) 
+            : setUserSession({
+                ...userSession,
+                state: {
+                  ...userSession.state,
+                  login: true,
+                  registration: true  
+                }
+              })
+          }
           className={classes.navLink}
         >
-          <Assignment className={classes.icons} /> Register Now !
+          <Assignment className={classes.icons} /> Register Online !
         </Button>
       </ListItem>
       <ListItem className={classes.listItem}>
-        <Link to={"/login-page"} className={classes.link}>
-          <Button
+        <Button
             color="transparent"
             className={classes.navLink}
+            onClick={() => setUserSession({
+                ...userSession,
+                state: {
+                  ...userSession.state,
+                  login: true
+                }
+            })}
           >
-            <AccountCircle className={classes.icons} /> Sign in
-          </Button>
-        </Link>
+            <AccountCircle className={classes.icons} /> {userSession.state.isLoggedIn ? userSession.user.FirstName : "Sign in"}
+        </Button>
       </ListItem>
     </List>
   );
 }
 
-
 /*
-<Link to={"/login-page"} className={classes.link}>
-  <Button color="primary" size="lg" simple>
-    View Login Page
-  </Button>
-</Link>
+HeaderLinks.defaultProps = {
+  isUserLoggedIn: false
+};
+
+HeaderLinks.propTypes = {
+  user: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    firstName: PropTypes.string.isRequired,
+    lastName: PropTypes.string.isRequired
+  }).isRequired,
+  isUserLoggedIn: PropTypes.bool
+};
 */
+
+export default HeaderLinks

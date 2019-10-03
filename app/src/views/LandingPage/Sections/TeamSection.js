@@ -34,44 +34,14 @@ export default function TeamSection() {
       <h2 className={classes.title}>Here is our team</h2>
       <div>
         <GridContainer>
-          <GridItem xs={12} sm={12} md={4}>
-            <Card plain>
-              <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
-                <img src={hlengiwe_gumede} alt="..." className={imageClasses} />
-              </GridItem>
-              <h4 className={classes.cardTitle}>
-                Hlengiwe Shembe
-                <br />
-                <small className={classes.smallTitle}>Integral Part Of Designing The Skills Curriculum</small>
-              </h4>
-              <CardBody>
-                <p className={classes.description}>
-                  Hlengiwe Shembe is a young energetic soul from Inanda.
-                  She has an amazing love for working with the local community
-                  in training and Skills Development. She is a DUT Graduate who
-                  achieved a Gideon Merit Award.
-                </p>
-              </CardBody>
-              <CardFooter className={classes.justifyCenter}>
-                <Button
-                  justIcon
-                  color="transparent"
-                  target="_blank"
-                  href="https://www.instagram.com/hlengsta007/"
-                  className={classes.margin5}
-                >
-                  <i className={classes.socials + " fab fa-instagram"} />
-                </Button>
-              </CardFooter>
-            </Card>
-          </GridItem>
+          <GridItem xs={12} sm={12} md={4}/>
           <GridItem xs={12} sm={12} md={4}>
             <Card plain>
               <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
                 <img src={fezile_mdletshe} alt="..." className={imageClasses} />
               </GridItem>
               <h4 className={classes.cardTitle}>
-                Fezile Mdlesthe
+                Fezile Mdletshe
                 <br />
                 <small className={classes.smallTitle}>
                   Managing Director and Founder
@@ -116,13 +86,38 @@ export default function TeamSection() {
               </CardFooter>
             </Card>
           </GridItem>
+          <GridItem xs={12} sm={12} md={4}/>
+        </GridContainer>
+        <GridContainer>
+          <GridItem xs={12} sm={12} md={4}>
+            <Card plain>
+              <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
+                <img src={hlengiwe_gumede} alt="..." className={imageClasses} />
+              </GridItem>
+              <h4 className={classes.cardTitle}>
+                Hlengiwe Shembe
+                <br />
+                <small className={classes.smallTitle}>Integral Part Of Designing The Skills Curriculum</small>
+              </h4>
+              <CardBody>
+                <p className={classes.description}>
+                  Hlengiwe Shembe is a young energetic soul from Inanda.
+                  She has an amazing love for working with the local community
+                  in training and Skills Development. She is a DUT Graduate who
+                  achieved a Gideon Merit Award.
+                </p>
+              </CardBody>
+      
+            </Card>
+          </GridItem>
+          <GridItem xs={12} sm={12} md={4}/>
           <GridItem xs={12} sm={12} md={4}>
             <Card plain>
               <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
                 <img src={ayanda} alt="..." className={imageClasses} />
               </GridItem>
               <h4 className={classes.cardTitle}>
-                 Ayanda
+                Ayanda Cele
                 <br />
                 <small className={classes.smallTitle}>Administrator</small>
               </h4>

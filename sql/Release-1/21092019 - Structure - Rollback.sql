@@ -1,0 +1,28 @@
+USE `targeton_Ffsa_Dev`;
+
+DROP TABLE IF EXISTS `User`;
+DROP TABLE IF EXISTS `Address`;
+DROP TABLE IF EXISTS `StudentDetails`;
+DROP TABLE IF EXISTS `MarketingMediaGuidanceConsellor`;
+DROP TABLE IF EXISTS `MarketingMedia`;
+DROP TABLE IF EXISTS `Marketing`;
+DROP TABLE IF EXISTS `Fees`;
+DROP TABLE IF EXISTS `CourseDuration`;
+DROP TABLE IF EXISTS `CourseCertificate`;
+DROP TABLE IF EXISTS `CourseSchedule`;
+DROP TABLE IF EXISTS `CourseDuration`;
+DROP TABLE IF EXISTS `CourseSyllabus`;
+DROP TABLE IF EXISTS `CourseTechnicalSample`;
+DROP TABLE IF EXISTS `Course`;
+DROP TABLE IF EXISTS `ParentOrGuardianDetails`;
+DROP TABLE IF EXISTS `HighSchoolSeniorCertificate`;
+DROP TABLE IF EXISTS `HighSchoolRecord`;
+DROP TABLE IF EXISTS `Boolean`;
+DROP TABLE IF EXISTS `TertiaryYearRecord`;
+DROP TABLE IF EXISTS `TertiaryStudyRecord`;
+DROP TABLE IF EXISTS `AcademicHistory`;
+DROP TABLE IF EXISTS `Signature`;
+DROP TABLE IF EXISTS `ApplicantDeclaration`;
+DROP TABLE IF EXISTS `BenifactorDeclaration`;
+DROP TABLE IF EXISTS `Declaration`;
+DROP TABLE IF EXISTS `Application`;
