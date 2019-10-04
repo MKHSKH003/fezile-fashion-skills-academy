@@ -101,17 +101,17 @@ function ProductCategories(props) {
   const images = [
     {
       url: courseA,
-      title: 'Register Now !',
+      title: 'Register Now ',
       width: '33.33%',
     },
     {
       url: courseB,
-      title: 'Register Now !',
+      title: 'Register Now ',
       width: '33.33%',
     },
     {
       url: courseC,
-      title: 'Register Now !',
+      title: 'Register Now ',
       width: '33.33%',
     }
   ];
@@ -119,7 +119,7 @@ function ProductCategories(props) {
   return (
     <Container className={classes.root} component="section">
       <Typography variant="h4" marked="center" align="center" component="h2">
-        <h2 className={classes.title}>Short Courses for 2019</h2>
+        <h2 className={classes.title}>Short Courses</h2>
       </Typography>
       <div className={classes.images}>
         {images.map(image => (

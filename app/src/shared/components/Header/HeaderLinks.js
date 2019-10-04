@@ -148,7 +148,7 @@ const HeaderLinks = ({
           }
           className={classes.navLink}
         >
-          <Assignment className={classes.icons} /> Register Online !
+          <Assignment className={classes.icons} /> Register Online 
         </Button>
       </ListItem>
       <ListItem className={classes.listItem}>

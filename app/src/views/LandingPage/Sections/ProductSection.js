@@ -3,10 +3,13 @@ import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
 // @material-ui/icons
-import LooksOne from "@material-ui/icons/LooksOne";
-import LooksTwo from "@material-ui/icons/LooksTwo";
+import Looks1 from "@material-ui/icons/LooksOne";
+import Looks2 from "@material-ui/icons/LooksTwo";
 import Looks3 from "@material-ui/icons/Looks3";
 import Looks4 from "@material-ui/icons/Looks4";
+import Looks5 from "@material-ui/icons/Looks5";
+import Looks6 from "@material-ui/icons/Looks6";
+import Looks7 from "@material-ui/icons/Looks6";
 
 // core components
 import GridContainer from "shared/components/Grid/GridContainer.js";
@@ -54,7 +57,7 @@ export default function ProductSection({
             }
           >
             <i className="fas fa-bars" />
-            Register Online !
+            Register Online 
           </Button>
         </GridItem>
         <GridItem xs={12} sm={12} md={8}>
@@ -68,49 +71,83 @@ export default function ProductSection({
       </GridContainer>
       <div>
         <GridContainer>
+        <GridItem xs={12} sm={12} md={6}>
+            <InfoArea
+              title="NATIONAL CERTIFICATE: CLOTHING DESIGN DEVELOPMENT, ENTREPRENEURSHIP & RETAIL  (2 Years)"
+              description="This course covers a vast area in fashion which will groom you to become a sought-after clothing design specialist with skills in range building, pattern making, 
+              textiles, costing and garment construction. During this course you will be polished on your design aesthetic, fashion merchandising and entrepreneurship."
+              icon={Looks1}
+              iconColor="info"
+              vertical
+            />
+          </GridItem>
+
+          <GridItem xs={12} sm={12} md={6}>
+            <InfoArea
+              title="NATIONAL CERTIFICATE: CLOTHING TECHNOLOGY AND ENTREPRENEURSHIP- FULL TIME COURSE (1 Year)"
+              description="This course covers predominantly techniques and elements in clothing technology such as design, pattern making and garment construction. During this course you will be polished on your design aesthetic and fashion entrepreneurship."
+              icon={Looks2}
+              iconColor="info"
+              vertical
+            />
+          </GridItem>
+
+          <GridItem xs={12} sm={12} md={6}>
+            <InfoArea
+              title="BRIDAL PATTERN SKILLS AND GAMENT CONSTRUCTION SHORT COURSES"
+              description="The bridal short course will equip you with key skills suitable to construct any bespoke wedding gown for various bridal clients. In Pattern Design you will learn and master the art of a tailored fit and sizing through corsetry. Within garment  construction, you will learn about various finishes, techniques, fabrics and costing."
+              icon={Looks3}
+              iconColor="info"
+              vertical
+            />
+          </GridItem>
+
           <GridItem xs={12} sm={12} md={6}>
             <InfoArea
               title="Applied Design"
               description="The Applied Design course covers all the fundamentals of Clothing Design.
                            After this module, you will be able to demonstrate a deeper understanding
                            when it comes to designing for clients, sizes and Fashion Collections."
-              icon={LooksOne}
+              icon={Looks4}
               iconColor="info"
               vertical
             />
           </GridItem>
+
           <GridItem xs={12} sm={12} md={6}>
             <InfoArea
               title="Pattern Skills & Design"
               description="The Pattern Skills & Design module covers all aspects and fundamentals of Pattern Making.
                            In this course you will learn the fundamentals of drafting various blocks according to sizing
                            and silhouettes. You will become a master in manipulating style lines."
-              icon={LooksTwo}
+              icon={Looks5}
               iconColor="success"
               vertical
             />
           </GridItem>
           <GridItem xs={12} sm={12} md={6}>
             <InfoArea
-              title="Garment Construction & Technology & Technology"
-              description="After this module, you will be SEWING LIKE a PRO!!"
-              icon={Looks3}
+              title="Garment Construction & Technology"
+              description="After this module, you will be SEWING LIKE a PRO!!
+              Fashion Coaching & Mentorship
+              "
+              icon={Looks6}
               iconColor="rose"
               vertical
             />
           </GridItem>
-          <GridItem xs={12} sm={12} md={6}>
+          {/*** <GridItem xs={12} sm={12} md={6}>
             <InfoArea
               title="Fashion Coaching & Mentorship"
               description="Fezile Mdletshe who is the Founder of the Academy facilitates one-on-one workshops on a needs basis.
                            There will be  classes planned for the Dundee July, Harry Gwala Summer Cup & Drakensberg Extravangaza
                            Fashion Showcases. Fezile also coaches for market access preparedness for Local and International Fashion
                            weeks."
-              icon={Looks4}
+              icon={Looks7}
               iconColor="warning"
               vertical
             />
-          </GridItem>
+          </GridItem>***/}
         </GridContainer>
       </div>
     </div>

@@ -143,17 +143,17 @@ const Courses = ({
     const fullTimeCourses1 = [
         {
             url: course1,
-            title: 'Register Now !',
+            title: 'Register Now ',
             width: '33.33%',
         },
         {
             url: course2,
-            title: 'Register Now !',
+            title: 'Register Now ',
             width: '33.33%',
         },
         {
             url: course3,
-            title: 'Register Now !',
+            title: 'Register Now ',
             width: '33.33%',
         },
     ];
@@ -161,12 +161,12 @@ const Courses = ({
     const fullTimeCourses2 = [
         {
             url: course4,
-            title: 'Register Now !',
+            title: 'Register Now ',
             width: '50%',
         },
         {
             url: course5,
-            title: 'Register Now !',
+            title: 'Register Now ',
             width: '50%',
         },
         /*{
@@ -180,34 +180,34 @@ const Courses = ({
     const shortCourses1 = [
         {
             url: course11,
-            title: 'Register Now !',
+            title: 'Register Now ',
             width: '33.33%',
         },
         {
             url: course22,
-            title: 'Register Now !',
+            title: 'Register Now ',
             width: '33.33%',
         },
         {
             url: course33,
-            title: 'Register Now !',
+            title: 'Register Now ',
             width: '33.33%',
         }
     ];
     const shortCourses2 = [
         {
             url: course44,
-            title: 'Register Now !',
+            title: 'Register Now ',
             width: '33.33%',
         },
         {
             url: course55,
-            title: 'Register Now !',
+            title: 'Register Now ',
             width: '33.33%',
         },
         {
             url: course66,
-            title: 'Register Now !',
+            title: 'Register Now ',
             width: '33.33%',
         }
     ];
@@ -222,7 +222,7 @@ const Courses = ({
 
                     <Container className={classes.root} component="section">
                         <Typography variant="h4" marked="center" align="center" component="h2">
-                            <h2 className={classes.title}>Full Time Courses for 2020</h2>
+                            <h2 className={classes.title}>Full Time Courses</h2>
                         </Typography>
 
                         <div className={classes.images}>
@@ -259,7 +259,7 @@ const Courses = ({
 
 
                         <Typography variant="h4" marked="center" align="center" component="h2">
-                            <h2 className={classes.title}>Short Courses for 2019</h2>
+                            <h2 className={classes.title}>Short Courses</h2>
                         </Typography>
                         <div className={classes.images}>
                             {shortCourses1.map(image => (
