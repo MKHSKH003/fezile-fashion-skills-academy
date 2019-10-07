@@ -77,7 +77,7 @@ export default function ProductSection({
               description="This course covers a vast area in fashion which will groom you to become a sought-after clothing design specialist with skills in range building, pattern making, 
               textiles, costing and garment construction. During this course you will be polished on your design aesthetic, fashion merchandising and entrepreneurship."
               icon={Looks1}
-              iconColor="info"
+              iconColor="success"
               vertical
             />
           </GridItem>
@@ -87,15 +87,17 @@ export default function ProductSection({
               title="NATIONAL CERTIFICATE: CLOTHING TECHNOLOGY AND ENTREPRENEURSHIP- FULL TIME COURSE (1 Year)"
               description="This course covers predominantly techniques and elements in clothing technology such as design, pattern making and garment construction. During this course you will be polished on your design aesthetic and fashion entrepreneurship."
               icon={Looks2}
-              iconColor="info"
+              iconColor="success"
               vertical
             />
           </GridItem>
 
           <GridItem xs={12} sm={12} md={6}>
             <InfoArea
-              title="BRIDAL PATTERN SKILLS AND GAMENT CONSTRUCTION SHORT COURSES"
-              description="The bridal short course will equip you with key skills suitable to construct any bespoke wedding gown for various bridal clients. In Pattern Design you will learn and master the art of a tailored fit and sizing through corsetry. Within garment  construction, you will learn about various finishes, techniques, fabrics and costing."
+              title="SKILLS PROGRAMME CERTIFICATE: APPLIED DESIGN SHORT COURSE"
+              description="The Applied Design course covers all the fundamentals of Clothing Design.
+                           After this module, you will be able to demonstrate a deeper understanding
+                           when it comes to designing for clients, sizes and Fashion Collections."
               icon={Looks3}
               iconColor="info"
               vertical
@@ -104,10 +106,10 @@ export default function ProductSection({
 
           <GridItem xs={12} sm={12} md={6}>
             <InfoArea
-              title="Applied Design"
-              description="The Applied Design course covers all the fundamentals of Clothing Design.
-                           After this module, you will be able to demonstrate a deeper understanding
-                           when it comes to designing for clients, sizes and Fashion Collections."
+              title="SKILLS PROGRAMME CERTIFICATE: PATTERN SKILLS AND DESIGN SHORT COURSE"
+              description="The Pattern Skills & Design module covers all aspects and fundamentals of Pattern Making.
+                           In this course you will learn the fundamentals of drafting various blocks according to sizing
+                           and silhouettes. You will become a master in manipulating style lines."
               icon={Looks4}
               iconColor="info"
               vertical
@@ -116,38 +118,24 @@ export default function ProductSection({
 
           <GridItem xs={12} sm={12} md={6}>
             <InfoArea
-              title="Pattern Skills & Design"
-              description="The Pattern Skills & Design module covers all aspects and fundamentals of Pattern Making.
-                           In this course you will learn the fundamentals of drafting various blocks according to sizing
-                           and silhouettes. You will become a master in manipulating style lines."
+              title="SKILLS PROGRAMME CERTIFICATE: GARMENT CONSTRUCTION AND TECHNOLOGY SHORT COURSE"
+              description="After this module, you will be SEWING LIKE a PRO!!
+              Fashion Coaching & Mentorship"
               icon={Looks5}
-              iconColor="success"
+              iconColor="info"
               vertical
             />
           </GridItem>
+
           <GridItem xs={12} sm={12} md={6}>
             <InfoArea
-              title="Garment Construction & Technology"
-              description="After this module, you will be SEWING LIKE a PRO!!
-              Fashion Coaching & Mentorship
-              "
+              title="SKILLS PROGRAMME CERTIFICATE: BRIDAL PATTERN TECHNOLOGY SHORT COURSE"
+              description="The bridal short course will equip you with key skills suitable to construct any bespoke wedding gown for various bridal clients. In Pattern Design you will learn and master the art of a tailored fit and sizing through corsetry. Within garment  construction, you will learn about various finishes, techniques, fabrics and costing."
               icon={Looks6}
-              iconColor="rose"
+              iconColor="info"
               vertical
             />
           </GridItem>
-          {/*** <GridItem xs={12} sm={12} md={6}>
-            <InfoArea
-              title="Fashion Coaching & Mentorship"
-              description="Fezile Mdletshe who is the Founder of the Academy facilitates one-on-one workshops on a needs basis.
-                           There will be  classes planned for the Dundee July, Harry Gwala Summer Cup & Drakensberg Extravangaza
-                           Fashion Showcases. Fezile also coaches for market access preparedness for Local and International Fashion
-                           weeks."
-              icon={Looks7}
-              iconColor="warning"
-              vertical
-            />
-          </GridItem>***/}
         </GridContainer>
       </div>
     </div>

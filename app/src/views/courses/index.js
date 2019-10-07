@@ -9,6 +9,8 @@ import Container from '@material-ui/core/Container';
 import Typography from 'shared/components/ProductCategoriesTripography/Typography';
 import Parallax from "shared/components/Parallax/Parallax.js";
 
+import Header from "./Header.js";
+
 import { title } from "assets/jss/material-kit-react.js";
 import course1 from 'assets/img/courses/4.jpg';
 import course2 from 'assets/img/courses/5.jpg';
@@ -215,7 +217,14 @@ const Courses = ({
     return (
 
         <div>
-
+            <Header
+                color="transparent"
+                fixed
+                changeColorOnScroll={{
+                    height: 400,
+                    color: "white"
+                }}
+            />
             <Parallax />
             <div className={classNames(classes.main, classes.mainRaised)}>
                 <div className={classes.container}>
@@ -256,7 +265,6 @@ const Courses = ({
                                 </ButtonBase>
                             ))}
                         </div>
-
 
                         <Typography variant="h4" marked="center" align="center" component="h2">
                             <h2 className={classes.title}>Short Courses</h2>
@@ -323,8 +331,6 @@ const Courses = ({
                                 </ButtonBase>
                             ))}
                         </div>
-
-
                     </Container>
                 </div>
             </div>
