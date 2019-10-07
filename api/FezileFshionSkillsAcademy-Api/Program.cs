@@ -16,7 +16,7 @@ namespace FezileFashionSkillsAcademy
         {
             var host = new WebHostBuilder()
                 .UseKestrel()
-                .UseUrls("http://*:5206", "http://*:52066")
+                .UseUrls("http://*:5206", "https://*:5206")
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseIISIntegration()
                 .UseStartup<Startup>()

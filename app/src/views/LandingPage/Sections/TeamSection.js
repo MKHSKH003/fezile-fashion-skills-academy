@@ -54,13 +54,13 @@ export default function TeamSection() {
                   Fezile, who is currently a PhD candidate under the DUT
                   Doctoral Mentorship Programme holds a Master of Applied
                   Arts-Fashion Degree (DUT), Bachelor of Technology Degree in
-                  Fashion (DUT) and a National Diploma in Fashion (DUT).
+                  Fashion (DUT) and a National Diploma in Fashion (DUT) 
+                  <FezileFullBio />
                 </p>
               </CardBody>
               <GridItem xs={12} sm={12} md={4}>
           </GridItem>
               <CardFooter className={classes.justifyCenter}>
-              <FezileFullBio/>
                 <Button
                   justIcon
                   color="transparent"

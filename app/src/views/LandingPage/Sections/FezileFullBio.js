@@ -35,9 +35,12 @@ export default function FezileFullBio() {
   const classes = useStyles();
   return (
     <GridContainer>
-      <GridItem xs={12} sm={12} md={6} lg={4}>
-        <Button color="primary" block onClick={() => setClassicModal(true)}>
-          <LibraryBooks className={classes.icon} />
+      <GridItem xs={12} sm={12} md={12} lg={12}>
+        <Button 
+          color="transparent" 
+          onClick={() => setClassicModal(true)}
+        >
+          show more...
         </Button>
         <Dialog
           classes={{
